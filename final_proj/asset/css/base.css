@@ -1,0 +1,55 @@
+:root{
+    --white-color: #fff;
+    --black-color: #000;
+    --text-color: #333;
+}
+
+*{
+    /* kế thừa */
+    box-sizing: inherit;
+}
+
+html{
+    /* vì hầu hết các browser để mặc định 100% là 16px, để 62.5% thì sẽ thành 10px
+    => dễ cấu hình các font chữ sau này */
+    font-size: 62.5%;
+    line-height: 1.6rem;
+
+    /* khi roboto chưa được tải về 
+    browser sẽ dùng các font sans-serif (font ko có chân) */
+    font-family: 'Roboto', sans-serif;
+    
+    box-sizing: border-box;
+}
+
+.grid{
+    width: 1200px;
+    /* nếu màn hình có kích thước lớn hơn 1200px thì grid sẽ chỉ có 1200px
+    nếu màn hình có kích thước nhỏ hơn 1200px, max-wodth giúp giảm kích thước 
+    grid bằng kích thước màn hình*/
+    max-width: 100%;
+    margin: 0 auto;
+}
+
+.grid__full-width{
+    /* phòng ngừa ko muốn sử dụng grid là 1200px */
+    width: 100%;
+}
+
+.grid__row{
+    /* nằm cùng trên 1 hàng ngang */
+    display: flex;
+
+    /* tổng độ dài của các con vượt quá grid__row sẽ tự xuống hàng */
+    flex-wrap: wrap;
+}
+
+/* Animation */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
