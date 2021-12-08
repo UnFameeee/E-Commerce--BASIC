@@ -5,9 +5,11 @@
     --text-color: #333;
     --border-color: #dbdbdb;
     --star-gold-color: #ffce3e;
+
     --header-height: 120px;
     --navbar-height: 36px;
-    --header-search-section-height: calc(var(--header-height) - var(--navbar-height))
+    --header-search-section-height: calc(var(--header-height) - var(--navbar-height));
+    --header-sort-bar-height: 46px;
 }
 
 *{
@@ -29,20 +31,6 @@ html{
 }
 
 /* Responsive */
-.grid{
-    width: 1200px;
-    /* nếu màn hình có kích thước lớn hơn 1200px thì grid sẽ chỉ có 1200px
-    nếu màn hình có kích thước nhỏ hơn 1200px, max-wodth giúp giảm kích thước 
-    grid bằng kích thước màn hình*/
-    max-width: 100%;
-    margin: 0 auto;
-}
-
-.grid__full-width{
-    /* phòng ngừa ko muốn sử dụng grid là 1200px */
-    width: 100%;
-}
-
 .grid__row{
     /* nằm cùng trên 1 hàng ngang */
     display: flex;
@@ -200,6 +188,7 @@ html{
     list-style: none;
     padding: 8px 16px;
     display: none;
+    z-index: 1;
 }
 
 .select-input__list::before {
@@ -222,4 +211,42 @@ html{
 
 .select_input__link:hover {
     color: var(--primary-color);
+}
+
+/* Pagination */
+.pagination {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    list-style: none;
+}
+
+.pagination-item {
+    margin: 0 12px;
+}
+
+.pagination-item--active .pagination-item__link {
+    background-color: var(--primary-color);
+    color: var(--white-color);
+}
+
+.pagination-item--active .pagination-item__link:hover {
+    background-color: #c9204a;
+}
+
+.pagination-item__link {
+    --height: 30px;
+    display: block;
+    text-decoration: none;
+    font-size: 1.6rem;
+    font-weight: 300;
+    color: #939393;
+    min-width: 40px;
+    height: var(--height);
+    line-height: var(--height);
+    text-align: center;
+}
+
+.pagination-item__link--dot {
+    cursor: default;
 }
