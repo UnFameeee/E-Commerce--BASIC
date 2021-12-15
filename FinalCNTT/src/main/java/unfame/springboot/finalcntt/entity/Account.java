@@ -1,53 +1,74 @@
 package unfame.springboot.finalcntt.entity;
 
-import org.springframework.stereotype.Component;
+import java.io.Serializable;
 import javax.persistence.*;
 
-import javax.persistence.Entity;
+@Entity(name = "ACCOUNT")
+@Table(name = "ACCOUNT")
+public class Account implements Serializable{
 
-@Component
-@Entity(name = "account")
-@Table(name = "account")
-public class Account {
+    public static final String ROLE_USER = "USER";
+    public static final String ROLE_ADMIN = "ADMIN";
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name="account_id")
-    private Long account_id;
+    @Column(name="Id", nullable = false)
+    private Long Id;
 
-    @Column(name = "username")
-    private String username;
+    @Column(name = "Username", nullable = false)
+    private String Username;
 
-    @Column(name = "password")
-    private String password;
+    @Column(name = "Password", nullable = false)
+    private String Password;
 
-    @Column(name = "role")
-    private String role;
+    @Column(name = "Role", nullable = false)
+    private String Role;
 
-    public Long getAccount_id() {
-        return account_id;
+    @Column(name = "Active", nullable = false)
+    private boolean Active;
+
+    public Long getId() {
+        return Id;
     }
-    public void setAccount_id(Long account_id) {
-        this.account_id = account_id;
+
+    public void setId(Long id) {
+        Id = id;
     }
 
     public String getUsername() {
-        return username;
+        return Username;
     }
+
     public void setUsername(String username) {
-        this.username = username;
+        Username = username;
     }
 
     public String getPassword() {
-        return password;
+        return Password;
     }
+
     public void setPassword(String password) {
-        this.password = password;
+        Password = password;
     }
 
     public String getRole() {
-        return role;
+        return Role;
     }
+
     public void setRole(String role) {
-        this.role = role;
+        Role = role;
+    }
+
+    public boolean isActive() {
+        return Active;
+    }
+
+    public void setActive(boolean active) {
+        this.Active = active;
+    }
+
+    @Override
+    public String toString() {
+        return "[" + this.Username + "," + this.Password + "," + this.Role + "]";
     }
 }

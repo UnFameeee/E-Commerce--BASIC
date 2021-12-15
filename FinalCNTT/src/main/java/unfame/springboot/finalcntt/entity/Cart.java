@@ -1,22 +1,21 @@
 package unfame.springboot.finalcntt.entity;
 
-import org.springframework.stereotype.Component;
 import unfame.springboot.finalcntt.entity.key.CartKey;
 
 import javax.persistence.*;
+import java.io.Serializable;
 
-@Component
-@Entity(name = "cart")
-@Table(name = "cart")
-public class Cart {
+@Entity(name = "CART")
+@Table(name = "CART")
+public class Cart implements Serializable {
     @EmbeddedId
-    private CartKey id;
+    private CartKey Id;
 
     public CartKey getId() {
-        return id;
+        return Id;
     }
 
     public void setId(CartKey id) {
-        this.id = id;
+        Id = id;
     }
 }
