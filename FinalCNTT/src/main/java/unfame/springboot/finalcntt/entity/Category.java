@@ -1,34 +1,31 @@
 package unfame.springboot.finalcntt.entity;
 
-import org.springframework.stereotype.Component;
-
 import javax.persistence.*;
+import java.io.Serializable;
 
-@Component
-@Entity(name = "category")
+@Entity
 @Table(name = "category")
-public class Category {
+public class Category implements Serializable {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name="category_id")
-    private Long category_id;
+    @Column(name="Id")
+    private Long Id;
 
-    @Column(name = "category_name")
-    private String category_name;
+    @Column(name = "Category_name")
+    private String Category_name;
 
-    public Long getCategory_id() {
-        return category_id;
+    public Long getId() {
+        return Id;
     }
 
-    public void setCategory_id(Long category_id) {
-        this.category_id = category_id;
+    public void setId(Long id) {
+        Id = id;
     }
 
     public String getCategory_name() {
-        return category_name;
+        return Category_name;
     }
 
     public void setCategory_name(String category_name) {
-        this.category_name = category_name;
+        Category_name = category_name;
     }
 }

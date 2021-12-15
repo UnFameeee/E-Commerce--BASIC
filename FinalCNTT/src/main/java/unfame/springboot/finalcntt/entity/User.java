@@ -1,111 +1,115 @@
 package unfame.springboot.finalcntt.entity;
 
-import org.springframework.stereotype.Component;
-
+import java.io.Serializable;
 import javax.persistence.*;
 
-@Component
-@Entity(name = "user")
-@Table(name = "user")
-public class User {
+@Entity
+@Table(name = "USER")
+public class User implements Serializable{
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "user_id")
-    private Long user_id;
+    @Column(name = "Id")
+    private Long Id;
 
-    @Column(name = "firstname")
-    private String firstname;
+    @Column(name = "Fullname")
+    private String Fullname;
 
-    @Column(name = "lastname")
-    private String lastname;
+    @Lob
+    @Column(name = "Image", length = Integer.MAX_VALUE)
+    private byte[] Image;
 
-    @Column(name = "email")
-    private String email;
+    @Column(name = "Email")
+    private String Email;
 
-    @Column(name = "birth")
-    private String birth;
+    @Column(name = "Birth")
+    private String Birth;
 
-    @Column(name = "phone")
-    private String phone;
+    @Column(name = "Phone")
+    private String Phone;
 
-    @Column(name = "gender")
-    private String gender;
+    @Column(name = "Gender")
+    private String Gender;
 
-    @Column(name = "address")
-    private String address;
+    @Column(name = "Address")
+    private String Address;
 
-    @Column(name = "account_id")
-    private Long account_id;
+    @Column(name = "Account_id")
+    private Long Account_id;
 
-    public Long getUser_id() {
-        return user_id;
+    public User() {
     }
 
-    public void setUser_id(Long user_id) {
-        this.user_id = user_id;
+    public User(String name, byte[] image) {
     }
 
-    public String getFirstname() {
-        return firstname;
+    public Long getId() {
+        return Id;
     }
 
-    public void setFirstname(String firstname) {
-        this.firstname = firstname;
+    public void setId(Long id) {
+        Id = id;
     }
 
-    public String getLastname() {
-        return lastname;
+    public String getFullname() {
+        return Fullname;
     }
 
-    public void setLastname(String lastname) {
-        this.lastname = lastname;
+    public void setFullname(String fullname) {
+        Fullname = fullname;
+    }
+
+    public byte[] getImage() {
+        return Image;
+    }
+
+    public void setImage(byte[] image) {
+        Image = image;
     }
 
     public String getEmail() {
-        return email;
+        return Email;
     }
 
     public void setEmail(String email) {
-        this.email = email;
+        Email = email;
     }
 
     public String getBirth() {
-        return birth;
+        return Birth;
     }
 
     public void setBirth(String birth) {
-        this.birth = birth;
+        Birth = birth;
     }
 
     public String getPhone() {
-        return phone;
+        return Phone;
     }
 
     public void setPhone(String phone) {
-        this.phone = phone;
+        Phone = phone;
     }
 
     public String getGender() {
-        return gender;
+        return Gender;
     }
 
     public void setGender(String gender) {
-        this.gender = gender;
+        Gender = gender;
     }
 
     public String getAddress() {
-        return address;
+        return Address;
     }
 
     public void setAddress(String address) {
-        this.address = address;
+        Address = address;
     }
 
     public Long getAccount_id() {
-        return account_id;
+        return Account_id;
     }
 
     public void setAccount_id(Long account_id) {
-        this.account_id = account_id;
+        Account_id = account_id;
     }
 }
