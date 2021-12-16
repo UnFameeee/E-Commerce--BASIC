@@ -219,6 +219,14 @@ html{
     text-align: center;
 }
 
+.pagination-item__link:hover {
+    background-color: rgba(0, 0, 0, 0.05);
+}
+
+.pagination-item__link.disabled {
+    color: rgba(0, 0, 0, 0.05);
+}
+
 .pagination-item__link--dot {
     cursor: default;
 }
