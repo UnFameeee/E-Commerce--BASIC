@@ -16,7 +16,7 @@
     <link rel="stylesheet" href="./asset/fonts/fontawesome-free-5.15.4-web/css/all.min.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap&subset=vietnamese" rel="stylesheet">
 
-    <script src=""></script>
+    <script src="./asset/javascript/cart.js" async></script>
 </head>
 <body>
     <div class="app">        
@@ -227,7 +227,7 @@
                                     </a>
                                 </span>
                                 <span class="quantity">
-                                    <input type="number" min="1" max="100" value="1">
+                                    <input class="quantity-input" type="number" min="1" max="100" value="1">
                                 </span>
                                 <span class="price">120.000đ</span>
                                 <span class="operation">
@@ -251,7 +251,7 @@
                                     </a>
                                 </span>
                                 <span class="quantity">
-                                    <input type="number" min="1" max="100" value="1">
+                                    <input class="quantity-input" type="number" min="1" max="100" value="1">
                                 </span>
                                 <span class="price">120.000đ</span>
                                 <span class="operation">
@@ -267,7 +267,7 @@
                     <div class="cart__bottom">
                         <div class="total-price">
                             <span style="padding: 0 4px;">Tổng thanh toán </span>
-                            <span style="padding-right: 16px;"> (0 thanh toán):</span>
+                            <span class="total-quantity" style="padding-right: 16px;"> (0 thanh toán):</span>
                             <h3 style="margin-right: 32px;" class="price">0đ</h3>
                         </div>
                         <button class="btn btn--primary">Mua Hàng</button>
