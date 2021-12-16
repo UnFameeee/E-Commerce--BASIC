@@ -8,5 +8,8 @@ import unfame.springboot.finalcntt.entity.Account;
 @Repository
 public interface AccountRepository extends CrudRepository<Account, Long> {
     @Query("SELECT u FROM ACCOUNT u WHERE u.Id = ?1")
-    Account findAccountById(Long id);
+    Account findAccountById(Long Id);
+
+    @Query("SELECT u FROM ACCOUNT u WHERE u.Username = ?1")
+    Account findAccountByUsername(String Username);
 }

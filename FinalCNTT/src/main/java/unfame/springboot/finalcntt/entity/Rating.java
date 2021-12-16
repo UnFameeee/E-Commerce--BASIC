@@ -1,28 +1,42 @@
 package unfame.springboot.finalcntt.entity;
 
-import unfame.springboot.finalcntt.entity.key.RatingKey;
+import org.springframework.stereotype.Component;
 
 import java.io.Serializable;
 import javax.persistence.*;
 
-@Entity
+@Component
+@Entity(name = "RATING")
 @Table(name = "RATING")
 public class Rating implements Serializable{
-    @EmbeddedId
-    private RatingKey Id;
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "Id")
+    private Long Id;
 
-    @Column(name = "Point", nullable = false)
-    private int Point;
+    @Column(name = "Product_id")
+    private Long Product_id;
 
-    @Column(name = "Comment", nullable = false)
+    @Column(name = "Point")
+    private Integer Point;
+
+    @Column(name = "Comment")
     private String Comment;
 
-    public RatingKey getId() {
+    public Long getId() {
         return Id;
     }
 
-    public void setId(RatingKey id) {
+    public void setId(Long id) {
         Id = id;
+    }
+
+    public Long getProduct_id() {
+        return Product_id;
+    }
+
+    public void setProduct_id(Long product_id) {
+        Product_id = product_id;
     }
 
     public int getPoint() {

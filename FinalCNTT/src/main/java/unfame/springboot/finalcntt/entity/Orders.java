@@ -1,23 +1,20 @@
 package unfame.springboot.finalcntt.entity;
 
+import org.springframework.stereotype.Component;
+
 import java.io.Serializable;
 import javax.persistence.*;
 
-@Entity
+@Component
+@Entity(name = "ORDERS")
 @Table(name = "ORDERS")
-public class Orders implements Serializable{
+public class Orders{
     @Id
     @Column(name = "Id", nullable = false)
     private Long Id;
 
     @Column(name = "Product_id", nullable = false)
     private Long Product_id;
-
-    @Column(name = "Category_id", nullable = false)
-    private Long Category_id;
-
-    @Column(name = "Brand_id", nullable = false)
-    private Long Brand_id;
 
     @Column(name = "User_id", nullable = false)
     private Long User_id;
@@ -26,13 +23,16 @@ public class Orders implements Serializable{
     private String Date;
 
     @Column(name = "Quantity", nullable = false)
-    private int Quantity;
+    private Integer Quantity;
 
     @Column(name = "Address", nullable = false)
     private String Address;
 
     @Column(name = "Status", nullable = false)
     private String Status;
+
+    @Column(name = "Amount", nullable = false)
+    private Long Amount;
 
     public Long getId() {
         return Id;
@@ -48,22 +48,6 @@ public class Orders implements Serializable{
 
     public void setProduct_id(Long product_id) {
         Product_id = product_id;
-    }
-
-    public Long getCategory_id() {
-        return Category_id;
-    }
-
-    public void setCategory_id(Long category_id) {
-        Category_id = category_id;
-    }
-
-    public Long getBrand_id() {
-        return Brand_id;
-    }
-
-    public void setBrand_id(Long brand_id) {
-        Brand_id = brand_id;
     }
 
     public Long getUser_id() {
@@ -82,11 +66,11 @@ public class Orders implements Serializable{
         Date = date;
     }
 
-    public int getQuantity() {
+    public Integer getQuantity() {
         return Quantity;
     }
 
-    public void setQuantity(int quantity) {
+    public void setQuantity(Integer quantity) {
         Quantity = quantity;
     }
 
@@ -104,5 +88,13 @@ public class Orders implements Serializable{
 
     public void setStatus(String status) {
         Status = status;
+    }
+
+    public Long getAmount() {
+        return Amount;
+    }
+
+    public void setAmount(Long amount) {
+        Amount = amount;
     }
 }
