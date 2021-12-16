@@ -7,6 +7,6 @@ import java.util.HashMap;
 
 @Service
 public interface UserService {
-    HashMap<String, String> createUser(Long acc_id);
-    HashMap<String, String> updateUser(User user);
+    HashMap<String, String> updateProfile(User user);
+    User getProfile();
 }

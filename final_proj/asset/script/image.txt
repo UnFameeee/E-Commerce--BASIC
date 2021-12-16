@@ -35,20 +35,19 @@ var reader = new FileReader();
 // var extlab = document.getElementById('extlab');
 // var myimg = document.getElementById('myimg');
 // var proglab = document.getElementById('upprogress');
+
 // var SelBtn = document.getElementById('selbtn');
-// var UpBtn = document.getElementById('upbtn');
-// var DownBtn = document.getElementById('downbtn');
+var UpBtn = document.getElementById('upbtn');
+var DownBtn = document.getElementById('downbtn');
+
 // var input = document.createElement('input');
 
-var namebox;
-var extlab;                                        
-var myimg = document.getElementById('myimg');          
-// var proglab = document.getElementById('upprogress');    
+var namebox = document.getElementById('namebox');
+var extlab = document.getElementById('extlab');                                        
+var myimg = document.getElementById('myimg');           //Hình ảnh
+var proglab = document.getElementById('upprogress');    
 
-var UpBtn = document.getElementById('btn_submit');
-// var DownBtn = document.getElementById('downbtn');
-
-var SelBtn = document.getElementById('select_btn');
+var SelBtn = document.getElementById('upload_btn');
 var input = document.createElement('input');
 
 input.type = 'file';
@@ -58,8 +57,8 @@ input.onchange = e => {
     var extension = GetFileExt(files[0]);
     var name = GetFileName(files[0]);
 
-    namebox = name;
-    extlab = extension;
+    namebox.value = name;
+    extlab.innerHTML = extension;
 
     reader.readAsDataURL(files[0]);
 }
@@ -87,7 +86,7 @@ function GetFileName(file){
 async function UploadProcess(){
     var ImgToUpload = files[0];
 
-    var ImgName = namebox + extlab;
+    var ImgName = namebox.value + extlab.innerHTML;
 
     //Validate file name
     if(!ValidateName()){
@@ -104,7 +103,16 @@ async function UploadProcess(){
 
     const UploadTask = uploadBytesResumable(storageRef, ImgToUpload, metaData);
 
-    UploadTask.on('state-changed', (snapshot) => ()=>{
+    UploadTask.on('state-changed', (snapshot) => {
+        var progress = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
+        proglab.innerHTML = "Upload " + progress + "%";
+    },
+
+    (error) => {
+        alert("Error: image not uploaded!!!");
+    },
+
+    ()=>{
         getDownloadURL(UploadTask.snapshot.ref).then((downloadURL)=>{
             SaveURLtoRealtimeDB(downloadURL);
         });
@@ -114,8 +122,8 @@ async function UploadProcess(){
 
 //--- Function for realtime DB ---//
 function SaveURLtoRealtimeDB(URL){
-    var name = namebox;
-    var ext = extlab;
+    var name = namebox.value;
+    var ext = extlab.innerHTML;
 
     set(ref(realdb, "ImagesLinks/"+ name),{
         ImageName: (name + ext),
@@ -124,7 +132,7 @@ function SaveURLtoRealtimeDB(URL){
 }
 
 async function GetURLfromRealtimeDB(){
-    var name = namebox;
+    var name = namebox.value;
 
     var dbRef = ref(realdb);
 
@@ -132,34 +140,10 @@ async function GetURLfromRealtimeDB(){
         if(snapshot.exists()){
             myimg.src = snapshot.val().ImgUrl;
 
-            var Model = {
-                id: "",
-                fullname: document.getElementById("id_fname").value,
-                image: snapshot.val().ImgUrl,
-                gender: "Male",
-                email: document.getElementById("id_email").value,
-                phone: document.getElementById("id_phone").value,
-                birth: document.getElementById("id_birth").value, 
-                address: document.getElementById("id_address").value,
-            };
-    
-            var requestJSON = JSON.stringify(Model);
-
-            $.ajax({
-                type: 'PUT',
-                url: URL + '/user/update',
-                dataType: 'json',
-                headers: {
-                    "Content-Type": "application/json",
-                },
-                data: requestJSON,
-                success: function(data) {
-                    window.location.href = "user.html";
-                },
-                error: function() {
-                    console.log("The following error occured: ");
-                }
-            });
+            getUser()
+            .then(function(user){
+                console.log(user.IDuser);
+            })
         }
     })
 
@@ -170,18 +154,5 @@ function ValidateName(){
     return !(regex.test(namebox.name));
 }
 
-async function submit(){
-    await UploadProcess();
-    GetURLfromRealtimeDB();
-};
-
-UpBtn.addEventListener("click", (Event) => {
-    Event.preventDefault();
-    submit();
-})
-
-// UpBtn.onclick = async function(){
-//     await UploadProcess();
-//     GetURLfromRealtimeDB();
-// };
-// DownBtn.onclick = GetURLfromRealtimeDB;
+UpBtn.onclick = UploadProcess;
+DownBtn.onclick = GetURLfromRealtimeDB;

@@ -3,6 +3,7 @@ package unfame.springboot.finalcntt.service.user;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import unfame.springboot.finalcntt.entity.User;
+import unfame.springboot.finalcntt.global.GlobalVariable;
 import unfame.springboot.finalcntt.repository.UserRepository;
 
 import java.util.HashMap;
@@ -13,20 +14,19 @@ public class UserServiceImpl implements UserService {
     private UserRepository userRepository;
 
     @Override
-    public HashMap<String, String> createUser(Long acc_id){
-        User user = new User();
-        user.setAccount_id(acc_id);
-        userRepository.save(user);
-        return new HashMap<>() {{put("key", "Success");}};
-    }
-
-    @Override
-    public HashMap<String, String> updateUser(User user){
-        User UserOld = userRepository.findById(user.getId()).orElse(null);
-        if(UserOld != null){
+    public HashMap<String, String> updateProfile(User user) {
+        User UserCheck = userRepository.findById(GlobalVariable.IDuser).orElse(null);
+        if(UserCheck != null){
+            user.setId(GlobalVariable.IDuser);
+            user.setAccount_id(GlobalVariable.IDaccount);
             userRepository.save(user);
             return new HashMap<>() {{put("key", "Success");}};
         }
         return new HashMap<>() {{put("key", "Fail");}};
+    }
+
+    @Override
+    public User getProfile() {
+        return userRepository.findAccountByUser_id(GlobalVariable.IDuser);
     }
 }

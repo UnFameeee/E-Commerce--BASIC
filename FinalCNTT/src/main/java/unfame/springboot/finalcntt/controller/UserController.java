@@ -1,12 +1,9 @@
 package unfame.springboot.finalcntt.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Qualifier;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
-import org.springframework.web.multipart.MultipartFile;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
+import unfame.springboot.finalcntt.entity.User;
 import unfame.springboot.finalcntt.service.user.UserService;
 
 @RestController
@@ -15,8 +12,15 @@ public class UserController {
     @Autowired
     private UserService userService;
 
-    @PostMapping("/fileupload")
-    public String fileUpload(@RequestParam("name") String name, @RequestParam("file") MultipartFile file) {
-        return "";
+    //Chỉnh sửa profile
+    @PutMapping("/update")
+    public ResponseEntity<?> updateProfile(@RequestBody User req) {
+        return ResponseEntity.ok(userService.updateProfile(req));
+    }
+
+    //Lấy ra profile của user
+    @GetMapping("/profile")
+    public ResponseEntity<?> getProfile() {
+        return ResponseEntity.ok(userService.getProfile());
     }
 }

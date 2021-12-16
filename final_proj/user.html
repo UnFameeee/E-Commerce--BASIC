@@ -15,7 +15,9 @@
     <link rel="stylesheet" href="./asset/css/responsive.css">
     <link rel="stylesheet" href="./asset/fonts/fontawesome-free-5.15.4-web/css/all.min.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap&subset=vietnamese" rel="stylesheet">
-    <script src="./asset/javascript/user.js"></script>
+    <!-- <script src="./asset/javascript/user.js"></script> -->
+    <!-- ajax -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 </head>
 <body>
     <div class="app">
@@ -295,7 +297,7 @@
                                         </svg>
                                     </div>
     
-                                    <img src="https://cf.shopee.vn/file/1b0849ce4ac892d23d2c91167787e2e2_tn" alt="" class="user-category__img">
+                                    <img src="https://cf.shopee.vn/file/1b0849ce4ac892d23d2c91167787e2e2_tn" alt="" class="user-category__img" id="myimg2">
                                 </div>
                             </a>
 
@@ -351,7 +353,7 @@
                             <div class="user-profile__info">
                                 <!-- USER PROFILE INFORMATION -->
                                 <div class="user-profile__info-text">
-                                    <form action="">
+                                    <form>
                                         <div class="user-profile">
                                             <div class="user-profile__label">
                                                 <label for="">Tên Đăng nhập</label>
@@ -366,7 +368,7 @@
                                                 <label for="">Tên</label>
                                             </div>
                                             <div class="user-profile__others">
-                                                <input type="text" maxlength="50">
+                                                <input type="text" maxlength="50" id="id_fname">
                                             </div>
                                         </div>
 
@@ -375,8 +377,7 @@
                                                 <label for="">Email</label>
                                             </div>
                                             <div class="user-profile__others">
-                                                <span>vu2872001@gmail.com</span>
-                                                <button>Thay đổi</button>
+                                                <input type="text" maxlength="50" id="id_email">
                                             </div>
                                         </div>
 
@@ -385,7 +386,7 @@
                                                 <label for="">Số Điện Thoại</label>
                                             </div>
                                             <div class="user-profile__others">
-                                                <input type="number" maxlength="12">
+                                                <input type="number" maxlength="12" id="id_phone">
                                             </div>
                                         </div>
 
@@ -426,7 +427,7 @@
                                                 <label for="">Ngày sinh</label>
                                             </div>
                                             <div class="user-profile__others">
-                                                <input type="date">
+                                                <input type="date" id="id_birth">
                                             </div>
                                         </div>
 
@@ -435,7 +436,7 @@
                                                 <label for="">Địa chỉ</label>
                                             </div>
                                             <div class="user-profile__others">
-                                                <input type="text">
+                                                <input type="text" id="id_address">
                                             </div>
                                         </div>
 
@@ -443,7 +444,7 @@
                                             <div class="user-profile__label">
                                             </div>
                                             <div class="user-profile__others">
-                                                <button class="btn btn--primary">Lưu</button>
+                                                <button class="btn btn--primary" id="btn_submit">Lưu</button>
                                             </div>
                                         </div>
                                     </form>
@@ -461,10 +462,13 @@
                                                     </g>
                                                 </svg>
                                             </div>
-                                            <img src="https://cf.shopee.vn/file/1b0849ce4ac892d23d2c91167787e2e2" alt="" class="info-img__image-content">
+                                            <img src="" class="info-img__image-content" id="myimg">
+                                            <!-- <div class="info-img__image-content" onclick="uploadImage()" style="background-image: url(https://cf.shopee.vn/file/1b0849ce4ac892d23d2c91167787e2e2);"></div> -->
+
                                         </div>
-                                        <input id="input" class="info-img__input" type="file" accept=".jpg,.jpeg,.png">
-                                        <button class="info-img__from-file" onclick="uploadImage()">Chọn Ảnh</button>
+                                        <!-- <input id="input" class="info-img__input" type="file" accept=".jpg,.jpeg,.png"> -->
+                                        <button class="info-img__from-file" id="select_btn">Chọn Ảnh</button>
+                                        <!-- <button class="info-img__from-file" id="upload_btn">Lưu Ảnh</button> -->
                                         <div class="info-img__warn">
                                             <span>Dụng lượng file tối đa 1 MB</span>
                                             <span>Định dạng:.JPEG, .PNG, .JPG</span>
@@ -571,3 +575,5 @@
     </div>
 </body>
 </html>
+<script type="module" src="./asset/script/image.js"></script>
+<script type="module" src="./asset/script/user.js"></script>
