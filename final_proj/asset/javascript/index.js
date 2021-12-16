@@ -45,56 +45,72 @@ function renderProduct() {
 
     const content = product.map((item, index) => {
         if(index >= start && index < end){
-            html +=`
-            <div class="col l-2-4 m-4 c-6">                                   
-                <a href="" class="product-item">
-                    <div class="product-item__img" style="background-image: url(${item.img});"></div>
-                    <h4 class="product-item__name">${item.name}</h4>
-                    
-                    <div class="product-item__price">
-                        <span class="product-item__price-old">1.200.000đ</span>
-                        <span class="product-item__price-current">990.000đ</span>
+            html +=`            
+            <div style="position: relative;" class="col l-2-4 m-4 c-6">                                   
+            <a href="" class="product-item">
+                <div class="product-item__img" style="background-image: url(${item.img});"></div>
+                <h4 class="product-item__name">${item.name}</h4>
+                
+                <div class="product-item__price">
+                    <span class="product-item__price-old">1.200.000đ</span>
+                    <span class="product-item__price-current">990.000đ</span>
+                </div>
+    
+                <!-- Thả tim và rate sao -->
+                <div class="product-item__action">
+                    <span class="product-item__like product-item__like--liked">
+                        <i class="product-item__like-icon-empty far fa-heart"></i>
+                        <i class="product-item__like-icon-fill fas fa-heart"></i>
+                    </span>
+    
+                    <span class="product-item__rating">
+                        <i class="product-item__rating-star--gold fas fa-star"></i>
+                        <i class="product-item__rating-star--gold fas fa-star"></i>
+                        <i class="product-item__rating-star--gold fas fa-star"></i>
+                        <i class="product-item__rating-star--gold fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </span>
+    
+                    <div class="product-item__sold">88 đã bán</div>
+                </div>
+    
+                <!-- Xuất xứ -->
+                <div class="product-item__origin">
+                    <span class="product-item__brand">Whoo</span>
+                    <span class="product-item__origin-name">Nhật Bản</span>
+                </div>  
+    
+                <!-- Nhãn yêu thích
+                <div class="product-item__favorite">
+                    <i class="fas fa-check"></i>
+                    <span>Yêu thích</span>
+                </div> -->
+    
+                <!-- Nhãn giảm giá -->
+                <div class="product-item__sale-off">
+                    <div class="product-item__sale-off-percent-wrapper">
+                        <span class="product-item__sale-off-percent">43%</span>
                     </div>
-        
-                    <!-- Thả tim và rate sao -->
-                    <div class="product-item__action">
-                        <span class="product-item__like product-item__like--liked">
-                            <i class="product-item__like-icon-empty far fa-heart"></i>
-                            <i class="product-item__like-icon-fill fas fa-heart"></i>
-                        </span>
-        
-                        <span class="product-item__rating">
-                            <i class="product-item__rating-star--gold fas fa-star"></i>
-                            <i class="product-item__rating-star--gold fas fa-star"></i>
-                            <i class="product-item__rating-star--gold fas fa-star"></i>
-                            <i class="product-item__rating-star--gold fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                        </span>
-        
-                        <div class="product-item__sold">88 đã bán</div>
-                    </div>
-        
-                    <!-- Xuất xứ -->
-                    <div class="product-item__origin">
-                        <span class="product-item__brand">Whoo</span>
-                        <span class="product-item__origin-name">Nhật Bản</span>
-                    </div>  
-        
-                    <!-- Nhãn yêu thích -->
-                    <div class="product-item__favorite">
-                        <i class="fas fa-check"></i>
-                        <span>Yêu thích</span>
-                    </div>
-        
-                    <!-- Nhãn giảm giá -->
-                    <div class="product-item__sale-off">
-                        <div class="product-item__sale-off-percent-wrapper">
-                            <span class="product-item__sale-off-percent">43%</span>
-                        </div>
-                        <span class="product-item__sale-off-label">GIẢM</span>
-                    </div>
-                </a>
-            </div>`;
+                    <span class="product-item__sale-off-label">GIẢM</span>
+                </div>
+            </a>
+
+            <!-- Add to cart -->
+            <div class="product-item__add-cart">
+                <button class="button__add-cart">
+                    <svg enable-background="new 0 0 15 15" viewBox="0 0 15 15" x="0" y="0" class="icon-add-to-cart">
+                        <g>
+                            <g>
+                                <polyline fill="none" points=".5 .5 2.7 .5 5.2 11 12.4 11 14.5 3.5 3.7 3.5" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10"></polyline>
+                                <circle cx="6" cy="13.5" r="1" stroke="#d00033"></circle><circle cx="11.5" cy="13.5" r="1" stroke="#d00033"></circle>
+                            </g>
+                            <line fill="none" stroke-linecap="round" stroke-miterlimit="10" x1="7.5" x2="10.5" y1="7" y2="7"></line>
+                            <line fill="none" stroke-linecap="round" stroke-miterlimit="10" x1="9" x2="9" y1="8.5" y2="5.5"></line>
+                        </g>
+                    </svg>
+                </button>
+            </div>
+        </div>`;
 
             return html;
         }
@@ -127,6 +143,18 @@ function changePage() {
             currentPage = i + 1;
             $('.pages li').removeClass('pagination-item--active');
             current[i].classList.add('pagination-item--active');
+            if(currentPage===1){                
+                $('.page-icon-left').addClass('disabled');
+                $('.page-icon-right').removeClass('disabled');
+            }
+            if(currentPage===totalPages){
+                $('.page-icon-right').addClass('disabled');
+                $('.page-icon-left').removeClass('disabled');
+            }
+            if(currentPage > 1 && currentPage < totalPages){
+                $('.page-icon-left').removeClass('disabled');
+                $('.page-icon-right').removeClass('disabled');
+            }
             getCurrentPage(currentPage);
             renderProduct();
         })
@@ -149,6 +177,8 @@ btnNext.addEventListener('click', () => {
     }
 
     $('.page-icon-left').removeClass('disabled');
+    $(`.pages li`).removeClass('pagination-item--active');
+    $(`.pages li:eq(${currentPage-1})`).addClass('pagination-item--active');
 
     getCurrentPage(currentPage);
     renderProduct();
@@ -164,7 +194,9 @@ btnPrevious.addEventListener('click', () => {
         $('.page-icon-left').addClass('disabled');
     }
 
-    $('.page-icon-right').removeClass('disabled');
+    $('.page-icon-right').removeClass('disabled');    
+    $(`.pages li`).removeClass('pagination-item--active');
+    $(`.pages li:eq(${currentPage-1})`).addClass('pagination-item--active');
 
     getCurrentPage(currentPage);
     renderProduct();
@@ -173,8 +205,8 @@ btnPrevious.addEventListener('click', () => {
 window.onload = function() {
     renderProduct();
     renderListPage();
+    $('.page-icon-left').addClass('disabled');
     changePage();
-
 }
 
 function pagination(c, m) {
