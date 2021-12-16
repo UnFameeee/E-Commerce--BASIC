@@ -1,0 +1,110 @@
+.form__header,
+.form__content,
+.form__header-left,
+.form__header-help {  
+    display: flex;
+    align-items: center;
+}
+
+.form__header {
+    height: calc(var(--header-height) * 2 / 3);
+    background-color: var(--white-color);   
+    margin: 0 8px;
+}
+
+.form__header .header__logo {
+    margin-top: -12px;
+    margin-right: -54px;
+}
+
+.form__header .header__logo-img {
+    width: 130px;
+}
+
+.form__header-title {
+    font-size: 2.4rem;
+    margin: 0;
+}
+
+.form__header-help {
+    text-decoration: none;
+    color: var(--primary-color);
+    font-size: 1.4rem;
+}
+
+.form__container {
+    border-top: 4px solid var(--primary-color);
+    background-color: var(--primary-color);
+    display: flex;
+    align-items: center;
+}
+
+.form__content {
+    justify-content: center;
+}
+
+.form-img {
+    margin-right: -400px;
+}
+
+form {
+    background-color: var(--white-color);
+    border-radius: 2px;
+    width: 400px;
+}
+
+.form__header {
+    font-size: 2rem;
+    padding: 32px;
+}
+
+.form__body {
+    display: flex;
+    flex-direction: column;
+    font-size: 1.4rem;
+}
+
+.form__input{
+    margin: 0 32px 32px;
+}
+
+input {
+    width: 100%;
+    border: 1px solid rgba(0,0,0,.14);
+    border-radius: 2px;
+    padding: 12px;
+    outline: none;
+}
+
+button {
+    background-color: var(--primary-color);
+    color: var(--white-color);
+    margin: 0 32px;
+    height: 40px;
+    text-decoration: none;
+    border: none;
+    border-radius: 2px;
+    cursor: pointer;
+}
+
+.form__forgot-pass {
+    margin: 10px 32px 0;
+    font-size: 1.2rem;
+    text-decoration: none;
+    color: var(--primary-color);
+}
+
+.form__bottom {
+    padding: 32px;
+    font-size: 1.4rem;
+    text-align: center;
+}
+
+span {
+    color: var(--text-color);
+}
+
+.form__bottom-link {
+    text-decoration: none;
+    color: var(--primary-color);
+}

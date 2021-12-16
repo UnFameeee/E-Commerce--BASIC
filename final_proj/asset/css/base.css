@@ -30,38 +30,10 @@ html{
     box-sizing: border-box;
 }
 
-/* Responsive */
-.grid__row{
-    /* nằm cùng trên 1 hàng ngang */
-    display: flex;
-
-    /* tổng độ dài của các con vượt quá grid__row sẽ tự xuống hàng */
-    flex-wrap: wrap;
-
-    margin-left: -5px;
-    margin-right: -5px;
+.disabled {
+    pointer-events: none;
+    cursor: default;
 }
-
-/* TEST */
-.grid__column-2 {
-    padding-left: 5px;
-    padding-right: 5px;
-    width: 16.6667%;
-}
-
-.grid__column-2-4 {
-    padding-left: 5px;
-    padding-right: 5px;
-    width: 20%;
-}
-
-.grid__column-10 {
-    padding-left: 5px;
-    padding-right: 5px;
-    width: 83.3334%;
-}
-
-
 
 /* Animation */
 @keyframes fadeIn {
