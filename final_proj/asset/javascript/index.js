@@ -125,6 +125,8 @@ function changePage() {
     for(let i = 0; i < current.length; i++){
         current[i].addEventListener('click', () => {
             currentPage = i + 1;
+            $('.pages li').removeClass('pagination-item--active');
+            current[i].classList.add('pagination-item--active');
             getCurrentPage(currentPage);
             renderProduct();
         })
@@ -140,7 +142,13 @@ btnNext.addEventListener('click', () => {
     currentPage++;
     if(currentPage > totalPages){
         currentPage = totalPages;
+    }  
+
+    if(currentPage === totalPages){
+        $('.page-icon-right').addClass('disabled');
     }
+
+    $('.page-icon-left').removeClass('disabled');
 
     getCurrentPage(currentPage);
     renderProduct();
@@ -152,6 +160,12 @@ btnPrevious.addEventListener('click', () => {
         currentPage = 1;
     }
 
+    if(currentPage === 1){
+        $('.page-icon-left').addClass('disabled');
+    }
+
+    $('.page-icon-right').removeClass('disabled');
+
     getCurrentPage(currentPage);
     renderProduct();
 })
@@ -160,4 +174,36 @@ window.onload = function() {
     renderProduct();
     renderListPage();
     changePage();
+
+}
+
+function pagination(c, m) {
+    var current = c,
+        last = m,
+        delta = 2,
+        left = current - delta,
+        right = current + delta + 1,
+        range = [],
+        rangeWithDots = [],
+        l;
+
+    for (let i = 1; i <= last; i++) {
+        if (i == 1 || i == last || i >= left && i < right) {
+            range.push(i);
+        }
+    }
+
+    for (let i of range) {
+        if (l) {
+            if (i - l === 2) {
+                rangeWithDots.push(l + 1);
+            } else if (i - l !== 1) {
+                rangeWithDots.push('...');
+            }
+        }
+        rangeWithDots.push(i);
+        l = i;
+    }
+
+    return rangeWithDots;
 }

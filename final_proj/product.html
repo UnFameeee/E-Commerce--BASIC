@@ -5,22 +5,20 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title></title>
-    
+
     <link rel="icon" href="https://i.pinimg.com/originals/52/6e/71/526e7194884d4a9141dbd637d89b202b.png">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css">
     <link rel="stylesheet" href="./asset/css/base.css">
     <link rel="stylesheet" href="./asset/css/main.css">
+    <link rel="stylesheet" href="./asset/css/product.css">
     <link rel="stylesheet" href="./asset/css/grid.css">
     <link rel="stylesheet" href="./asset/css/responsive.css">
     <link rel="stylesheet" href="./asset/fonts/fontawesome-free-5.15.4-web/css/all.min.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap&subset=vietnamese" rel="stylesheet">
-    
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>    
-    <script src="asset/javascript/index.js" async></script>
 </head>
 <body>
     <div class="app">
-        <header class="header">
+        <header class="header">        
             <div class="grid wide">
                 <nav class="header__navbar hide-on-mobile-tablet">
                     <ul class="header__navbar-list">
@@ -307,138 +305,62 @@
         </header>
 
         <div class="app__container">
-           <div class="grid wide">
-                <div class="row sm-gutter app__content">
-                    <!-- Danh mục sản phẩm -->
-                    <div class="col l-2 m-0 c-0">
-                        <nav class="category">
-                            <h3 class="category__heading">
-                                <i class="category__heading-icon fas fa-list"></i>
-                                Danh mục
-                            </h3>
-            
-                            <ul class="category-list">
-                                <li class="category-item category-item--active">
-                                    <a href="" class="category-item__link">Trang điểm mắt</a>
-                                </li>
-            
-                                <li class="category-item">
-                                    <a href="" class="category-item__link">Trang điểm môi</a>
-                                </li>
-            
-                                <li class="category-item">
-                                    <a href="" class="category-item__link">Trang điểm mặt</a>
-                                </li>
-                            </ul>
-                        </nav>
+            <div class="grid wide">
+                <div class="row product__content">
+                    <div class="col l-5">
+                        <div class="product__img">
+                            <img src="https://f1zzhhuerqobj.vcdn.cloud/uploads/2020/03/avt-blackshark-3-trang.png" alt="">
+                        </div>    
                     </div>
 
-                    <!-- Sản phẩm -->
-                    <div class="col l-10 m-12 c-12">                        
-                        <!-- FILTER -->
-                        <div class="home-filter hide-on-mobile-tablet">
-                            <span class="home-filter__label">Sắp xếp theo</span>
-                            <button class="home-filter__btn btn">Phổ biến</button>
-                            <button class="home-filter__btn btn btn--primary">Mới nhất</button>
-                            <button class="home-filter__btn btn">Bán chạy</button>
-
-                            <div class="select-input">
-                                <span class="select-input__label">Giá</span>
-                                <i class="select-input__icon fas fa-angle-down"></i>
-
-                                <ul class="select-input__list">
-                                    <li class="select-input__item">
-                                        <a href="" class="select_input__link">Giá: Thấp đến Cao</a>
-                                    </li>
-
-                                    <li class="select-input__item">
-                                        <a href="" class="select_input__link">Giá: Cao đến Thấp</a>
-                                    </li>
-                                </ul>
+                    <div class="col l-7">
+                        <div class="product__info">
+                            <div class="info__header">
+                                <div class="header__favorite">Yêu thích</div>
+                                <span class="header__name">BBC: BIG BLACK CROCODILEBBC: BIG BLACK CROCODILEBBC: BIG BLACK CROCODILEBBC: BIG BLACK CROCODILEBBC: BIG BLACK CROCODILE</span>
                             </div>
-                        </div>
 
-                        <nav class="mobile-category l-0">
-                            <ul class="mobile-category__list">
-                                <li class="mobile-category__item">
-                                    <a href="" class="mobile-category__link">Dụng cụ và thiết bị tiện ích</a>
-                                </li>
-                                <li class="mobile-category__item">
-                                    <a href="" class="mobile-category__link">Dụng cụ và thiết bị tiện ích</a>
-                                </li>
-                                <li class="mobile-category__item">
-                                    <a href="" class="mobile-category__link">Dụng cụ và thiết bị tiện ích</a>
-                                </li>
-                                <li class="mobile-category__item">
-                                    <a href="" class="mobile-category__link">Dụng cụ và thiết bị tiện ích</a>
-                                </li>
-                                <li class="mobile-category__item">
-                                    <a href="" class="mobile-category__link">Dụng cụ và thiết bị tiện ích</a>
-                                </li>
-                                <li class="mobile-category__item">
-                                    <a href="" class="mobile-category__link">Dụng cụ và thiết bị tiện ích</a>
-                                </li>
-                                <li class="mobile-category__item">
-                                    <a href="" class="mobile-category__link">Dụng cụ và thiết bị tiện ích</a>
-                                </li>
-                                <li class="mobile-category__item">
-                                    <a href="" class="mobile-category__link">Dụng cụ và thiết bị tiện ích</a>
-                                </li>
-                                <li class="mobile-category__item">
-                                    <a href="" class="mobile-category__link">Dụng cụ và thiết bị tiện ích</a>
-                                </li>
-                                <li class="mobile-category__item">
-                                    <a href="" class="mobile-category__link">Dụng cụ và thiết bị tiện ích</a>
-                                </li>
-                                <li class="mobile-category__item">
-                                    <a href="" class="mobile-category__link">Dụng cụ và thiết bị tiện ích</a>
-                                </li>
-                                <li class="mobile-category__item">
-                                    <a href="" class="mobile-category__link">Dụng cụ và thiết bị tiện ích</a>
-                                </li>
-                                <li class="mobile-category__item">
-                                    <a href="" class="mobile-category__link">Dụng cụ và thiết bị tiện ích</a>
-                                </li>
-                                <li class="mobile-category__item">
-                                    <a href="" class="mobile-category__link">Dụng cụ và thiết bị tiện ích</a>
-                                </li>
-                                <li class="mobile-category__item">
-                                    <a href="" class="mobile-category__link">Dụng cụ và thiết bị tiện ích</a>
-                                </li>
-                            </ul>
-                        </nav>
-
-                        <!-- Danh sách sản phẩm -->
-                        <div class="home-product">
-                            <div class="row sm-gutter" id="product">
-                                 <!-- Sản phẩm -->
+                            <div class="info__price">
+                                <div class="price__old">100.000.000đ</div>
+                                <div class="price__new">90.000.000đ</div>
+                                <div class="price__discount">22% giảm</div>
                             </div>
-                        </div>
 
-                        <ul class="pagination home-pagination">
-                            <li class="pagination-item">
-                                <a href="#" class="pagination-item__link page-icon-left">
-                                    <i class="pagination-item__icon fas fa-angle-left" style="width: 100%; line-height: 30px;"></i>
-                                </a>
-                            </li>
-                            <div class="pages" style="display: flex;" id="page">
-                                <!-- <li class="pagination-item pagination-item--active">
-                                    <a href="#" class="pagination-item__link">1</a>
-                                </li>                                                
-                                <li class="pagination-item">
-                                    <a href="#" class="pagination-item__link pagination-item__link--dot">...</a>
-                                </li>-->
+                            <div class="info__quantity">
+                                <span class="quantity__text">Số lượng</span>
+                                <input type="number" value="1" min="1" max="100">
+                            </div>
+
+                            <div class="info__description">
+                                <span class="description__text">Chi tiết:</span>
+                                <span class="description__info">Dung lượng: 80gb</span>
                             </div>
                             
-                            <li class="pagination-item">
-                                <a href="#" class="pagination-item__link page-icon-right">
-                                    <i class="pagination-item__icon fas fa-angle-right" style="width: 100%; line-height: 30px;"></i>
-                                </a>
-                            </li>
-                        </ul>
+                            <div class="info__warranty">                                
+                                <span class="warranty__text">Bảo hành:</span>
+                                <span class="warranty__time">3 năm</span>
+                            </div>
+
+                            <div class="info__button">
+                                <button class="btn button__add-cart">
+                                    <svg enable-background="new 0 0 15 15" viewBox="0 0 15 15" x="0" y="0" class="icon-add-to-cart">
+                                        <g>
+                                            <g>
+                                                <polyline fill="none" points=".5 .5 2.7 .5 5.2 11 12.4 11 14.5 3.5 3.7 3.5" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10"></polyline>
+                                                <circle cx="6" cy="13.5" r="1" stroke="#d00033"></circle><circle cx="11.5" cy="13.5" r="1" stroke="#d00033"></circle>
+                                            </g>
+                                            <line fill="none" stroke-linecap="round" stroke-miterlimit="10" x1="7.5" x2="10.5" y1="7" y2="7"></line>
+                                            <line fill="none" stroke-linecap="round" stroke-miterlimit="10" x1="9" x2="9" y1="8.5" y2="5.5"></line>
+                                        </g>
+                                    </svg>
+                                    <span>Thêm vào giỏ hàng</span>
+                                </button>
+                                <button class="btn btn--primary button__buy">Mua Ngay</button>
+                            </div>
+                        </div>                        
                     </div>
                 </div>
-           </div>
+            </div>
         </div>
 
         <footer class="footer">
@@ -531,6 +453,6 @@
                 </div>
             </div>
         </footer>
-    </div>   
+    </div>
 </body>
 </html>
