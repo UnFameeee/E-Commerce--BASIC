@@ -9,4 +9,6 @@ import java.util.HashMap;
 public interface AccountService {
     HashMap<String, String> updateAccountById(Account account, String oldPass);
     HashMap<String, String> createAccount(Account account);
+    HashMap<String, String> login(Account account);
+    HashMap<String, String> logout();
 }

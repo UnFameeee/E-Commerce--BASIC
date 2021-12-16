@@ -15,7 +15,7 @@ public class AccountController {
     private AccountService accountService;
     //Mặc định nếu thành công thì sẽ trả ra Key, Value ("Key", "Success")
 
-    //Tạo tài khoản mới (Mặc định role là User)
+    //Tạo tài khoản mới (Mặc định role là User) - Khi tạo tài khoản cũng sẽ tạo thêm 1 User với profile = null
     @PostMapping("/register")
     public ResponseEntity<?> createAccount(@RequestBody Account req){
         return ResponseEntity.ok(accountService.createAccount(req));
@@ -25,5 +25,17 @@ public class AccountController {
     @PutMapping("/update")
     public ResponseEntity<?> updateAccount(@RequestBody Account req, @RequestParam String oldPass){
         return ResponseEntity.ok(accountService.updateAccountById(req, oldPass));
+    }
+
+    //Đăng nhập
+    @PostMapping("/login")
+    public ResponseEntity<?> login(@RequestBody Account req){
+        return ResponseEntity.ok(accountService.login(req));
+    }
+
+    //Đăng xuất
+    @PostMapping("/logout")
+    public ResponseEntity<?> logout(){
+        return ResponseEntity.ok(accountService.logout());
     }
 }
