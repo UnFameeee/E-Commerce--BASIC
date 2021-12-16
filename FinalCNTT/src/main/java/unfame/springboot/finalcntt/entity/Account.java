@@ -1,11 +1,14 @@
 package unfame.springboot.finalcntt.entity;
 
-import java.io.Serializable;
+//import java.io.Serializable; implements Serializable
+import org.springframework.stereotype.Component;
+
 import javax.persistence.*;
 
+@Component
 @Entity(name = "ACCOUNT")
 @Table(name = "ACCOUNT")
-public class Account implements Serializable{
+public class Account {
 
     public static final String ROLE_USER = "USER";
     public static final String ROLE_ADMIN = "ADMIN";
@@ -25,7 +28,7 @@ public class Account implements Serializable{
     private String Role;
 
     @Column(name = "Active", nullable = false)
-    private boolean Active;
+    private Boolean Active;
 
     public Long getId() {
         return Id;

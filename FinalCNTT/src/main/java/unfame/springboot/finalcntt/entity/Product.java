@@ -1,18 +1,18 @@
 package unfame.springboot.finalcntt.entity;
 
+import org.springframework.stereotype.Component;
+
 import java.io.Serializable;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Lob;
-import javax.persistence.Table;
+import javax.persistence.*;
 
-@Entity
+@Component
+@Entity(name = "PRODUCT")
 @Table(name = "PRODUCT")
-public class Product implements Serializable{
+public class Product{
 
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "Id", length = 20, nullable = false)
     private Long Id;
 
@@ -24,21 +24,19 @@ public class Product implements Serializable{
 
     @Lob
     @Column(name = "Product_image", length = Integer.MAX_VALUE, nullable = true)
-    private byte[] product_image;
+    private Byte[] product_image;
 
     @Column(name = "Quantity", nullable = false)
-    private int Quantity;
+    private Integer Quantity;
 
     @Column(name = "Price", nullable = false)
     private Long Price;
 
     @Column(name = "Guarantee", nullable = false)
-    private int Guarantee;
+    private Integer Guarantee;
 
-    @Column(name = "Brand_id", nullable = false)
-    private Long Brand_id;
-
-    public Product(){}
+    @Column(name = "Brand", nullable = false)
+    private String Brand;
 
     public Long getId() {
         return Id;
@@ -64,19 +62,19 @@ public class Product implements Serializable{
         Product_description = product_description;
     }
 
-    public byte[] getProduct_image() {
+    public Byte[] getProduct_image() {
         return product_image;
     }
 
-    public void setProduct_image(byte[] product_image) {
+    public void setProduct_image(Byte[] product_image) {
         this.product_image = product_image;
     }
 
-    public int getQuantity() {
+    public Integer getQuantity() {
         return Quantity;
     }
 
-    public void setQuantity(int quantity) {
+    public void setQuantity(Integer quantity) {
         Quantity = quantity;
     }
 
@@ -88,19 +86,19 @@ public class Product implements Serializable{
         Price = price;
     }
 
-    public int getGuarantee() {
+    public Integer getGuarantee() {
         return Guarantee;
     }
 
-    public void setGuarantee(int guarantee) {
+    public void setGuarantee(Integer guarantee) {
         Guarantee = guarantee;
     }
 
-    public Long getBrand_id() {
-        return Brand_id;
+    public String getBrand() {
+        return Brand;
     }
 
-    public void setBrand_id(Long brand_id) {
-        Brand_id = brand_id;
+    public void setBrand(String brand) {
+        Brand = brand;
     }
 }

@@ -1,12 +1,16 @@
 package unfame.springboot.finalcntt.entity;
 
+import org.springframework.stereotype.Component;
+
 import java.io.Serializable;
 import javax.persistence.*;
 
-@Entity
+@Component
+@Entity(name = "USER")
 @Table(name = "USER")
 public class User implements Serializable{
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "Id")
     private Long Id;
 
@@ -34,12 +38,6 @@ public class User implements Serializable{
 
     @Column(name = "Account_id")
     private Long Account_id;
-
-    public User() {
-    }
-
-    public User(String name, byte[] image) {
-    }
 
     public Long getId() {
         return Id;
