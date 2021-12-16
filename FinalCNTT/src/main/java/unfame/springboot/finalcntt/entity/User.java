@@ -17,9 +17,8 @@ public class User implements Serializable{
     @Column(name = "Fullname")
     private String Fullname;
 
-    @Lob
     @Column(name = "Image", length = Integer.MAX_VALUE)
-    private byte[] Image;
+    private String Image;
 
     @Column(name = "Email")
     private String Email;
@@ -55,11 +54,11 @@ public class User implements Serializable{
         Fullname = fullname;
     }
 
-    public byte[] getImage() {
+    public String getImage() {
         return Image;
     }
 
-    public void setImage(byte[] image) {
+    public void setImage(String image) {
         Image = image;
     }
 

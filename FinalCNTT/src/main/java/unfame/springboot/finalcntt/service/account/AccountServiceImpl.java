@@ -80,4 +80,13 @@ public class AccountServiceImpl implements AccountService {
         GlobalVariable.UserRole = "";
         return new HashMap<>() {{put("key", "Success");}};
     }
+
+    //Hàm trả về các globalID
+    @Override
+    public HashMap<String, String> getGLobalID() {
+        return new HashMap<>() {{put("key", "Success");
+            put("IDuser", Long.toString(GlobalVariable.IDuser));
+            put("IDaccount", Long.toString(GlobalVariable.IDaccount));
+            put("UserRole", GlobalVariable.UserRole);}};
+    }
 }

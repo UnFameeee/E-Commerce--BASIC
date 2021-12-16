@@ -8,11 +8,9 @@ btnAdd.addEventListener("click", (Event) => {
         id: "",
         username: document.getElementById("id_user").value,
         password: document.getElementById("id_pass").value,
-        role: "user",
-        active: new Boolean(true)
+        role: "user"
     };
 
-    console.log(Model.username);
     var requestJSON = JSON.stringify(Model);
 
     $.ajax({

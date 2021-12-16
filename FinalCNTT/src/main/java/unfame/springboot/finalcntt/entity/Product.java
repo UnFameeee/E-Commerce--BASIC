@@ -13,7 +13,7 @@ public class Product{
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "Id", length = 20, nullable = false)
+    @Column(name = "Id", nullable = false)
     private Long Id;
 
     @Column(name = "Product_name", nullable = false)
@@ -22,9 +22,8 @@ public class Product{
     @Column(name = "Product_description", nullable = true)
     private String Product_description;
 
-    @Lob
     @Column(name = "Product_image", length = Integer.MAX_VALUE, nullable = true)
-    private Byte[] product_image;
+    private String product_image;
 
     @Column(name = "Quantity", nullable = false)
     private Integer Quantity;
@@ -62,11 +61,12 @@ public class Product{
         Product_description = product_description;
     }
 
-    public Byte[] getProduct_image() {
+
+    public String getProduct_image() {
         return product_image;
     }
 
-    public void setProduct_image(Byte[] product_image) {
+    public void setProduct_image(String product_image) {
         this.product_image = product_image;
     }
 

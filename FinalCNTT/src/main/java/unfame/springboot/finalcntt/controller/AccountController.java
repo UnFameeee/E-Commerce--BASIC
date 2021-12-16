@@ -3,7 +3,6 @@ package unfame.springboot.finalcntt.controller;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-import unfame.springboot.finalcntt.dao.AccountDTO;
 import unfame.springboot.finalcntt.entity.Account;
 import unfame.springboot.finalcntt.service.account.AccountService;
 
@@ -37,5 +36,11 @@ public class AccountController {
     @PostMapping("/logout")
     public ResponseEntity<?> logout(){
         return ResponseEntity.ok(accountService.logout());
+    }
+
+    //Lấy ra globalID
+    @GetMapping("/getGlobalID")
+    public ResponseEntity<?> getGlobalID(){
+        return ResponseEntity.ok(accountService.getGLobalID());
     }
 }

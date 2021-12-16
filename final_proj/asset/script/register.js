@@ -9,7 +9,6 @@ btnAdd.addEventListener("click", (Event) => {
         username: document.getElementById("id_user").value,
         password: document.getElementById("id_pass").value,
         role: "user",
-        active: true
     };
 
     var requestJSON = JSON.stringify(Model);

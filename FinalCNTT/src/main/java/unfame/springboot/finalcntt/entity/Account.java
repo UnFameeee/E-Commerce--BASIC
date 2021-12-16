@@ -9,10 +9,6 @@ import javax.persistence.*;
 @Entity(name = "ACCOUNT")
 @Table(name = "ACCOUNT")
 public class Account {
-
-    public static final String ROLE_USER = "USER";
-    public static final String ROLE_ADMIN = "ADMIN";
-
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name="Id", nullable = false)
@@ -26,9 +22,6 @@ public class Account {
 
     @Column(name = "Role", nullable = false)
     private String Role;
-
-    @Column(name = "Active", nullable = false)
-    private Boolean Active;
 
     public Long getId() {
         return Id;
@@ -60,18 +53,5 @@ public class Account {
 
     public void setRole(String role) {
         Role = role;
-    }
-
-    public boolean isActive() {
-        return Active;
-    }
-
-    public void setActive(boolean active) {
-        this.Active = active;
-    }
-
-    @Override
-    public String toString() {
-        return "[" + this.Username + "," + this.Password + "," + this.Role + "]";
     }
 }
