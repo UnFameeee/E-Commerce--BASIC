@@ -1,5 +1,6 @@
 import { URL } from './URL.js';
-import getUser from './getGLobalID.js';
+import { checkRoleItem } from './exportRole.js';
+import { usernameimageItem } from './exportUsernameImage.js';
 
 // Import the functions you need from the SDKs you need
 import { initializeApp } from "https://www.gstatic.com/firebasejs/9.6.1/firebase-app.js";
@@ -185,3 +186,15 @@ UpBtn.addEventListener("click", (Event) => {
     }
     else {alert("Please fill all the information!!!");}
 })
+
+
+//FE - flow
+document.getElementById("id_category_username2").innerHTML = usernameimageItem[0].username;
+if(usernameimageItem[0].image !== null){
+    document.getElementById("myimg3").src = usernameimageItem[0].image;
+}
+if(checkRoleItem.UserRole == "user"){
+    document.getElementById("id_linktoacc").href = "user.html";
+}else if(checkRoleItem.UserRole == "admin"){
+    document.getElementById("id_linktoacc").href = "admin.html";
+}

@@ -15,7 +15,7 @@
     <link rel="stylesheet" href="./asset/css/responsive.css">
     <link rel="stylesheet" href="./asset/fonts/fontawesome-free-5.15.4-web/css/all.min.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap&subset=vietnamese" rel="stylesheet">
-    <script src="./asset/javascript/product.js" type="module" async></script>
+    <!-- <script src="./asset/javascript/product.js" type="module" async></script> -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>    
 </head>
 <body>
@@ -112,36 +112,28 @@
                         </li>
 
                         <!-- Login, Register -->
-                        <li class="header__navbar-item header__navbar-item--strong header__navbar-item--separate">
+                        <!-- <li class="header__navbar-item header__navbar-item--strong header__navbar-item--separate">
                             <a href="./register.html" style="text-decoration: none; color: var(--white-color);">Đăng ký</a>
                         </li>
                         <li class="header__navbar-item header__navbar-item--strong">
                             <a href="./login.html" style="text-decoration: none; color: var(--white-color);">Đăng nhập</a>
-                        </li>
+                        </li> -->
 
                         <!-- User info -->
-                        <!-- <li class="header__navbar-item header__navbar-user">
-                            <img src="https://d29fhpw069ctt2.cloudfront.net/icon/image/84587/preview.svg" alt="" class="header__navbar-user-avt">
-                            <span class="header__navbar-user-name">Hai Dụ</span>
+                        <li class="header__navbar-item header__navbar-user">
+                            <img src="https://d29fhpw069ctt2.cloudfront.net/icon/image/84587/preview.svg" alt="" class="header__navbar-user-avt" id="myimg3">
+                            <span class="header__navbar-user-name" id="id_category_username2"></span>
 
                             <ul class="header__navbar-user-menu">
                                 <li class="header__navbar-user-item">
-                                    <a href="">Tài khoản của tôi</a>
-                                </li>
-
-                                <li class="header__navbar-user-item">
-                                    <a href="">Địa chỉ của tôi</a>
-                                </li>
-
-                                <li class="header__navbar-user-item">
-                                    <a href="">Đơn mua</a>
+                                    <a href="" id="id_linktoacc">Tài khoản của tôi</a>
                                 </li>
 
                                 <li class="header__navbar-user-item header__navbar-user-item--separate">
-                                    <a href="">Đăng xuất</a>
+                                    <a href="login.html">Đăng xuất</a>
                                 </li>
                             </ul>
-                        </li> -->
+                        </li>
                     </ul>
                 </nav>
 
@@ -170,19 +162,19 @@
                             <input type="text" class="header__search-input" placeholder="Nhập để tìm kiếm sản phẩm">
 
                             <!-- Search history -->
-                            <div class="header__search-history">
+                            <!-- <div class="header__search-history">
                                 <h3 class="header__search-history-heading">Lịch sử tìm kiếm</h3>
 
                                 <ul class="header__search-history-list">
                                     <li class="header__search-history-item">
-                                        <a href="">Con chó kỳ</a>
+                                        <a href=""></a>
                                     </li>
 
                                     <li class="header__search-history-item">
-                                        <a href="">Con chó phượng</a>
+                                        <a href=""></a>
                                     </li>
                                 </ul>
-                            </div>
+                            </div> -->
                         </div>
 
                         <button class="header__search-btn">
@@ -282,8 +274,8 @@
                             </div>
 
                             <div class="info__button info__button--admin">
-                                <button class="btn btn--primary button__update" id="select_btn">Chọn ảnh</button>
-                                <button class="btn btn--primary button__update" id="upload_btn">Lưu ảnh</button>
+                                <button class="btn btn--primary button__add" id="select_btn">Chọn ảnh</button>
+                                <button class="btn btn--primary button__add" id="upload_btn">Lưu ảnh</button>
                                 <button class="btn btn--primary button__add" id="btn_submit">Sửa Sản Phẩm</button>
                             </div>
                         </div>                        
@@ -386,3 +378,4 @@
 </body>
 </html>
 <script type="module" src="./asset/script/editProduct.js"></script>
+<script type="module" src="./asset/script/editProductImage.js"></script>

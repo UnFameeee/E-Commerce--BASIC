@@ -353,14 +353,11 @@ async function getUsernameImage(){
 }
 var usernameimage = await getUsernameImage();
 
-console.log(usernameimage)  
-
 /* CHECK USER */
 var navbarUser = document.querySelectorAll('.header__navbar-user')
 var navbarNone = document.querySelectorAll('.header__navbar-item--strong')
 var test = 1
 
-console.log(checkRoleItem.UserRole)
 if(checkRoleItem.UserRole !== ""){
     $('.header__navbar-user').removeClass('header__navbar--user-info')
     if(usernameimage[0].image !== null){
@@ -369,9 +366,9 @@ if(checkRoleItem.UserRole !== ""){
     document.querySelectorAll('.header__navbar-user-name')[0].innerText = usernameimage[0].username
 
     if(checkRoleItem.UserRole == "user"){
-        document.getElementById("id_linktoacc").href = "user.html";
+        document.getElementById("id_linktoacc").href = "./user.html";
     }else if(checkRoleItem.UserRole == "admin"){
-        document.getElementById("id_linktoacc").href = "admin.html";
+        document.getElementById("id_linktoacc").href = "./admin.html";
     }
 }
 else {

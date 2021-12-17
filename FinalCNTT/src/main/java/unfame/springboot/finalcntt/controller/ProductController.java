@@ -19,6 +19,12 @@ public class ProductController {
     }
 
     //Update 1 mặt hàng
+    @PutMapping("/updateImage")
+    public ResponseEntity<?> updateProductImage(@RequestBody Product req){
+        return ResponseEntity.ok(productService.updateProductImage(req));
+    }
+
+    //Update 1 image của 1 mặt hàng
     @PutMapping("/update")
     public ResponseEntity<?> updateProduct(@RequestBody Product req){
         return ResponseEntity.ok(productService.updateProduct(req));
@@ -34,6 +40,11 @@ public class ProductController {
     @GetMapping("/all")
     public ResponseEntity<?> showAllProduct(){
         return ResponseEntity.ok(productService.getAllProduct());
+    }
+
+    @GetMapping("/singleById")
+    public ResponseEntity<?> getProductById(){
+        return ResponseEntity.ok(productService.getProductById());
     }
 
     //Trả ra tất cả các mặt hàng search theo product_name

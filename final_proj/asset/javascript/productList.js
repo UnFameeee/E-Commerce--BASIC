@@ -1,4 +1,5 @@
 import { listDataArray } from './allProductArray.js';
+import { URL } from '../script/URL.js';
 
 var temp = 0
 
@@ -64,10 +65,33 @@ for(var i = 0; i < updateBtn.length; i++) {
     button.addEventListener('click', forwardCheck)
 }
 
-function forwardCheck() {
+//Sửa - edit
+function forwardCheck(event) {
     temp = 1;
     localStorage.setItem('test', temp)
-    window.location.href = './addProduct.html'
+
+    var buttonClicked = event.target
+    var item = buttonClicked.parentElement.parentElement
+    var test = item.querySelector('#product-id').innerText
+    console.log(test)
+
+    $.ajax({
+        type: 'POST',
+        url: URL + '/product/saveIDproduct' + "/" + test,
+        dataType: 'json',
+        headers: {
+            "Content-Type": "application/json",
+        },
+        data: "",
+        success: function(data) {
+            window.location.href = "editProduct.html";
+        },
+        error: function() {
+            console.log("The following error occured: ");
+        }
+    });
+
+    // window.location.href = './editProduct.html'
 }
 
 
@@ -77,12 +101,33 @@ for (var i = 0; i < removeCartItemButtons.length; i++) {
     button.addEventListener('click', removeCartItem)
 }
 
-console.log(listDataArray)
+// console.log(listDataArray)
 
+//Xóa - delete
 function removeCartItem(event) {
     var buttonClicked = event.target
     // buttonClicked.parentElement.parentElement.remove()
     var item = buttonClicked.parentElement.parentElement
     var test = item.querySelector('#product-id').innerText
     console.log(test)
+
+    $.ajax({
+        type: 'DELETE',
+        url: URL + '/product/delete' + "/" + test,
+        dataType: 'json',
+        headers: {
+            "Content-Type": "application/json",
+        },
+        data: "",
+        success: function(data) {
+            if(data.key == "Success"){
+                alert("Delete successfully!!!");
+                window.location.href = "productList.html";
+            }
+            
+        },
+        error: function() {
+            console.log("The following error occured: ");
+        }
+    });
 }
