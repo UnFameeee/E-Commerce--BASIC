@@ -11,6 +11,7 @@
     <link rel="stylesheet" href="./asset/css/base.css">
     <link rel="stylesheet" href="./asset/css/main.css">
     <link rel="stylesheet" href="./asset/css/user.css">
+    <link rel="stylesheet" href="./asset/css/cart.css">
     <link rel="stylesheet" href="./asset/css/grid.css">
     <link rel="stylesheet" href="./asset/css/responsive.css">
     <link rel="stylesheet" href="./asset/fonts/fontawesome-free-5.15.4-web/css/all.min.css">
@@ -315,7 +316,7 @@
 
                         <div class="user-category__bottom">
                             <div class="user-category__list">
-                                <a href="" class="user-category__cat-link">
+                                <a href="./admin.html" class="user-category__cat-link">
                                     <div class="user-category__cat-img">
                                         <img src="https://cf.shopee.vn/file/ba61750a46794d8847c3f463c5e71cc4" alt="">
                                     </div>
@@ -328,7 +329,7 @@
                                         <img src="https://cf.shopee.vn/file/f0049e9df4e536bc3e7f140d071e9078" alt="">
                                     </div>
                                     <div class="user-category__text">
-                                        <span>Quản lý sản phẩm</span>
+                                        <span style="color: var(--primary-color); text-decoration: underline;">Quản lý sản phẩm</span>
                                     </div>
                                 </a>
                                 <a href="" class="user-category__cat-link">
@@ -361,10 +362,71 @@
                                 </div>
                             </div>
 
-                            <div class="user-profile__info">
-                                
+                            <div class="user-profile__info">                                
+                                <div class="cart__product">
+                                    <ul class="cart__product-list">
+                                        <!-- PRODUCT -->
+                                        <li class="cart__product-item">
+                                            <div class="cart__check">
+                                                <!-- CHECKED: cart__check-box--checked -->
+                                                <label class="cart__check-box">
+                                                    <input type="checkbox" class="check-box__input">
+                                                    <div class="check-box__box"></div>
+                                                </label>
+                                            </div>
+                                            <span class="product">
+                                                <a href="" class="product__link">
+                                                    <img src="https://cf.shopee.vn/file/203cfd2141a2c4cf8f2be6eb26066503_tn" alt="">
+                                                    <div class="product__des">
+                                                        <span>Dây Nhảy Giảm Cân, Dây Nhảy Thể Lực Lõi Thép Giúp Giảm Mỡ Bụng, Dụng Cụ Thể Thao, Đồ Tập Gym Nam Nữ Tại Nhà Dây Nhảy Giảm Cân, Dây Nhảy Thể Lực Lõi Thép Giúp Giảm Mỡ Bụng, Dụng Cụ Thể Thao, Đồ Tập Gym Nam Nữ Tại NhàDây Nhảy Giảm Cân, Dây Nhảy Thể Lực Lõi Thép Giúp Giảm Mỡ Bụng, Dụng Cụ Thể Thao, Đồ Tập Gym Nam Nữ Tại Nhà </span>
+                                                    </div>
+                                                </a>
+                                            </span>
+                                            <span class="quantity">
+                                                <input class="quantity-input" type="number" min="1" max="100" value="1">
+                                            </span>
+                                            <span class="price">120.000đ</span>
+                                            <span class="operation">
+                                                <button class="operation__remove">Xoá</button>                                               
+                                                <button class="operation__buy">Sửa</button>
+                                            </span>
+                                        </li>
+                                        <li class="cart__product-item">
+                                            <div class="cart__check">
+                                                <!-- CHECKED: cart__check-box--checked -->
+                                                <label class="cart__check-box">
+                                                    <input type="checkbox" class="check-box__input">
+                                                    <div class="check-box__box"></div>
+                                                </label>
+                                            </div>
+                                            <span class="product">
+                                                <a href="" class="product__link">
+                                                    <img src="https://cf.shopee.vn/file/203cfd2141a2c4cf8f2be6eb26066503_tn" alt="">
+                                                    <div class="product__des">
+                                                        <span>Dây Nhảy Giảm Cân, Dây Nhảy Thể Lực Lõi Thép Giúp Giảm Mỡ Bụng, Dụng Cụ Thể Thao, Đồ Tập Gym Nam Nữ Tại Nhà Dây Nhảy Giảm Cân, Dây Nhảy Thể Lực Lõi Thép Giúp Giảm Mỡ Bụng, Dụng Cụ Thể Thao, Đồ Tập Gym Nam Nữ Tại NhàDây Nhảy Giảm Cân, Dây Nhảy Thể Lực Lõi Thép Giúp Giảm Mỡ Bụng, Dụng Cụ Thể Thao, Đồ Tập Gym Nam Nữ Tại Nhà </span>
+                                                    </div>
+                                                </a>
+                                            </span>
+                                            <span class="quantity">
+                                                <input class="quantity-input" type="number" min="1" max="100" value="1">
+                                            </span>
+                                            <span class="price">120.000đ</span>
+                                            <span class="operation">
+                                                <button class="operation__remove">Xoá</button>                                            
+                                                <button class="operation__buy">Sửa</button>
+                                            </span>
+                                        </li>
+                                    </ul>                        
+                                    
+                                </div>
                             </div>
                         </div>
+                    </div>
+                </div>
+
+                <div class="row sm-gutter cart__content">
+                    <div class="cart__bottom">
+                        <button class="btn btn--primary">THÊM</button>
                     </div>
                 </div>
             </div>
