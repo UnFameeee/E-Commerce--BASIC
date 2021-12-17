@@ -48,4 +48,10 @@ public class AccountController {
     public ResponseEntity<?> getRole(){
         return ResponseEntity.ok(accountService.getRole());
     }
+
+    //Lấy ra username and image
+    @GetMapping("/getUsernameAndImage")
+    public ResponseEntity<?> getUsernameAndImage(){
+        return ResponseEntity.ok(accountService.getUsernameWithImage());
+    }
 }

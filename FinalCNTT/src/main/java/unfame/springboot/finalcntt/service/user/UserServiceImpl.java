@@ -59,6 +59,7 @@ public class UserServiceImpl implements UserService {
             map.put("birth", user.getBirth());
             map.put("gender", user.getGender());
             map.put("phone", user.getPhone());
+            map.put("address", user.getAddress());
             map.put("Account_id", Long.toString(user.getAccount_id()));
             Account account = (Account) list.get(i)[1];
             map.put("username", account.getUsername());

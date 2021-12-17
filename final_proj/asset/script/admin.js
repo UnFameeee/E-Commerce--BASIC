@@ -13,7 +13,7 @@ window.addEventListener('load', function(){
             console.log(data);  
             document.getElementById("id_fname").value = data[0].fullname;
             document.getElementById("id_category_username").innerHTML = data[0].username;
-            if(data.image != null  || data.image != "" ){
+            if(data[0].image !== null){
                 document.getElementById("myimg").src = data[0].image;
                 document.getElementById("myimg2").src = data[0].image;
             }

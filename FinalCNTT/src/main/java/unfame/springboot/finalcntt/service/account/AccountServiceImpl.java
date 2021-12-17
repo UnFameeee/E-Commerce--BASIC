@@ -9,7 +9,9 @@ import unfame.springboot.finalcntt.global.GlobalVariable;
 import unfame.springboot.finalcntt.repository.AccountRepository;
 import unfame.springboot.finalcntt.repository.UserRepository;
 
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Objects;
 
 @Component
@@ -44,10 +46,12 @@ public class AccountServiceImpl implements AccountService {
     @Override
     public HashMap<String, String> updateAccountById(Account account, String oldPass){
         //Nhập thông tin mật khẩu cũ trước, check xem mk cũ có trùng với mk cũ mà user nhập không
-        Account accountOld = accountRepository.findAccountById(account.getId());
+        Account accountOld = accountRepository.findAccountById(GlobalVariable.IDaccount);
 
         if(Objects.equals(Encoding.decode((accountOld.getPassword())), oldPass)){
             account.setPassword(Encoding.encode(account.getPassword()));
+            account.setId(GlobalVariable.IDaccount);
+            account.setRole(GlobalVariable.UserRole);
             accountRepository.save(account);
             return new HashMap<>() {{put("key", "Success");}};
         }
@@ -94,5 +98,22 @@ public class AccountServiceImpl implements AccountService {
             put("IDuser", Long.toString(GlobalVariable.IDuser));
             put("IDaccount", Long.toString(GlobalVariable.IDaccount));
             put("UserRole", GlobalVariable.UserRole);}};
+    }
+
+    //Hàm này trả về username và image của user đó ( cho changepassword.html )
+    @Override
+    public ArrayList<HashMap<String, String>> getUsernameWithImage() {
+        List<Object[]> list = accountRepository.findAccountUsernameWithImage(GlobalVariable.IDuser);
+        ArrayList<HashMap<String, String>> result = new ArrayList<>();
+
+        for(int i = 0; i < list.size(); ++i){
+            HashMap<String, String> map = new HashMap<>();
+            Account account = (Account) list.get(i)[0];
+            map.put("username", account.getUsername());
+            User user = (User) list.get(i)[1];
+            map.put("image", user.getImage());
+            result.add(map);
+        }
+        return result;
     }
 }
