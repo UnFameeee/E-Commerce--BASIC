@@ -8,4 +8,6 @@ public class GlobalVariable {
     public static boolean checkSession(){
         return IDuser != -1L && IDaccount != -1L && UserRole != null;
     }
+
+    public static Long IDproduct = -1L;
 }
