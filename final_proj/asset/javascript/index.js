@@ -1,4 +1,6 @@
 import { URL } from '../script/URL.js';
+import { checkRoleItem } from '../script/exportRole.js';
+
 async function selectAllProduct(){
     var dataArray = []
     await $.ajax({
@@ -23,28 +25,6 @@ async function selectAllProduct(){
 var listData = await selectAllProduct();
 console.log(listData);
 
-async function checkRole(){
-    var role = 
-    await $.ajax({
-        type: 'GET',
-        url: URL + '/account/getRole',
-        dataType: 'json',
-        headers: {
-            "Content-Type": "application/json",
-        },
-        data: "",
-        success: function(data) {
-            role = data;
-        },
-        error: function(jqXHR) {
-            
-            console.log("The following error occured: " + textStatus, errorThrown);
-        }
-    });
-    return role;
-}
-var roleCheck = await checkRole();
-console.log(roleCheck);
 
 const btnNext = document.querySelector('.fa-angle-right');
 const btnPrevious = document.querySelector('.fa-angle-left');
@@ -252,15 +232,49 @@ function pagination(c, m) {
     return rangeWithDots;
 }
 
+
+async function getUsernameImage(){
+    var role = [] 
+    await $.ajax({
+        type: 'GET',
+        url: URL + '/account/getUsernameAndImage',
+        dataType: 'json',
+        headers: {
+            "Content-Type": "application/json",
+        },
+        data: "",
+        success: function(data) {
+            role = data;
+        },
+        error: function() {
+            console.log("The following error occured: ");
+        }
+    });
+    return role;
+}
+var usernameimage = await getUsernameImage();
+
+console.log(usernameimage)  
+
+
 /* CHECK USER */
 var navbarUser = document.querySelectorAll('.header__navbar-user')
 var navbarNone =  document.querySelectorAll('.header__navbar-item--strong')
 var test = 1
-
-if(roleCheck){
+console.log(checkRoleItem)
+if(checkRoleItem){
     $('.header__navbar-user').removeClass('header__navbar--user-info')
     $('.header__navbar-item--strong').addClass('header__navbar--had-user')
-    document.querySelectorAll('.header__navbar-user-name')[0].innerText = 'vu2872001'
+    if(usernameimage[0].image !== null){
+        document.getElementById("myimg2").src = usernameimage[0].image
+    }
+    document.querySelectorAll('.header__navbar-user-name')[0].innerText = usernameimage[0].username
+
+    if(checkRoleItem.UserRole == "user"){
+        document.getElementById("id_linktoacc").href = "user.html";
+    }else if(checkRoleItem.UserRole == "admin"){
+        document.getElementById("id_linktoacc").href = "admin.html";
+    }
 }
 else{
     $('.header__navbar-user').addClass('header__navbar--user-info')
