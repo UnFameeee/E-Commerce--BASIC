@@ -23,7 +23,7 @@ public class Product{
     private String Product_description;
 
     @Column(name = "Product_image", length = Integer.MAX_VALUE, nullable = true)
-    private String product_image;
+    private String Product_image;
 
     @Column(name = "Quantity", nullable = false)
     private Integer Quantity;
@@ -61,13 +61,12 @@ public class Product{
         Product_description = product_description;
     }
 
-
     public String getProduct_image() {
-        return product_image;
+        return Product_image;
     }
 
     public void setProduct_image(String product_image) {
-        this.product_image = product_image;
+        Product_image = product_image;
     }
 
     public Integer getQuantity() {
