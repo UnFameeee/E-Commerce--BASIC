@@ -1,13 +1,32 @@
+import { listDataArray } from "./allProductArray.js";
 
-var check = localStorage.getItem('test')
+console.log(listDataArray)
+var id = localStorage.getItem('product-id')
+var i = 0
 
-if(check) {
-    $('.button__add').addClass('button__add--disabled')
-    $('.button__update').removeClass('button__update--disabled')
-    localStorage.removeItem('test')
+for(i; i < listDataArray.length; i++){
+    if(i==id){
+        break;
+    }
 }
-else {
-    $('.button__update').addClass('button__update--disabled')
-    $('.button__add').removeClass('button__add--disabled')
-    localStorage.removeItem('test')
+
+function render() {
+    var imgElement = document.querySelector('.product__img img')
+    imgElement.src = listDataArray[i - 1].product_image
+
+    document.querySelector('.header__name').innerText = listDataArray[i - 1].product_name
+
+    var oldPrice = listDataArray[i - 1].price
+    var newPrice = oldPrice - oldPrice*10/100
+
+    var oldPriceString = new Intl.NumberFormat('vi-VN', { style: 'currency', currency: 'VND' }).format(oldPrice)
+    var newPriceString = new Intl.NumberFormat('vi-VN', { style: 'currency', currency: 'VND' }).format(newPrice)
+
+    document.querySelector('.price__old').innerText = oldPriceString
+    document.querySelector('.price__new').innerText = newPriceString
+    
+    document.querySelector('.description__info').innerText = listDataArray[i - 1].product_description
+
+    document.querySelector('.warranty__time').innerText = listDataArray[i - 1].guarantee    
 }
+render()
