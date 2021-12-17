@@ -1,5 +1,6 @@
 import { URL } from './URL.js';
-import getUser from './getGLobalID.js';
+import { checkRoleItem } from './exportRole.js';
+import { usernameimageItem } from './exportUsernameImage.js';
 
 // Import the functions you need from the SDKs you need
 import { initializeApp } from "https://www.gstatic.com/firebasejs/9.6.1/firebase-app.js";
@@ -33,7 +34,7 @@ var reader = new FileReader();
 var namebox;
 var extlab;                                        
 var myimg = document.getElementById('myimg');           
-var UpBtn = document.getElementById('btn_submit');
+var UpBtn = document.getElementById('upload_btn');
 var SelBtn = document.getElementById('select_btn');
 var input = document.createElement('input');
 
@@ -131,17 +132,17 @@ async function GetURLfromRealtimeDB(){
                 product_name: "",         
                 product_description: "",       
                 product_image: snapshot.val().ImgUrl,
-                quantity: "",
-                price: "",               
-                guarantee: "",       
+                quantity: 1,
+                price: 1,               
+                guarantee: 1,       
                 brand: ""               
             };
             
             var requestJSON = JSON.stringify(Model);
 
             $.ajax({
-                type: 'POST',
-                url: URL + '/product/create',
+                type: 'PUT',
+                url: URL + '/product/updateImage',
                 dataType: 'json',
                 headers: {
                     "Content-Type": "application/json",
@@ -149,7 +150,7 @@ async function GetURLfromRealtimeDB(){
                 data: requestJSON,
                 success: function(data) {
                     alert(data.key);
-                    window.location.href = "productList.html";
+                    window.location.href = "editProduct.html";
                 },
                 error: function() {
                     console.log("The following error occured: ");
@@ -167,7 +168,6 @@ function ValidateName(){
 
 UpBtn.addEventListener("click", (Event) => {
     Event.preventDefault();
-
     UploadProcess();
     const timeLimit = 1;
     let i = 0;
@@ -179,3 +179,14 @@ UpBtn.addEventListener("click", (Event) => {
         }
     }, 1000);
 })
+
+//FE - flow
+document.getElementById("id_category_username2").innerHTML = usernameimageItem[0].username;
+if(usernameimageItem[0].image !== null){
+    document.getElementById("myimg3").src = usernameimageItem[0].image;
+}
+if(checkRoleItem.UserRole == "user"){
+    document.getElementById("id_linktoacc").href = "./user.html";
+}else if(checkRoleItem.UserRole == "admin"){
+    document.getElementById("id_linktoacc").href = "./admin.html";
+}

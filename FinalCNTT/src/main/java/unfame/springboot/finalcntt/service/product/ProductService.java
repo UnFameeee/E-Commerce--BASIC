@@ -16,4 +16,6 @@ public interface ProductService {
     HashMap<String, String> saveIDproduct(Long Id);
     HashMap<String, String> getIDproduct();
     HashMap<String, String> deleteIDproduct();
+    Product getProductById();
+    HashMap<String, String> updateProductImage(Product product);
 }

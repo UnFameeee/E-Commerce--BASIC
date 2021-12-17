@@ -14,6 +14,7 @@ public class ProductServiceImpl implements ProductService {
     @Autowired
     private ProductRepository productRepository;
 
+    //Hàm create product
     @Override
     public HashMap<String, String> createProduct(Product product){
         //Check xem tên sản phẩm đó có tồn tại không
@@ -25,6 +26,7 @@ public class ProductServiceImpl implements ProductService {
         return new HashMap<>() {{put("key", "This product already existed");}};
     }
 
+    //Hàm update product
     @Override
     public HashMap<String, String> updateProduct(Product product){
         if(product.getProduct_name() == null ||
@@ -36,8 +38,25 @@ public class ProductServiceImpl implements ProductService {
             product.getQuantity() == null){
             return new HashMap<>() {{put("key", "Missing value to update product!!!");}};
         }
+        product.setId(GlobalVariable.IDproduct);
+        product.setProduct_image(productRepository.findProductById(GlobalVariable.IDproduct).getProduct_image());
         productRepository.save(product);
+        GlobalVariable.IDproduct = -1L;
         return new HashMap<>() {{put("key", "Success");}};
+    }
+
+    //Hàm update image product
+    @Override
+    public HashMap<String, String> updateProductImage(Product product){
+        Product productCheck = productRepository.findProductById(GlobalVariable.IDproduct);
+        productCheck.setProduct_image(product.getProduct_image());
+        productRepository.save(productCheck);
+        return new HashMap<>() {{put("key", "Success");}};
+    }
+
+    @Override
+    public Product getProductById(){
+        return productRepository.findProductById(GlobalVariable.IDproduct);
     }
 
     //Trả về danh sách của tất cả các sản phẩm mà được search

@@ -1,62 +1,15 @@
 import { URL } from './URL.js';
+import { checkRoleItem } from './exportRole.js';
+import { usernameimageItem } from './exportUsernameImage.js';
 
-//Edit - lưu xuống db xử lý xong đổi qua form khác
-const btn_submit = document.getElementById("btn_submit");
-btn_submit.addEventListener("click", (Event) => {
-    Event.preventDefault();
-        var Model = {
-            id: ""
-        };
-
-        var requestJSON = JSON.stringify(Model);
-
-        $.ajax({
-            type: 'POST',
-            url: URL + '/product/saveIDproduct' + "/" + Model.id,
-            dataType: 'json',
-            headers: {
-                "Content-Type": "application/json",
-            },
-            data: requestJSON,
-            success: function(data) {
-                window.location.href = "editProduct.html";
-            },
-            error: function() {
-                console.log("The following error occured: ");
-            }
-        });
-
-}, false);
-
-//Xóa sp
-const btn_delete = document.getElementById("btn_delete");
-btn_delete.addEventListener("click", (Event) => {
-    Event.preventDefault();
-
-    var Model = {
-        id: ""
-    };
-
-    var requestJSON = JSON.stringify(Model);
-
-    $.ajax({
-        type: 'DELETE',
-        url: URL + '/product/delete' + "/" + Model.id,
-        dataType: 'json',
-        headers: {
-            "Content-Type": "application/json",
-        },
-        data: requestJSON,
-        success: function(data) {
-            if(data.key == "Success"){
-                alert("");
-                window.location.href = "productList.html";
-            }
-            
-        },
-        error: function() {
-            console.log("The following error occured: ");
-        }
-    });
-            
-}, false);
+document.getElementById("id_category_username").innerHTML = usernameimageItem[0].username;
+document.getElementById("id_category_username2").innerHTML = usernameimageItem[0].username;
+if(usernameimageItem[0].image !== null){
+    document.getElementById("myimg2").src = usernameimageItem[0].image;
+    document.getElementById("myimg3").src = usernameimageItem[0].image;
+}
+if(checkRoleItem.UserRole == "user"){
+    document.getElementById("id_linktoacc").href = "./user.html";
+}else if(checkRoleItem.UserRole == "admin"){
+    document.getElementById("id_linktoacc").href = "./admin.html";
+}
