@@ -15,6 +15,7 @@
     <link rel="stylesheet" href="./asset/css/responsive.css">
     <link rel="stylesheet" href="./asset/fonts/fontawesome-free-5.15.4-web/css/all.min.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap&subset=vietnamese" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>    
 </head>
 <body>
     <div class="app">
@@ -315,47 +316,42 @@
 
                     <div class="col l-7">
                         <div class="product__info">
-                            <div class="info__header">
-                                <div class="header__favorite">Yêu thích</div>
-                                <span class="header__name">BBC: BIG BLACK CROCODILEBBC: BIG BLACK CROCODILEBBC: BIG BLACK CROCODILEBBC: BIG BLACK CROCODILEBBC: BIG BLACK CROCODILE</span>
+                            <div class="info__header info__header--admin">
+                                <span>Tên sản phẩm: </span>
+                                <input type="text" class="header__name" placeholder="Nhập tên sản phẩm" id="id_product_name">
                             </div>
 
-                            <div class="info__price">
-                                <div class="price__old">100.000.000đ</div>
-                                <div class="price__new">90.000.000đ</div>
-                                <div class="price__discount">22% giảm</div>
+                            <div class="info__price info__price--admin">
+                                <span>Giá sản phẩm: </span>
+                                <input type="number" class="header__price" placeholder="Nhập giá sản phẩm" id="id_price">
                             </div>
 
-                            <div class="info__quantity">
+                            <div class="info__quantity info__quantity--admin">
                                 <span class="quantity__text">Số lượng:</span>
                                 <input type="number" value="1" min="1" max="100">
                             </div>
 
-                            <div class="info__description">
+                            <div class="info__description info__description--admin">
                                 <span class="description__text">Chi tiết:</span>
-                                <span class="description__info">Dung lượng: 80gb</span>
-                            </div>
-                            
-                            <div class="info__warranty">                                
-                                <span class="warranty__text">Bảo hành:</span>
-                                <span class="warranty__time">3 năm</span>
+                                <input type="text" class="description__info" placeholder="Nhập chi tiết sản phẩm" id="id_product_description">
                             </div>
 
-                            <div class="info__button">
-                                <button class="btn button__add-cart">
-                                    <svg enable-background="new 0 0 15 15" viewBox="0 0 15 15" x="0" y="0" class="icon-add-to-cart">
-                                        <g>
-                                            <g>
-                                                <polyline fill="none" points=".5 .5 2.7 .5 5.2 11 12.4 11 14.5 3.5 3.7 3.5" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10"></polyline>
-                                                <circle cx="6" cy="13.5" r="1" stroke="#d00033"></circle><circle cx="11.5" cy="13.5" r="1" stroke="#d00033"></circle>
-                                            </g>
-                                            <line fill="none" stroke-linecap="round" stroke-miterlimit="10" x1="7.5" x2="10.5" y1="7" y2="7"></line>
-                                            <line fill="none" stroke-linecap="round" stroke-miterlimit="10" x1="9" x2="9" y1="8.5" y2="5.5"></line>
-                                        </g>
-                                    </svg>
-                                    <span>Thêm vào giỏ hàng</span>
-                                </button>
-                                <button class="btn btn--primary button__buy">Mua Ngay</button>
+                            <div class="info__brand info__brand--admin">                                
+                                <span class="brand__text">Hãng:</span>
+                                <input type="text" class="brand__info" placeholder="Nhập hãng sản phẩm" id="product_brand">
+                            </div>
+                            
+                            <div class="info__warranty info__warranty--admin">                                
+                                <span class="warranty__text">Bảo hành:</span>
+                                <input type="number" class="warranty__time" placeholder="Nhập bảo hành sản phẩm" value="1" min="1" max="5" id="id_guarantee">
+                                <span class="warranty__year">NĂM</span>
+                            </div>
+
+                            <div class="info__button info__button--admin">
+                                <button class="btn btn--primary button__update" id="select_btn">Chọn ảnh</button>
+                                <button class="btn btn--primary button__add" id="btn_submit">Thêm</button>
+                                <!-- <button class="btn btn--primary button__update" id="btn_update">Sửa</button> -->
+                                <!-- <button class="btn btn--primary button__remove" id="btn_remove">Xoá</button> -->
                             </div>
                         </div>                        
                     </div>

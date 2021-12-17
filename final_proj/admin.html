@@ -5,20 +5,23 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title></title>
-
+    
     <link rel="icon" href="https://i.pinimg.com/originals/52/6e/71/526e7194884d4a9141dbd637d89b202b.png">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css">
     <link rel="stylesheet" href="./asset/css/base.css">
     <link rel="stylesheet" href="./asset/css/main.css">
-    <link rel="stylesheet" href="./asset/css/product.css">
+    <link rel="stylesheet" href="./asset/css/user.css">
     <link rel="stylesheet" href="./asset/css/grid.css">
     <link rel="stylesheet" href="./asset/css/responsive.css">
     <link rel="stylesheet" href="./asset/fonts/fontawesome-free-5.15.4-web/css/all.min.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap&subset=vietnamese" rel="stylesheet">
+    <!-- <script src="./asset/javascript/user.js"></script> -->
+    <!-- ajax -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 </head>
 <body>
     <div class="app">
-        <header class="header">        
+        <header class="header">
             <div class="grid wide">
                 <nav class="header__navbar hide-on-mobile-tablet">
                     <ul class="header__navbar-list">
@@ -107,18 +110,10 @@
                                 <i class="header__navbar-icon far fa-question-circle"></i>
                                 Trợ giúp
                             </a>
-                        </li>
-
-                        <!-- Login, Register -->
-                        <li class="header__navbar-item header__navbar-item--strong header__navbar-item--separate">
-                            <a href="./register.html" style="text-decoration: none; color: var(--white-color);">Đăng ký</a>
-                        </li>
-                        <li class="header__navbar-item header__navbar-item--strong">
-                            <a href="./login.html" style="text-decoration: none; color: var(--white-color);">Đăng nhập</a>
-                        </li>
+                        </li>                        
 
                         <!-- User info -->
-                        <!-- <li class="header__navbar-item header__navbar-user">
+                        <li class="header__navbar-item header__navbar-user">
                             <img src="https://d29fhpw069ctt2.cloudfront.net/icon/image/84587/preview.svg" alt="" class="header__navbar-user-avt">
                             <span class="header__navbar-user-name">Hai Dụ</span>
 
@@ -139,7 +134,7 @@
                                     <a href="">Đăng xuất</a>
                                 </li>
                             </ul>
-                        </li> -->
+                        </li>
                     </ul>
                 </nav>
 
@@ -192,7 +187,6 @@
                     <div class="header__cart">
                         <div class="header__cart-wrap">
                             <i class="header__cart-icon fas fa-shopping-cart"></i>
-                            <!-- NO CART: header__cart-notice--no-cart -->
                             <span class="header__cart-notice">3</span>
 
                             <!-- NO CART: header__cart-list--no-cart -->
@@ -284,80 +278,205 @@
                     </div>
                 </div>
             </div>
-
-            <ul class="header__sort-bar">
-                <li class="header__sort-item">
-                    <a href="" class="header__sort-link">Liên quan</a>
-                </li>
-
-                <li class="header__sort-item header__sort-item--active">
-                    <a href="" class="header__sort-link">Mới nhất</a>
-                </li>
-
-                <li class="header__sort-item">
-                    <a href="" class="header__sort-link">Bán chạy</a>
-                </li>
-
-                <li class="header__sort-item">
-                    <a href="" class="header__sort-link">Giá</a>
-                </li>                
-            </ul>
         </header>
 
         <div class="app__container">
             <div class="grid wide">
-                <div class="row product__content">
-                    <div class="col l-5">
-                        <div class="product__img">
-                            <img src="https://f1zzhhuerqobj.vcdn.cloud/uploads/2020/03/avt-blackshark-3-trang.png" alt="">
-                        </div>    
+                <div class="row sm-gutter user__content">
+                    <!-- USER PROFILE CATEGORY -->
+                    <div class="col l-2 m-0 c-0">
+                        <div class="user-category__top">
+                            <a href="" class="user-category__avt-content">
+                                <div class="user-category__avt">
+                                    <div class="user-category__avt-holder">
+                                        <svg enable-background="new 0 0 15 15" viewBox="0 0 15 15" x="0" y="0" class="icon-headshot">
+                                            <g>
+                                                <circle cx="7.5" cy="4.5" fill="none" r="3.8" stroke-miterlimit="10"></circle>
+                                                <path d="m1.5 14.2c0-3.3 2.7-6 6-6s6 2.7 6 6" fill="none" stroke-linecap="round" stroke-miterlimit="10"></path>
+                                            </g>
+                                        </svg>
+                                    </div>
+    
+                                    <img src="https://cf.shopee.vn/file/1b0849ce4ac892d23d2c91167787e2e2_tn" alt="" class="user-category__img" id="myimg2">
+                                </div>
+                            </a>
+
+                            <div class="user-category__name-content">
+                                <div class="user-category__name">vu2872001</div>
+
+                                <a href="" class="user-category__link">
+                                    <svg width="12" height="12" viewBox="0 0 12 12" xmlns="http://www.w3.org/2000/svg" style="margin-right: 4px;">
+                                        <path d="M8.54 0L6.987 1.56l3.46 3.48L12 3.48M0 8.52l.073 3.428L3.46 12l6.21-6.18-3.46-3.48" fill="#9B9B9B" fill-rule="evenodd"></path>
+                                    </svg>
+                                    <span style="font-size: 1.5rem;">Sửa Hồ Sơ</span>
+                                </a>
+                            </div>
+                        </div>
+
+                        <div class="user-category__bottom">
+                            <div class="user-category__list">
+                                <a href="" class="user-category__cat-link">
+                                    <div class="user-category__cat-img">
+                                        <img src="https://cf.shopee.vn/file/ba61750a46794d8847c3f463c5e71cc4" alt="">
+                                    </div>
+                                    <div class="user-category__text">
+                                        <span>Tài Khoản Của Tôi</span>
+                                    </div>
+                                </a>
+                                <a href="" class="user-category__cat-link">
+                                    <div class="user-category__cat-img">
+                                        <img src="https://cf.shopee.vn/file/f0049e9df4e536bc3e7f140d071e9078" alt="">
+                                    </div>
+                                    <div class="user-category__text">
+                                        <span>Quản lý sản phẩm</span>
+                                    </div>
+                                </a>
+                                <a href="" class="user-category__cat-link">
+                                    <div class="user-category__cat-img">
+                                        <img src="https://cf.shopee.vn/file/e10a43b53ec8605f4829da5618e0717c" alt="">
+                                    </div>
+                                    <div class="user-category__text">
+                                        <span>Thông Báo</span>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
                     </div>
 
-                    <div class="col l-7">
-                        <div class="product__info">
-                            <div class="info__header">
-                                <div class="header__favorite">Yêu thích</div>
-                                <span class="header__name">BBC: BIG BLACK CROCODILEBBC: BIG BLACK CROCODILEBBC: BIG BLACK CROCODILEBBC: BIG BLACK CROCODILEBBC: BIG BLACK CROCODILE</span>
+                    <div class="col l-10 m-12 c-12">
+                        <div class="user-profile__container">
+                            <div class="user-profile__header">
+                                <h3>Hồ Sơ Của Tôi</h3>
+                                <span>Quản lý thông tin hồ sơ để bảo mật tài khoản</span>
                             </div>
 
-                            <div class="info__price">
-                                <div class="price__old">100.000.000đ</div>
-                                <div class="price__new">90.000.000đ</div>
-                                <div class="price__discount">22% giảm</div>
-                            </div>
+                            <div class="user-profile__info">
+                                <!-- USER PROFILE INFORMATION -->
+                                <div class="user-profile__info-text">
+                                    <form>
+                                        <div class="user-profile">
+                                            <div class="user-profile__label">
+                                                <label for="">Tên Đăng nhập</label>
+                                            </div>
+                                            <div class="user-profile__others">
+                                                <span>vu2872001</span>
+                                            </div>
+                                        </div>
 
-                            <div class="info__quantity">
-                                <span class="quantity__text">Số lượng:</span>
-                                <input type="number" value="1" min="1" max="100">
-                            </div>
+                                        <div class="user-profile">
+                                            <div class="user-profile__label">
+                                                <label for="">Tên</label>
+                                            </div>
+                                            <div class="user-profile__others">
+                                                <input type="text" maxlength="50" id="id_fname">
+                                            </div>
+                                        </div>
 
-                            <div class="info__description">
-                                <span class="description__text">Chi tiết:</span>
-                                <span class="description__info">Dung lượng: 80gb</span>
-                            </div>
-                            
-                            <div class="info__warranty">                                
-                                <span class="warranty__text">Bảo hành:</span>
-                                <span class="warranty__time">3 năm</span>
-                            </div>
+                                        <div class="user-profile">
+                                            <div class="user-profile__label">
+                                                <label for="">Email</label>
+                                            </div>
+                                            <div class="user-profile__others">
+                                                <input type="text" maxlength="50" id="id_email">
+                                            </div>
+                                        </div>
 
-                            <div class="info__button">
-                                <button class="btn button__add-cart">
-                                    <svg enable-background="new 0 0 15 15" viewBox="0 0 15 15" x="0" y="0" class="icon-add-to-cart">
-                                        <g>
-                                            <g>
-                                                <polyline fill="none" points=".5 .5 2.7 .5 5.2 11 12.4 11 14.5 3.5 3.7 3.5" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10"></polyline>
-                                                <circle cx="6" cy="13.5" r="1" stroke="#d00033"></circle><circle cx="11.5" cy="13.5" r="1" stroke="#d00033"></circle>
-                                            </g>
-                                            <line fill="none" stroke-linecap="round" stroke-miterlimit="10" x1="7.5" x2="10.5" y1="7" y2="7"></line>
-                                            <line fill="none" stroke-linecap="round" stroke-miterlimit="10" x1="9" x2="9" y1="8.5" y2="5.5"></line>
-                                        </g>
-                                    </svg>
-                                    <span>Thêm vào giỏ hàng</span>
-                                </button>
-                                <button class="btn btn--primary button__buy">Mua Ngay</button>
+                                        <div class="user-profile">
+                                            <div class="user-profile__label">
+                                                <label for="">Số Điện Thoại</label>
+                                            </div>
+                                            <div class="user-profile__others">
+                                                <input type="number" maxlength="12" id="id_phone">
+                                            </div>
+                                        </div>
+
+                                        <div class="user-profile">
+                                            <div class="user-profile__label">
+                                                <label for="">Giới Tính</label>
+                                            </div>
+                                            <div class="user-profile__others">
+                                                <div class="radio-btn__container">
+                                                    <div class="radio-btn__group">
+                                                        <!-- CHECKED: radio-btn__button--checked -->
+                                                        <div class="radio-btn__button radio-btn__button--checked">
+                                                            <div class="radio-btn__outter-circle">
+                                                                <div class="radio-btn__inner-circle"></div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="radio-btn__content">
+                                                            Nam
+                                                        </div>
+                                                    </div>
+                                                    
+                                                    <div class="radio-btn__group">
+                                                        <div class="radio-btn__button">
+                                                            <div class="radio-btn__outter-circle">
+                                                                <div class="radio-btn__inner-circle"></div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="radio-btn__content">
+                                                            Nữ
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="user-profile">
+                                            <div class="user-profile__label">
+                                                <label for="">Ngày sinh</label>
+                                            </div>
+                                            <div class="user-profile__others">
+                                                <input type="date" id="id_birth">
+                                            </div>
+                                        </div>
+
+                                        <div class="user-profile">
+                                            <div class="user-profile__label">
+                                                <label for="">Địa chỉ</label>
+                                            </div>
+                                            <div class="user-profile__others">
+                                                <input type="text" id="id_address">
+                                            </div>
+                                        </div>
+
+                                        <div class="user-profile">
+                                            <div class="user-profile__label">
+                                            </div>
+                                            <div class="user-profile__others">
+                                                <button class="btn btn--primary" id="btn_submit">Lưu</button>
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+
+                                <!-- USER PROFILE IMAGE -->
+                                <div class="user-profile__info-img hide-on-mobile-tablet">
+                                    <div class="info-img__container">
+                                        <div class="info-img__image">
+                                            <div class="user-category__avt-holder" onclick="uploadImage()">
+                                                <svg enable-background="new 0 0 15 15" viewBox="0 0 15 15" x="0" y="0" class="icon-headshot">
+                                                    <g>
+                                                        <circle cx="7.5" cy="4.5" fill="none" r="3.8" stroke-miterlimit="10"></circle>
+                                                        <path d="m1.5 14.2c0-3.3 2.7-6 6-6s6 2.7 6 6" fill="none" stroke-linecap="round" stroke-miterlimit="10"></path>
+                                                    </g>
+                                                </svg>
+                                            </div>
+                                            <img src="" class="info-img__image-content" id="myimg">
+                                            <!-- <div class="info-img__image-content" onclick="uploadImage()" style="background-image: url(https://cf.shopee.vn/file/1b0849ce4ac892d23d2c91167787e2e2);"></div> -->
+
+                                        </div>
+                                        <!-- <input id="input" class="info-img__input" type="file" accept=".jpg,.jpeg,.png"> -->
+                                        <button class="info-img__from-file" id="select_btn">Chọn Ảnh</button>
+                                        <!-- <button class="info-img__from-file" id="upload_btn">Lưu Ảnh</button> -->
+                                        <div class="info-img__warn">
+                                            <span>Dụng lượng file tối đa 1 MB</span>
+                                            <span>Định dạng:.JPEG, .PNG, .JPG</span>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
-                        </div>                        
+                        </div>
                     </div>
                 </div>
             </div>
@@ -456,3 +575,5 @@
     </div>
 </body>
 </html>
+<script type="module" src="./asset/script/image.js"></script>
+<script type="module" src="./asset/script/user.js"></script>

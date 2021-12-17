@@ -81,9 +81,14 @@
     padding-left: 0;
 }
 
+.cart__product-item:last-child {
+    border-bottom: none;
+}
+
 .cart__product-item {
     display: flex;
     align-items: center;
+    border-bottom: 1px solid #f5f5f5;
 }
 
 .cart__check {
@@ -184,18 +189,26 @@
 }
 
 .operation {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
     width: 24%;
     text-align: center;
 }
 
 .operation button {
     border: 0;
+    border-radius: 2px;
     background: none;
     cursor: pointer;
 }
 
 .operation button:hover {
     color: var(--primary-color);
+}
+
+.operation__buy {
+    margin-top: 6px;
 }
 
 .cart__bottom {
