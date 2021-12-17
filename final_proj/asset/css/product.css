@@ -111,6 +111,11 @@
     font-size: 1.6rem;
 }
 
+.info__quantity--admin {
+    padding: 0 0 36px 0;
+    font-size: 2rem;
+}
+
 .quantity__text {
     color: var(--text-color);
     margin-right: 20px;
@@ -219,6 +224,11 @@
     padding: 40px 0;
 }
 
+.info__button--admin {
+    font-size: 1.6rem;
+    justify-content: center;
+}
+
 .btn {
     width: 200px;
     height: 48px;
@@ -246,7 +256,7 @@ circle {
 }
 
 .button__update {
-    margin: 0 36px;
+    margin-right: 36px;
 }
 
 /* input::-webkit-outer-spin-button,
