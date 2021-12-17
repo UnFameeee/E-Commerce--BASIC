@@ -140,6 +140,14 @@
     color: rgba(255, 255, 255, 0.7);
 }
 
+.header__navbar--had-user {
+    display: none;
+}
+
+.header__navbar--user-info {
+    display: none;
+}
+
 .header__navbar-item--strong {
     font-weight: 700;
 }

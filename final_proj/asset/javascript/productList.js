@@ -12,7 +12,7 @@
 
 var temp = 0
 
-var addBtn = document.getElementById("add-product-btn")
+var addBtn = document.getElementById("add-product-button")
 
 if(addBtn){
     addBtn.addEventListener('click', function () {
@@ -23,6 +23,7 @@ if(addBtn){
 
 
 var updateBtn = document.getElementsByClassName("operation__buy")
+
 for(var i = 0; i < updateBtn.length; i++) {
     var button = updateBtn[i]
     button.addEventListener('click', forwardCheck)

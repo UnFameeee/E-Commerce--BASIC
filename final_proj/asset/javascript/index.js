@@ -20,8 +20,8 @@ async function selectAllProduct(){
     return dataArray;
 }
 
-var item = await selectAllProduct();
-console.log(item);
+var listData = await selectAllProduct();
+console.log(listData);
 
 async function checkRole(){
     var role = 
@@ -46,39 +46,6 @@ async function checkRole(){
 var roleCheck = await checkRole();
 console.log(roleCheck);
 
-const product = [
-    {id: 1, img: "https://cf.shopee.vn/file/de0a73e6578642d74a85db29f5722935_tn", name: "Áo Hoodie Nam Nữ Happy, Áo sweater form rộng unisex HT60"},
-    {id: 2, img: "https://cf.shopee.vn/file/de0a73e6578642d74a85db29f5722935_tn", name: "Áo Hoodie Nam Nữ Happy, Áo sweater form rộng unisex HT60"},
-    {id: 3, img: "https://cf.shopee.vn/file/de0a73e6578642d74a85db29f5722935_tn", name: "Áo Hoodie Nam Nữ Happy, Áo sweater form rộng unisex HT60"},
-    {id: 4, img: "https://cf.shopee.vn/file/de0a73e6578642d74a85db29f5722935_tn", name: "Áo Hoodie Nam Nữ Happy, Áo sweater form rộng unisex HT60"},
-    {id: 5, img: "https://cf.shopee.vn/file/de0a73e6578642d74a85db29f5722935_tn", name: "Áo Hoodie Nam Nữ Happy, Áo sweater form rộng unisex HT60"},
-    {id: 6, img: "https://cf.shopee.vn/file/de0a73e6578642d74a85db29f5722935_tn", name: "Áo Hoodie Nam Nữ Happy, Áo sweater form rộng unisex HT60"},
-    {id: 7, img: "https://cf.shopee.vn/file/de0a73e6578642d74a85db29f5722935_tn", name: "Áo Hoodie Nam Nữ Happy, Áo sweater form rộng unisex HT60"},
-    {id: 8, img: "https://cf.shopee.vn/file/de0a73e6578642d74a85db29f5722935_tn", name: "Áo Hoodie Nam Nữ Happy, Áo sweater form rộng unisex HT60"},
-    {id: 9, img: "https://cf.shopee.vn/file/de0a73e6578642d74a85db29f5722935_tn", name: "Áo Hoodie Nam Nữ Happy, Áo sweater form rộng unisex HT60"},
-    {id: 10, img: "https://cf.shopee.vn/file/de0a73e6578642d74a85db29f5722935_tn", name: "Áo Hoodie Nam Nữ Happy, Áo sweater form rộng unisex HT60"},
-    {id: 11, img: "https://cf.shopee.vn/file/de0a73e6578642d74a85db29f5722935_tn", name: "TEST"},
-    {id: 12, img: "https://cf.shopee.vn/file/de0a73e6578642d74a85db29f5722935_tn", name: "Áo Hoodie Nam Nữ Happy, Áo sweater form rộng unisex HT60"},
-    {id: 13, img: "https://cf.shopee.vn/file/de0a73e6578642d74a85db29f5722935_tn", name: "Áo Hoodie Nam Nữ Happy, Áo sweater form rộng unisex HT60"},
-    {id: 14, img: "https://cf.shopee.vn/file/de0a73e6578642d74a85db29f5722935_tn", name: "Áo Hoodie Nam Nữ Happy, Áo sweater form rộng unisex HT60"},
-    {id: 15, img: "https://cf.shopee.vn/file/de0a73e6578642d74a85db29f5722935_tn", name: "Áo Hoodie Nam Nữ Happy, Áo sweater form rộng unisex HT60"},
-    {id: 16, img: "https://cf.shopee.vn/file/de0a73e6578642d74a85db29f5722935_tn", name: "Áo Hoodie Nam Nữ Happy, Áo sweater form rộng unisex HT60"},
-    {id: 17, img: "https://cf.shopee.vn/file/de0a73e6578642d74a85db29f5722935_tn", name: "Áo Hoodie Nam Nữ Happy, Áo sweater form rộng unisex HT60"},
-    {id: 18, img: "https://cf.shopee.vn/file/de0a73e6578642d74a85db29f5722935_tn", name: "Áo Hoodie Nam Nữ Happy, Áo sweater form rộng unisex HT60"},
-    {id: 19, img: "https://cf.shopee.vn/file/de0a73e6578642d74a85db29f5722935_tn", name: "Áo Hoodie Nam Nữ Happy, Áo sweater form rộng unisex HT60"},
-    {id: 20, img: "https://cf.shopee.vn/file/de0a73e6578642d74a85db29f5722935_tn", name: "Áo Hoodie Nam Nữ Happy, Áo sweater form rộng unisex HT60"},
-    {id: 21, img: "https://cf.shopee.vn/file/de0a73e6578642d74a85db29f5722935_tn", name: "Áo Hoodie Nam Nữ Happy, Áo sweater form rộng unisex HT60"},
-    {id: 22, img: "https://cf.shopee.vn/file/de0a73e6578642d74a85db29f5722935_tn", name: "Áo Hoodie Nam Nữ Happy, Áo sweater form rộng unisex HT60"},
-    {id: 23, img: "https://cf.shopee.vn/file/de0a73e6578642d74a85db29f5722935_tn", name: "Áo Hoodie Nam Nữ Happy, Áo sweater form rộng unisex HT60"},
-    {id: 24, img: "https://cf.shopee.vn/file/de0a73e6578642d74a85db29f5722935_tn", name: "Áo Hoodie Nam Nữ Happy, Áo sweater form rộng unisex HT60"},
-    {id: 25, img: "https://cf.shopee.vn/file/de0a73e6578642d74a85db29f5722935_tn", name: "Áo Hoodie Nam Nữ Happy, Áo sweater form rộng unisex HT60"},
-    {id: 26, img: "https://cf.shopee.vn/file/de0a73e6578642d74a85db29f5722935_tn", name: "Áo Hoodie Nam Nữ Happy, Áo sweater form rộng unisex HT60"},
-    {id: 27, img: "https://cf.shopee.vn/file/de0a73e6578642d74a85db29f5722935_tn", name: "Áo Hoodie Nam Nữ Happy, Áo sweater form rộng unisex HT60"},
-    {id: 28, img: "https://cf.shopee.vn/file/de0a73e6578642d74a85db29f5722935_tn", name: "Áo Hoodie Nam Nữ Happy, Áo sweater form rộng unisex HT60"},
-    {id: 29, img: "https://cf.shopee.vn/file/de0a73e6578642d74a85db29f5722935_tn", name: "Áo Hoodie Nam Nữ Happy, Áo sweater form rộng unisex HT60"},
-    {id: 30, img: "https://cf.shopee.vn/file/de0a73e6578642d74a85db29f5722935_tn", name: "TEST"},
-    {id: 31, img: "https://cf.shopee.vn/file/de0a73e6578642d74a85db29f5722935_tn", name: "TEST"},
-]
 const btnNext = document.querySelector('.fa-angle-right');
 const btnPrevious = document.querySelector('.fa-angle-left');
 
@@ -86,24 +53,28 @@ let perPage = 10;
 let currentPage = 1;
 let start = 0;
 let end = perPage;
-let totalPages = Math.ceil(product.length / perPage);
-let allProduct = selectAllProduct()
+let totalPages = Math.ceil(listData.length / perPage);
 
 function renderProduct() {
-    html='';
+    let html='';
+    let startIndex=start;
+    let endIndex=end
 
-    const content = product.map((item, index) => {
-        for(let i = 0; i<allProduct.length; i++){
-            if(index >= start && index < end){
+    if(endIndex > listData.length) {
+        endIndex = listData.length
+    }
+
+    if(listData.length > 0) {
+        for(let i = startIndex; i < endIndex; i++){
                 html +=`            
                 <div style="position: relative;" class="col l-2-4 m-4 c-6">                                   
                     <a href="" class="product-item">
-                        <div class="product-item__img" style="background-image: url(${item.img});"></div>
-                        <h4 class="product-item__name">${item.name}</h4>
+                        <div class="product-item__img" style="background-image: url(${listData[i].product_image});"></div>
+                        <h4 class="product-item__name">${listData[i].product_name}</h4>
                         
                         <div class="product-item__price">
-                            <span class="product-item__price-old">1.200.000đ</span>
-                            <span class="product-item__price-current">990.000đ</span>
+                            <span class="product-item__price-old">${listData[i].price}</span>
+                            <span class="product-item__price-current">${listData[i].price}</span>
                         </div>
             
                         <!-- Thả tim và rate sao -->
@@ -121,13 +92,12 @@ function renderProduct() {
                                 <i class="fas fa-star"></i>
                             </span>
             
-                            <div class="product-item__sold">88 đã bán</div>
+                            <div class="product-item__sold">88 đánh giá</div>
                         </div>
             
                         <!-- Xuất xứ -->
                         <div class="product-item__origin">
-                            <span class="product-item__brand">Whoo</span>
-                            <span class="product-item__origin-name">Nhật Bản</span>
+                            <span class="product-item__brand">${listData[i].brand}</span>
                         </div>  
             
                         <!-- Nhãn yêu thích
@@ -139,7 +109,7 @@ function renderProduct() {
                         <!-- Nhãn giảm giá -->
                         <div class="product-item__sale-off">
                             <div class="product-item__sale-off-percent-wrapper">
-                                <span class="product-item__sale-off-percent">43%</span>
+                                <span class="product-item__sale-off-percent">10%</span>
                             </div>
                             <span class="product-item__sale-off-label">GIẢM</span>
                         </div>
@@ -160,18 +130,15 @@ function renderProduct() {
                             </svg>
                         </button>
                     </div>
-                </div>`;
-    
-                return html;
-            }
-        }
-    })
+                </div>`;           
+        }  
+    }
 
     document.getElementById('product').innerHTML = html;
 }
 renderProduct();
 function renderListPage() {
-    html='';
+    let html='';
     html+=`
     <li class="pagination-item pagination-item--active">
         <a href="#" class="pagination-item__link">${1}</a>
@@ -285,3 +252,17 @@ function pagination(c, m) {
     return rangeWithDots;
 }
 
+/* CHECK USER */
+var navbarUser = document.querySelectorAll('.header__navbar-user')
+var navbarNone =  document.querySelectorAll('.header__navbar-item--strong')
+var test = 1
+
+if(roleCheck){
+    $('.header__navbar-user').removeClass('header__navbar--user-info')
+    $('.header__navbar-item--strong').addClass('header__navbar--had-user')
+    document.querySelectorAll('.header__navbar-user-name')[0].innerText = 'vu2872001'
+}
+else{
+    $('.header__navbar-user').addClass('header__navbar--user-info')
+    $('.header__navbar-item--strong').removeClass('header__navbar--had-user')
+}
