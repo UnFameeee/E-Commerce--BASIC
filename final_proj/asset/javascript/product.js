@@ -1,5 +1,7 @@
 
-if(localStorage.getItem('test')) {
+var check = localStorage.getItem('test')
+
+if(check) {
     $('.button__add').addClass('button__add--disabled')
     $('.button__update').removeClass('button__update--disabled')
     localStorage.removeItem('test')
