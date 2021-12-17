@@ -257,7 +257,9 @@ function addToCartClicked(event) {
     var image = shopItem.querySelector('.product-item__img')
     var imageSrc = image.style.backgroundImage.replace('url(', '').replace(')', '').replace(/\"/gi, "")
     var id = shopItem.querySelector('#item-id').innerText
-    addItemToCart(id, title, price, imageSrc)
+    if(checkRoleItem.UserRole !== ""){
+        addItemToCart(id, title, price, imageSrc)
+    }
 }
 
 function addItemToCart(id, title, price, imageSrc) {
@@ -351,8 +353,8 @@ var navbarUser = document.querySelectorAll('.header__navbar-user')
 var navbarNone = document.querySelectorAll('.header__navbar-item--strong')
 var test = 1
 
-console.log(checkRoleItem)
-if(checkRoleItem){
+console.log(checkRoleItem.UserRole)
+if(checkRoleItem.UserRole !== ""){
     $('.header__navbar-user').removeClass('header__navbar--user-info')
     $('.header__navbar-item--strong').addClass('header__navbar--had-user')
     if(usernameimage[0].image !== null){
