@@ -42,4 +42,10 @@ public class AccountController {
     public ResponseEntity<?> getGlobalID(){
         return ResponseEntity.ok(accountService.getGLobalID());
     }
+
+    //Lấy ra UserRole
+    @GetMapping("/getRole")
+    public ResponseEntity<?> getRole(){
+        return ResponseEntity.ok(accountService.getRole());
+    }
 }

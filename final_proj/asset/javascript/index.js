@@ -1,3 +1,51 @@
+import { URL } from '../script/URL.js';
+async function selectAllProduct(){
+    var dataArray = []
+    await $.ajax({
+        type: 'GET',
+        url: URL + '/product/all',
+        dataType: 'json',
+        headers: {
+            "Content-Type": "application/json",
+        },
+        data: "",
+        success: function(data) {
+            dataArray = data;
+        },
+        error: function(jqXHR) {
+            
+            console.log("The following error occured: " + textStatus, errorThrown);
+        }
+    });
+    return dataArray;
+}
+
+var item = await selectAllProduct();
+console.log(item);
+
+async function checkRole(){
+    var role = 
+    await $.ajax({
+        type: 'GET',
+        url: URL + '/account/getRole',
+        dataType: 'json',
+        headers: {
+            "Content-Type": "application/json",
+        },
+        data: "",
+        success: function(data) {
+            role = data;
+        },
+        error: function(jqXHR) {
+            
+            console.log("The following error occured: " + textStatus, errorThrown);
+        }
+    });
+    return role;
+}
+var roleCheck = await checkRole();
+console.log(roleCheck);
+
 const product = [
     {id: 1, img: "https://cf.shopee.vn/file/de0a73e6578642d74a85db29f5722935_tn", name: "Áo Hoodie Nam Nữ Happy, Áo sweater form rộng unisex HT60"},
     {id: 2, img: "https://cf.shopee.vn/file/de0a73e6578642d74a85db29f5722935_tn", name: "Áo Hoodie Nam Nữ Happy, Áo sweater form rộng unisex HT60"},
