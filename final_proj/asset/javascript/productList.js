@@ -6,25 +6,14 @@ var addBtn = document.getElementById("add-product-button")
 
 if(addBtn){
     addBtn.addEventListener('click', function () {
-        temp = 0
+        temp = 0        
+        localStorage.setItem('test', temp)
         window.location.href = './addProduct.html'
     })
 }
 
-
-var updateBtn = document.getElementsByClassName("operation__buy")
-
-for(var i = 0; i < updateBtn.length; i++) {
-    var button = updateBtn[i]
-    button.addEventListener('click', forwardCheck)
-}
-
-function forwardCheck() {
-    temp = 1;
-    localStorage.setItem('test', temp)
-    window.location.href = './addProduct.html'
-}
-
+var removeCartItemButtons
+var updateBtn
 
 function renderProduct() {
     let html = '';
@@ -41,6 +30,7 @@ function renderProduct() {
                     </div>
                 </a>
             </span>
+            <span id="product-id" >${listDataArray[i].id}</span>
             <span class="quantity">
                 <span class="quantity-input">${listDataArray[i].quantity}</span>
             </span>
@@ -54,5 +44,45 @@ function renderProduct() {
     }
 
     document.getElementById('product-list').innerHTML = html;
+    removeCartItemButtons = document.querySelectorAll('.operation__remove');
+    for (var i = 0; i < removeCartItemButtons.length; i++) {
+        var button = removeCartItemButtons[i]
+        button.addEventListener('click', removeCartItem)
+    }
+
+    updateBtn = document.getElementsByClassName("operation__buy")
+    for(var i = 0; i < updateBtn.length; i++) {
+        var button = updateBtn[i]
+        button.addEventListener('click', forwardCheck)
+    }
 }
 renderProduct();
+
+updateBtn = document.getElementsByClassName("operation__buy")
+for(var i = 0; i < updateBtn.length; i++) {
+    var button = updateBtn[i]
+    button.addEventListener('click', forwardCheck)
+}
+
+function forwardCheck() {
+    temp = 1;
+    localStorage.setItem('test', temp)
+    window.location.href = './addProduct.html'
+}
+
+
+removeCartItemButtons = document.querySelectorAll('.operation__remove');
+for (var i = 0; i < removeCartItemButtons.length; i++) {
+    var button = removeCartItemButtons[i]
+    button.addEventListener('click', removeCartItem)
+}
+
+console.log(listDataArray)
+
+function removeCartItem(event) {
+    var buttonClicked = event.target
+    // buttonClicked.parentElement.parentElement.remove()
+    var item = buttonClicked.parentElement.parentElement
+    var test = item.querySelector('#product-id').innerText
+    console.log(test)
+}
