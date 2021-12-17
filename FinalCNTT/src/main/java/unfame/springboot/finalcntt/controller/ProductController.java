@@ -25,9 +25,9 @@ public class ProductController {
     }
 
     //Xóa 1 mặt hàng
-    @DeleteMapping("/delete")
-    public ResponseEntity<?> deleteProduct(@RequestBody Product req){
-        return ResponseEntity.ok(productService.deleteProduct(req));
+    @DeleteMapping("/delete/{id}")
+    public ResponseEntity<?> deleteProduct(@PathVariable("id") Long Id){
+        return ResponseEntity.ok(productService.deleteProduct(Id));
     }
 
     //Trả ra tất cả các mặt hàng
@@ -40,5 +40,23 @@ public class ProductController {
     @GetMapping("/search")
     public ResponseEntity<?> showAllProductSearch(@RequestParam String value){
         return ResponseEntity.ok(productService.getAllProductWithSearch(value));
+    }
+
+    //Lưu IDproduct
+    @PostMapping("/saveIDproduct/{id}")
+    public ResponseEntity<?> saveIDproduct(@PathVariable("id") Long Id){
+        return ResponseEntity.ok(productService.saveIDproduct(Id));
+    }
+
+    //Lưu IDproduct
+    @GetMapping("/getIDproduct")
+    public ResponseEntity<?> getIDproduct(){
+        return ResponseEntity.ok(productService.getIDproduct());
+    }
+
+    //Lưu IDproduct
+    @DeleteMapping("/deleteIDproduct")
+    public ResponseEntity<?> deleteIDproduct(){
+        return ResponseEntity.ok(productService.deleteIDproduct());
     }
 }

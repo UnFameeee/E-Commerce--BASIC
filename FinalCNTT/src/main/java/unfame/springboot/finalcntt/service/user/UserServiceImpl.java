@@ -21,7 +21,6 @@ public class UserServiceImpl implements UserService {
         if(!GlobalVariable.checkSession()){
             return new HashMap<>() {{put("Error", "Please login first!!!");}};
         }
-
         User UserCheck = userRepository.findById(GlobalVariable.IDuser).orElse(null);
         if(UserCheck != null){
             user.setId(GlobalVariable.IDuser);
