@@ -259,6 +259,18 @@ circle {
     margin-right: 36px;
 }
 
+.button__add--disabled {
+    display: none;
+}
+
+.button__update--disabled {
+    display: none;
+}
+
+.button__get-pic {
+    margin-right: 36px;
+}
+
 /* input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button {
     -webkit-appearance: none;

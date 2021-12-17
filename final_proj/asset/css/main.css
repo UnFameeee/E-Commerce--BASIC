@@ -368,6 +368,7 @@
 
 .header__logo {
     width: 200px;
+    flex: unset;
 }
 
 .header__logo-link {

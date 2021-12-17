@@ -9,14 +9,14 @@
     <link rel="icon" href="https://i.pinimg.com/originals/52/6e/71/526e7194884d4a9141dbd637d89b202b.png">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css">
     <link rel="stylesheet" href="./asset/css/base.css">
-    <link rel="stylesheet" href="./asset/css/main.css">
     <link rel="stylesheet" href="./asset/css/user.css">
     <link rel="stylesheet" href="./asset/css/cart.css">
+    <link rel="stylesheet" href="./asset/css/main.css">
     <link rel="stylesheet" href="./asset/css/grid.css">
     <link rel="stylesheet" href="./asset/css/responsive.css">
     <link rel="stylesheet" href="./asset/fonts/fontawesome-free-5.15.4-web/css/all.min.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap&subset=vietnamese" rel="stylesheet">
-    <!-- <script src="./asset/javascript/user.js"></script> -->
+    <script src="./asset/javascript/productList.js" type="module" async></script>
     <!-- ajax -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 </head>
@@ -287,7 +287,7 @@
                     <!-- USER PROFILE CATEGORY -->
                     <div class="col l-2 m-0 c-0">
                         <div class="user-category__top">
-                            <a href="" class="user-category__avt-content">
+                            <a href="./admin.html" class="user-category__avt-content">
                                 <div class="user-category__avt">
                                     <div class="user-category__avt-holder">
                                         <svg enable-background="new 0 0 15 15" viewBox="0 0 15 15" x="0" y="0" class="icon-headshot">
@@ -305,7 +305,7 @@
                             <div class="user-category__name-content">
                                 <div class="user-category__name">vu2872001</div>
 
-                                <a href="" class="user-category__link">
+                                <a href="./admin.html" class="user-category__link">
                                     <svg width="12" height="12" viewBox="0 0 12 12" xmlns="http://www.w3.org/2000/svg" style="margin-right: 4px;">
                                         <path d="M8.54 0L6.987 1.56l3.46 3.48L12 3.48M0 8.52l.073 3.428L3.46 12l6.21-6.18-3.46-3.48" fill="#9B9B9B" fill-rule="evenodd"></path>
                                     </svg>
@@ -426,7 +426,7 @@
 
                 <div class="row sm-gutter cart__content">
                     <div class="cart__bottom">
-                        <button class="btn btn--primary">THÊM</button>
+                        <button id="add-product-btn" class="btn btn--primary">THÊM</button>
                     </div>
                 </div>
             </div>
@@ -525,5 +525,5 @@
     </div>
 </body>
 </html>
-<script type="module" src="./asset/script/image.js"></script>
-<script type="module" src="./asset/script/user.js"></script>
+<!-- <script type="module" src="./asset/script/image.js"></script>
+<script type="module" src="./asset/script/user.js"></script> -->
