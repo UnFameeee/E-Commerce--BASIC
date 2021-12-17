@@ -30,6 +30,37 @@ window.addEventListener('load', function(){
     });
 })
 
+var sexBtn = document.getElementsByClassName("radio-btn__group")
+
+var male = sexBtn[0]
+var female = sexBtn[1]
+
+male.addEventListener('click', () => {
+    male.classList.add('radio-btn__button--checked')
+    female.classList.remove('radio-btn__button--checked')
+})
+
+female.addEventListener('click', () => {
+    female.classList.add('radio-btn__button--checked')
+    male.classList.remove('radio-btn__button--checked')
+})
+
+var sex = 'Nam'
+const options = {
+    attributes: true
+}
+
+function callback(mutationList, observer) {
+    mutationList.forEach(function(mutation) {
+        if (mutation.type === 'attributes' && mutation.attributeName === 'class') {            
+             sex='Nữ'            
+        }
+    })
+}
+
+const observer = new MutationObserver(callback)
+observer.observe(female, options)
+
 const btn_submit = document.getElementById("btn_submit");
 btn_submit.addEventListener("click", (Event) => {
     Event.preventDefault();
@@ -43,7 +74,7 @@ btn_submit.addEventListener("click", (Event) => {
                     id: "",
                     fullname: document.getElementById("id_fname").value,
                     image: "",
-                    gender: "Nam",
+                    gender: sex,
                     email: document.getElementById("id_email").value,
                     phone: document.getElementById("id_phone").value,
                     birth: document.getElementById("id_birth").value, 
