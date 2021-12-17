@@ -15,13 +15,26 @@ public class ProductServiceImpl implements ProductService {
 
     @Override
     public HashMap<String, String> createProduct(Product product){
-        productRepository.save(product);
-        return new HashMap<>() {{put("key", "Success");}};
+        //Check xem tên sản phẩm đó có tồn tại không
+        Product productCheck = productRepository.findProductByName(product.getProduct_name());
+        if(productCheck == null){
+            productRepository.save(product);
+            return new HashMap<>() {{put("key", "Success");}};
+        }
+        return new HashMap<>() {{put("key", "This product already existed");}};
     }
 
     @Override
     public HashMap<String, String> updateProduct(Product product){
-
+        if(product.getProduct_name() == null ||
+            product.getProduct_image() == null ||
+            product.getProduct_description() == null ||
+            product.getBrand() == null ||
+            product.getGuarantee() == null ||
+            product.getPrice() == null ||
+            product.getQuantity() == null){
+            return new HashMap<>() {{put("key", "Missing value to update product!!!");}};
+        }
         productRepository.save(product);
         return new HashMap<>() {{put("key", "Success");}};
     }
@@ -40,7 +53,7 @@ public class ProductServiceImpl implements ProductService {
 
     @Override
     public HashMap<String, String> deleteProduct(Product product) {
-
+        productRepository.delete(product);
         return new HashMap<>() {{put("key", "Success");}};
     }
 }

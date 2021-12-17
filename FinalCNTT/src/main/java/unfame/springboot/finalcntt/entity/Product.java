@@ -16,10 +16,10 @@ public class Product{
     @Column(name = "Id", nullable = false)
     private Long Id;
 
-    @Column(name = "Product_name", nullable = false)
+    @Column(name = "Product_name", length = 5000, nullable = false)
     private String Product_name;
 
-    @Column(name = "Product_description", nullable = true)
+    @Column(name = "Product_description", length = 10000, nullable = true)
     private String Product_description;
 
     @Column(name = "Product_image", length = Integer.MAX_VALUE, nullable = true)

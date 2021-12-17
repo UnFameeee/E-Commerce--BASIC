@@ -31,13 +31,13 @@ public class ProductController {
     }
 
     //Trả ra tất cả các mặt hàng
-    @PostMapping("/all")
+    @GetMapping("/all")
     public ResponseEntity<?> showAllProduct(){
         return ResponseEntity.ok(productService.getAllProduct());
     }
 
     //Trả ra tất cả các mặt hàng search theo product_name
-    @PostMapping("/search")
+    @GetMapping("/search")
     public ResponseEntity<?> showAllProductSearch(@RequestParam String value){
         return ResponseEntity.ok(productService.getAllProductWithSearch(value));
     }
