@@ -301,3 +301,11 @@ input::-webkit-inner-spin-button {
     font-size: 1.4rem;
     line-height: 2rem;
 }
+
+.user-category--admin {
+    display: none;
+}
+
+.user-category--user {
+    display: none;
+}

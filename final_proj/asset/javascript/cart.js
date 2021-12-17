@@ -1,3 +1,4 @@
+/* CART */
 if (document.readyState == 'loading') {
     document.addEventListener('DOMContentLoaded', ready)
 } else {
@@ -16,6 +17,8 @@ function ready() {
         var input = quantityInputs[i]
         input.addEventListener('change', quantityChanged)
     }
+
+    document.getElementsByClassName('btn-purchase')[0].addEventListener('click', purchaseClicked)
 }
 
 function removeCartItem(event) {
@@ -32,17 +35,35 @@ function quantityChanged(event) {
     updateCartTotal()
 }
 
+function purchaseClicked() {
+    alert('Thank you for your purchase')
+    var cartItems = document.querySelector('.cart__product-list')
+    while (cartItems.hasChildNodes()) {
+        cartItems.removeChild(cartItems.firstChild)
+    }
+    updateCartTotal()
+}
+
 function updateCartTotal() {
     var cartRows = document.querySelectorAll('.cart__product-item')
     var total = 0
     var quantityTotal = 0
     for (var i = 0; i < cartRows.length; i++) {
         var cartRow = cartRows[i]
-        var priceElement = cartRow.getElementsByClassName('price')[0]
-        var quantityElement = cartRow.getElementsByClassName('quantity')[0]
-        var quantityinputElement = quantityElement.getElementsByClassName('quantity-input')[0]
-        var price = parseFloat(priceElement.innerText.replace('đ', '').replace('.', ''))
-        var quantity = quantityinputElement.value
+        var priceElement = cartRow.querySelector('.price')
+        var quantityElement = cartRow.querySelector('.quantity') 
+        var quantityinputElement
+        if(quantityElement){
+            quantityinputElement = quantityElement.querySelector('.quantity-input')
+        }
+        var price = 0
+        if(priceElement){
+            price = parseFloat(priceElement.innerText.replace('đ', '').replace('.', ''))
+        }
+        var quantity = 0
+        if(quantityinputElement){
+            quantity = quantityinputElement.value
+        }
         quantityTotal += parseInt(quantity)
         total = total + (price * quantity)
     }
@@ -51,3 +72,4 @@ function updateCartTotal() {
     document.querySelectorAll('.total-quantity')[0].innerText = '(' + quantityTotal + ' sản phẩm):'
 }
 updateCartTotal()
+
