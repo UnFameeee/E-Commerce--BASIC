@@ -73,8 +73,15 @@ function updateCartTotal() {
         total = total + (price * quantity)
     }
     total = new Intl.NumberFormat('vi-VN', { style: 'currency', currency: 'VND' }).format(Math.round(total * 100) / 100)
-    document.querySelectorAll('.total-price h3')[0].innerText = total
-    document.querySelectorAll('.total-quantity')[0].innerText = '(' + quantityTotal + ' sản phẩm):'
+    var totalPrice =  document.querySelectorAll('.total-price h3')
+    var totalQuantity = document.querySelectorAll('.total-quantity')
+
+    if(totalPrice) {
+        document.querySelectorAll('.total-price h3')[0].innerText = total
+    }
+    if(totalQuantity) {
+        document.querySelectorAll('.total-quantity')[0].innerText = '(' + quantityTotal + ' sản phẩm):'
+    }
 }
 updateCartTotal()
 
