@@ -39,6 +39,6 @@ public class ProductController {
     //Trả ra tất cả các mặt hàng search theo product_name
     @PostMapping("/search")
     public ResponseEntity<?> showAllProductSearch(@RequestParam String value){
-        return ResponseEntity.ok(productService.getAllProduct(value));
+        return ResponseEntity.ok(productService.getAllProductWithSearch(value));
     }
 }
