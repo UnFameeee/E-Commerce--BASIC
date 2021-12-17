@@ -1,46 +1,24 @@
 import { URL } from '../script/URL.js';
-async function selectAllProduct(){
-    var dataArray = []
-    await $.ajax({
-        type: 'GET',
-        url: URL + '/product/all',
-        dataType: 'json',
-        headers: {
-            "Content-Type": "application/json",
-        },
-        data: "",
-        success: function(data) {
-            dataArray = data;
-        },
-        error: function(jqXHR) {
-            
-            console.log("The following error occured: " + textStatus, errorThrown);
-        }
-    });
-    return dataArray;
-}
+import { listDataArray } from './allProductArray.js';
 
-var listData = await selectAllProduct();
-console.log(listData);
+async function checkRole() {
+    var role =
+        await $.ajax({
+            type: 'GET',
+            url: URL + '/account/getRole',
+            dataType: 'json',
+            headers: {
+                "Content-Type": "application/json",
+            },
+            data: "",
+            success: function (data) {
+                role = data;
+            },
+            error: function (jqXHR) {
 
-async function checkRole(){
-    var role = 
-    await $.ajax({
-        type: 'GET',
-        url: URL + '/account/getRole',
-        dataType: 'json',
-        headers: {
-            "Content-Type": "application/json",
-        },
-        data: "",
-        success: function(data) {
-            role = data;
-        },
-        error: function(jqXHR) {
-            
-            console.log("The following error occured: " + textStatus, errorThrown);
-        }
-    });
+                console.log("The following error occured: " + textStatus, errorThrown);
+            }
+        });
     return role;
 }
 var roleCheck = await checkRole();
@@ -53,28 +31,39 @@ let perPage = 10;
 let currentPage = 1;
 let start = 0;
 let end = perPage;
-let totalPages = Math.ceil(listData.length / perPage);
+let totalPages = Math.ceil(listDataArray.length / perPage);
+
+var removeCartItemButtons
+var addToCartButtons
 
 function renderProduct() {
-    let html='';
-    let startIndex=start;
-    let endIndex=end
+    let html = '';
+    let startIndex = start;
+    let endIndex = end
 
-    if(endIndex > listData.length) {
-        endIndex = listData.length
+    if (endIndex > listDataArray.length) {
+        endIndex = listDataArray.length
     }
 
-    if(listData.length > 0) {
-        for(let i = startIndex; i < endIndex; i++){
-                html +=`            
+    if (listDataArray.length > 0) {
+        for (let i = startIndex; i < endIndex; i++) {
+            var oldPrice = listDataArray[i].price
+            var newPrice = oldPrice - oldPrice*10/100
+
+            var oldPriceString = new Intl.NumberFormat('vi-VN', { style: 'currency', currency: 'VND' }).format(oldPrice)
+            var newPriceString = new Intl.NumberFormat('vi-VN', { style: 'currency', currency: 'VND' }).format(newPrice)
+
+            html += `            
                 <div style="position: relative;" class="col l-2-4 m-4 c-6">                                   
                     <a href="" class="product-item">
-                        <div class="product-item__img" style="background-image: url(${listData[i].product_image});"></div>
-                        <h4 class="product-item__name">${listData[i].product_name}</h4>
+                        <div class="product-item__img" style="background-image: url(${listDataArray[i].product_image});"></div>
+                        <h4 class="product-item__name">${listDataArray[i].product_name}</h4>
                         
+                        <span id="item-id" style="display: none;">${listDataArray[i].id}</span>
+
                         <div class="product-item__price">
-                            <span class="product-item__price-old">${listData[i].price}</span>
-                            <span class="product-item__price-current">${listData[i].price}</span>
+                            <span class="product-item__price-old">${oldPriceString}</span>
+                            <span class="product-item__price-current">${newPriceString}</span>
                         </div>
             
                         <!-- Thả tim và rate sao -->
@@ -92,12 +81,12 @@ function renderProduct() {
                                 <i class="fas fa-star"></i>
                             </span>
             
-                            <div class="product-item__sold">88 đánh giá</div>
+                            <div class="product-item__sold">${listDataArray[i].quantity} đánh giá</div>
                         </div>
             
                         <!-- Xuất xứ -->
                         <div class="product-item__origin">
-                            <span class="product-item__brand">${listData[i].brand}</span>
+                            <span class="product-item__brand">${listDataArray[i].brand}</span>
                         </div>  
             
                         <!-- Nhãn yêu thích
@@ -130,22 +119,34 @@ function renderProduct() {
                             </svg>
                         </button>
                     </div>
-                </div>`;           
-        }  
+                </div>`;
+        }
     }
 
     document.getElementById('product').innerHTML = html;
+
+    removeCartItemButtons = document.querySelectorAll('.header__cart-item-remove');
+    for (var i = 0; i < removeCartItemButtons.length; i++) {
+        var button = removeCartItemButtons[i]
+        button.addEventListener('click', removeCartItem)
+    }
+
+    addToCartButtons = document.querySelectorAll('.button__add-cart')
+    for (var i = 0; i < addToCartButtons.length; i++) {
+        var button = addToCartButtons[i]
+        button.addEventListener('click', addToCartClicked)
+    }
 }
 renderProduct();
 function renderListPage() {
-    let html='';
-    html+=`
+    let html = '';
+    html += `
     <li class="pagination-item pagination-item--active">
         <a href="#" class="pagination-item__link">${1}</a>
     </li>`;
 
-    for(let i = 2; i <= totalPages; i++){
-        html+=`
+    for (let i = 2; i <= totalPages; i++) {
+        html += `
         <li class="pagination-item">
         <a href="#" class="pagination-item__link">${i}</a>
         </li>`;
@@ -157,20 +158,20 @@ renderListPage();
 $('.page-icon-left').addClass('disabled');
 function changePage() {
     let current = document.querySelectorAll('.pages li');
-    for(let i = 0; i < current.length; i++){
+    for (let i = 0; i < current.length; i++) {
         current[i].addEventListener('click', () => {
             currentPage = i + 1;
             $('.pages li').removeClass('pagination-item--active');
             current[i].classList.add('pagination-item--active');
-            if(currentPage===1){                
+            if (currentPage === 1) {
                 $('.page-icon-left').addClass('disabled');
                 $('.page-icon-right').removeClass('disabled');
             }
-            if(currentPage===totalPages){
+            if (currentPage === totalPages) {
                 $('.page-icon-right').addClass('disabled');
                 $('.page-icon-left').removeClass('disabled');
             }
-            if(currentPage > 1 && currentPage < totalPages){
+            if (currentPage > 1 && currentPage < totalPages) {
                 $('.page-icon-left').removeClass('disabled');
                 $('.page-icon-right').removeClass('disabled');
             }
@@ -187,17 +188,17 @@ function getCurrentPage(currentPage) {
 
 btnNext.addEventListener('click', () => {
     currentPage++;
-    if(currentPage > totalPages){
+    if (currentPage > totalPages) {
         currentPage = totalPages;
-    }  
+    }
 
-    if(currentPage === totalPages){
+    if (currentPage === totalPages) {
         $('.page-icon-right').addClass('disabled');
     }
 
     $('.page-icon-left').removeClass('disabled');
     $(`.pages li`).removeClass('pagination-item--active');
-    $(`.pages li:eq(${currentPage-1})`).addClass('pagination-item--active');
+    $(`.pages li:eq(${currentPage - 1})`).addClass('pagination-item--active');
 
     getCurrentPage(currentPage);
     renderProduct();
@@ -205,17 +206,17 @@ btnNext.addEventListener('click', () => {
 
 btnPrevious.addEventListener('click', () => {
     currentPage--;
-    if(currentPage < 1){
+    if (currentPage < 1) {
         currentPage = 1;
     }
 
-    if(currentPage === 1){
+    if (currentPage === 1) {
         $('.page-icon-left').addClass('disabled');
     }
 
-    $('.page-icon-right').removeClass('disabled');    
+    $('.page-icon-right').removeClass('disabled');
     $(`.pages li`).removeClass('pagination-item--active');
-    $(`.pages li:eq(${currentPage-1})`).addClass('pagination-item--active');
+    $(`.pages li:eq(${currentPage - 1})`).addClass('pagination-item--active');
 
     getCurrentPage(currentPage);
     renderProduct();
@@ -252,17 +253,110 @@ function pagination(c, m) {
     return rangeWithDots;
 }
 
+/* CART */
+removeCartItemButtons = document.querySelectorAll('.header__cart-item-remove');
+for (var i = 0; i < removeCartItemButtons.length; i++) {
+    var button = removeCartItemButtons[i]
+    button.addEventListener('click', removeCartItem)
+}
+
+addToCartButtons = document.querySelectorAll('.button__add-cart')
+for (var i = 0; i < addToCartButtons.length; i++) {
+    var button = addToCartButtons[i]
+    button.addEventListener('click', addToCartClicked)
+}
+
+function removeCartItem(event) {
+    var buttonClicked = event.target
+    buttonClicked.parentElement.parentElement.parentElement.remove()
+}
+
+function addToCartClicked(event) {
+    var button = event.target
+    var shopItem = button.parentElement.parentElement
+    var title = shopItem.querySelector('.product-item__name').innerText
+    var price = shopItem.querySelector('.product-item__price-current').innerText
+    var image = shopItem.querySelector('.product-item__img')
+    var imageSrc = image.style.backgroundImage.replace('url(', '').replace(')', '').replace(/\"/gi, "")
+    var id = shopItem.querySelector('#item-id').innerText
+    addItemToCart(id, title, price, imageSrc)
+}
+
+function addItemToCart(id, title, price, imageSrc) {
+    var cartRow = document.createElement('div')
+    cartRow.classList.add('header__cart-item')
+    var cartItems = document.querySelector('.header__cart-list-item')
+    var cartItemNames = cartItems.querySelectorAll('.header__cart-item-name')
+    for (var i = 0; i < cartItemNames.length; i++) {
+        if (cartItemNames[i].innerText == title) {
+            alert('This item is already added to the cart')
+            return
+        }
+    }
+    var cartRowContents = `
+        <img src="${imageSrc}" alt="" class="header__cart-item-img">
+
+        <div class="header__cart-item-info">
+            <div class="header__cart-item-head">
+                <h5 class="header__cart-item-name">${title}</h5>
+
+                <span id="cart-id" style="display: none;">${id}</span>
+                
+                <div class="header__cart-item-price-wrap">
+                    <span class="header__cart-item-price">${price}</span>
+                    <!-- <span class="header__cart-item-mul">x</span>
+                    <span class="header__cart-item-quantity">2</span> -->
+                </div>
+            </div>
+
+            <div class="header__cart-item-body">
+                <span class="header__cart-item-description">
+                    Phân loại: Bạc
+                </span>
+                <span class="header__cart-item-remove">Xoá</span>
+            </div>
+        </div>`
+    cartRow.innerHTML = cartRowContents
+    cartItems.append(cartRow)
+    cartRow.querySelector('.header__cart-item-remove').addEventListener('click', removeCartItem)
+}
+
+$('.header__cart-view').click(() => {
+    var array = []
+    var itemElement = $('.header__cart-item')
+
+    class items {
+        constructor(image, price, name) {
+            this.image = image;
+            this.price = price;
+            this.name = name;
+        }
+    }
+
+    for (var i = 0; i < itemElement.length; i++) {
+        var imgSrc = itemElement[i].querySelector('.header__cart-item-img').src
+        var name = itemElement[i].querySelector('.header__cart-item-name').innerText
+        var price = itemElement[i].querySelector('.header__cart-item-price').innerText
+        var temp = new items(imgSrc, price, name)
+        array.push(temp)
+    }
+
+    sessionStorage.setItem('arrayCart', JSON.stringify(array))
+    window.location.href = './cart.html'
+})
+
+
 /* CHECK USER */
 var navbarUser = document.querySelectorAll('.header__navbar-user')
-var navbarNone =  document.querySelectorAll('.header__navbar-item--strong')
+var navbarNone = document.querySelectorAll('.header__navbar-item--strong')
 var test = 1
 
-if(roleCheck){
+if (roleCheck) {
     $('.header__navbar-user').removeClass('header__navbar--user-info')
     $('.header__navbar-item--strong').addClass('header__navbar--had-user')
     document.querySelectorAll('.header__navbar-user-name')[0].innerText = 'vu2872001'
 }
-else{
+else {
     $('.header__navbar-user').addClass('header__navbar--user-info')
     $('.header__navbar-item--strong').removeClass('header__navbar--had-user')
 }
