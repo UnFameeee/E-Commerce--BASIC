@@ -203,6 +203,7 @@ input::-webkit-inner-spin-button {
 .radio-btn__group {
     margin-right: 12px;    
     align-items: center;
+    cursor: pointer;
 }
 
 .radio-btn__button {
@@ -282,6 +283,7 @@ input::-webkit-inner-spin-button {
 }
 
 .info-img__from-file {
+    width: 120px;
     background: #fff;
     color: #555;
     border: 1px solid rgba(0,0,0,.09);
@@ -289,10 +291,16 @@ input::-webkit-inner-spin-button {
     height: 40px;
     padding: 0 20px;
     cursor: pointer;
+    margin-bottom: 16px;
+}
+
+.info-img__from-file:hover {
+    color: var(--white-color);
+    background-color: var(--primary-color);
 }
 
 .info-img__warn {
-    margin: 12px 0 0 20px;
+    margin: 0 0 0 20px;
     display: block;    
 }
 

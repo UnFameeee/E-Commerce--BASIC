@@ -87,80 +87,83 @@ let currentPage = 1;
 let start = 0;
 let end = perPage;
 let totalPages = Math.ceil(product.length / perPage);
+let allProduct = selectAllProduct()
 
 function renderProduct() {
     html='';
 
     const content = product.map((item, index) => {
-        if(index >= start && index < end){
-            html +=`            
-            <div style="position: relative;" class="col l-2-4 m-4 c-6">                                   
-                <a href="" class="product-item">
-                    <div class="product-item__img" style="background-image: url(${item.img});"></div>
-                    <h4 class="product-item__name">${item.name}</h4>
-                    
-                    <div class="product-item__price">
-                        <span class="product-item__price-old">1.200.000đ</span>
-                        <span class="product-item__price-current">990.000đ</span>
-                    </div>
-        
-                    <!-- Thả tim và rate sao -->
-                    <div class="product-item__action">
-                        <span class="product-item__like product-item__like--liked">
-                            <i class="product-item__like-icon-empty far fa-heart"></i>
-                            <i class="product-item__like-icon-fill fas fa-heart"></i>
-                        </span>
-        
-                        <span class="product-item__rating">
-                            <i class="product-item__rating-star--gold fas fa-star"></i>
-                            <i class="product-item__rating-star--gold fas fa-star"></i>
-                            <i class="product-item__rating-star--gold fas fa-star"></i>
-                            <i class="product-item__rating-star--gold fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                        </span>
-        
-                        <div class="product-item__sold">88 đã bán</div>
-                    </div>
-        
-                    <!-- Xuất xứ -->
-                    <div class="product-item__origin">
-                        <span class="product-item__brand">Whoo</span>
-                        <span class="product-item__origin-name">Nhật Bản</span>
-                    </div>  
-        
-                    <!-- Nhãn yêu thích
-                    <div class="product-item__favorite">
-                        <i class="fas fa-check"></i>
-                        <span>Yêu thích</span>
-                    </div> -->
-        
-                    <!-- Nhãn giảm giá -->
-                    <div class="product-item__sale-off">
-                        <div class="product-item__sale-off-percent-wrapper">
-                            <span class="product-item__sale-off-percent">43%</span>
+        for(let i = 0; i<allProduct.length; i++){
+            if(index >= start && index < end){
+                html +=`            
+                <div style="position: relative;" class="col l-2-4 m-4 c-6">                                   
+                    <a href="" class="product-item">
+                        <div class="product-item__img" style="background-image: url(${item.img});"></div>
+                        <h4 class="product-item__name">${item.name}</h4>
+                        
+                        <div class="product-item__price">
+                            <span class="product-item__price-old">1.200.000đ</span>
+                            <span class="product-item__price-current">990.000đ</span>
                         </div>
-                        <span class="product-item__sale-off-label">GIẢM</span>
-                    </div>
-                </a>
-
-                <!-- Add to cart -->
-                <div class="product-item__add-cart">
-                    <button class="button__add-cart">
-                        <svg style="pointer-events: none;" enable-background="new 0 0 15 15" viewBox="0 0 15 15" x="0" y="0" class="icon-add-to-cart">
-                            <g>
+            
+                        <!-- Thả tim và rate sao -->
+                        <div class="product-item__action">
+                            <span class="product-item__like product-item__like--liked">
+                                <i class="product-item__like-icon-empty far fa-heart"></i>
+                                <i class="product-item__like-icon-fill fas fa-heart"></i>
+                            </span>
+            
+                            <span class="product-item__rating">
+                                <i class="product-item__rating-star--gold fas fa-star"></i>
+                                <i class="product-item__rating-star--gold fas fa-star"></i>
+                                <i class="product-item__rating-star--gold fas fa-star"></i>
+                                <i class="product-item__rating-star--gold fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </span>
+            
+                            <div class="product-item__sold">88 đã bán</div>
+                        </div>
+            
+                        <!-- Xuất xứ -->
+                        <div class="product-item__origin">
+                            <span class="product-item__brand">Whoo</span>
+                            <span class="product-item__origin-name">Nhật Bản</span>
+                        </div>  
+            
+                        <!-- Nhãn yêu thích
+                        <div class="product-item__favorite">
+                            <i class="fas fa-check"></i>
+                            <span>Yêu thích</span>
+                        </div> -->
+            
+                        <!-- Nhãn giảm giá -->
+                        <div class="product-item__sale-off">
+                            <div class="product-item__sale-off-percent-wrapper">
+                                <span class="product-item__sale-off-percent">43%</span>
+                            </div>
+                            <span class="product-item__sale-off-label">GIẢM</span>
+                        </div>
+                    </a>
+    
+                    <!-- Add to cart -->
+                    <div class="product-item__add-cart">
+                        <button class="button__add-cart">
+                            <svg style="pointer-events: none;" enable-background="new 0 0 15 15" viewBox="0 0 15 15" x="0" y="0" class="icon-add-to-cart">
                                 <g>
-                                    <polyline fill="none" points=".5 .5 2.7 .5 5.2 11 12.4 11 14.5 3.5 3.7 3.5" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10"></polyline>
-                                    <circle cx="6" cy="13.5" r="1" stroke="#d00033"></circle><circle cx="11.5" cy="13.5" r="1" stroke="#d00033"></circle>
+                                    <g>
+                                        <polyline fill="none" points=".5 .5 2.7 .5 5.2 11 12.4 11 14.5 3.5 3.7 3.5" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10"></polyline>
+                                        <circle cx="6" cy="13.5" r="1" stroke="#d00033"></circle><circle cx="11.5" cy="13.5" r="1" stroke="#d00033"></circle>
+                                    </g>
+                                    <line fill="none" stroke-linecap="round" stroke-miterlimit="10" x1="7.5" x2="10.5" y1="7" y2="7"></line>
+                                    <line fill="none" stroke-linecap="round" stroke-miterlimit="10" x1="9" x2="9" y1="8.5" y2="5.5"></line>
                                 </g>
-                                <line fill="none" stroke-linecap="round" stroke-miterlimit="10" x1="7.5" x2="10.5" y1="7" y2="7"></line>
-                                <line fill="none" stroke-linecap="round" stroke-miterlimit="10" x1="9" x2="9" y1="8.5" y2="5.5"></line>
-                            </g>
-                        </svg>
-                    </button>
-                </div>
-            </div>`;
-
-            return html;
+                            </svg>
+                        </button>
+                    </div>
+                </div>`;
+    
+                return html;
+            }
         }
     })
 

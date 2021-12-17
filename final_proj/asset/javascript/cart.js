@@ -6,7 +6,7 @@ if (document.readyState == 'loading') {
 }
 
 function ready() {
-    var removeCartItemButtons = document.querySelectorAll('.operation button');
+    var removeCartItemButtons = document.querySelectorAll('.operation__remove');
     for (var i = 0; i < removeCartItemButtons.length; i++) {
         var button = removeCartItemButtons[i]
         button.addEventListener('click', removeCartItem)
@@ -36,12 +36,17 @@ function quantityChanged(event) {
 }
 
 function purchaseClicked() {
-    alert('Thank you for your purchase')
-    var cartItems = document.querySelector('.cart__product-list')
-    while (cartItems.hasChildNodes()) {
-        cartItems.removeChild(cartItems.firstChild)
+    if(document.querySelector('.cart__product-item')) {
+        var cartItems = document.querySelector('.cart__product-list')
+        alert('Thank you for your purchase')
+        while (cartItems.hasChildNodes()) {
+            cartItems.removeChild(cartItems.firstChild)
+        }
+        updateCartTotal()
     }
-    updateCartTotal()
+    else {
+        alert('You haven\'t add any product to cart yet!!!')
+    }
 }
 
 function updateCartTotal() {
@@ -73,3 +78,19 @@ function updateCartTotal() {
 }
 updateCartTotal()
 
+/* CHECKBOX */
+var firstcheck=0
+$('.cart__check-box:first').click(function(e){e.preventDefault();}).click(() => { 
+    var cartCheck = $('.cart__check')    
+    if(firstcheck%2===0){
+        for (var i = 0; i < cartCheck.length; i++) {
+            cartCheck[i].classList.add('cart__check-box--checked')
+        }
+    }
+    else {
+        for (var i = 0; i < cartCheck.length; i++) {
+            cartCheck[i].classList.remove('cart__check-box--checked')
+        }
+    }
+    firstcheck++;
+})
