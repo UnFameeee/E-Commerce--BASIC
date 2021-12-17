@@ -33,6 +33,18 @@
     word-wrap: break-word;
 }
 
+.info__header--admin {
+    display: flex;
+    align-items: center;
+}
+
+.info__header--admin .header__name {
+    flex: 1;
+    padding: 4px 16px;
+    outline: none;
+    margin-left: 16px;
+}
+
 .header__favorite {
     display: inline-flex;
     line-height: 1;
@@ -49,8 +61,22 @@
     background-color: #fafafa;
     display: flex;
     align-items: center;
-    margin-top: 16px;
+    margin: 36px 0 0 0;
     padding: 20px;
+}
+
+.info__price--admin {
+    margin: 36px 0;
+    font-size: 2rem;
+    background-color: unset;
+    padding: unset;
+}
+
+.info__price--admin .header__price {
+    flex: 1;
+    margin-left: 16px;    
+    padding: 4px 16px;
+    outline: none;
 }
 
 .price__old {
@@ -110,15 +136,64 @@
     word-wrap: break-word;
 }
 
+.info__description--admin {
+    display: flex;
+    align-items: center;
+    font-size: 2rem;
+}
+
+.info__description--admin .description__info {
+    flex: 1;
+    padding: 4px 16px;
+    outline: none;
+    font-size: 2rem;
+    margin-left: 16px;
+}
+
 .description__info {
     color: var(--text-color);
     font-size: 1.4rem;
+}
+
+.info__brand--admin {
+    padding-top: 36px;
+    display: flex;
+    align-items: center;
+    font-size: 2rem;
+}
+
+.brand__info{
+    margin-left: 16px;
+    padding: 4px 16px;
+    outline: none;
+    flex: 1;
 }
 
 .info__warranty {
     display: flex;
     align-items: center;
     padding: 36px 0 0 0;
+}
+
+.info__warranty--admin {
+    font-size: 2rem;
+}
+
+.info__warranty--admin .warranty__text {    
+    font-size: 2rem;
+}
+
+.info__warranty--admin .warranty__time {
+    padding: 4px 16px;
+    outline: none;
+    font-weight: 400;
+    margin-bottom: unset;
+    text-align: center;
+}
+
+.info__warranty--admin .warranty__year {
+    display: inline-flex;
+    margin-left: 16px;
 }
 
 .warranty__text {
@@ -130,6 +205,11 @@
     margin-bottom: 4px;
     font-size: 2rem;
     font-weight: 500;
+    color: var(--primary-color);
+}
+
+.warranty__year {
+    display: none;
     color: var(--primary-color);
 }
 
@@ -164,3 +244,13 @@
 circle {
     fill: var(--primary-color);
 }
+
+.button__update {
+    margin: 0 36px;
+}
+
+/* input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+} */
