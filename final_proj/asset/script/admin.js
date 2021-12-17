@@ -10,7 +10,6 @@ window.addEventListener('load', function(){
         },
         data: "",
         success: function(data) {
-            console.log(data);  
             document.getElementById("id_fname").value = data[0].fullname;
             document.getElementById("id_category_username").innerHTML = data[0].username;
             document.getElementById("id_category_username2").innerHTML = data[0].username;
