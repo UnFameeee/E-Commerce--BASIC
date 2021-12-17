@@ -59,7 +59,7 @@ btn_submit.addEventListener("click", (Event) => {
                     },
                     data: requestJSON,
                     success: function(data) {
-                        window.location.href = "user.html";
+                        window.location.href = "admin.html";
                     },
                     error: function() {
                         console.log("The following error occured: ");

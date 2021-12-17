@@ -12,4 +12,5 @@ public interface AccountService {
     HashMap<String, String> login(Account account);
     HashMap<String, String> logout();
     HashMap<String, String> getGLobalID();
+    HashMap<String, String> getRole();
 }

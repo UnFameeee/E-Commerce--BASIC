@@ -63,7 +63,7 @@ public class AccountServiceImpl implements AccountService {
         //Nếu tìm thấy account thì gán global id
         if(accountCheck != null){
             //Nhưng cần phải truy vấn để lấy ra userID
-            User user = userRepository.findAccountByAccount_id(accountCheck.getId());
+            User user = userRepository.findUserByAccount_id(accountCheck.getId());
             GlobalVariable.IDaccount = accountCheck.getId();
             GlobalVariable.IDuser = user.getId();
             GlobalVariable.UserRole = accountCheck.getRole();
@@ -79,6 +79,12 @@ public class AccountServiceImpl implements AccountService {
         GlobalVariable.IDuser = -1L;                     //Truy vấn ra
         GlobalVariable.UserRole = "";
         return new HashMap<>() {{put("key", "Success");}};
+    }
+
+    //Hàm trả về Role
+    @Override
+    public HashMap<String, String> getRole() {
+        return new HashMap<>() {{put("UserRole", GlobalVariable.UserRole);}};
     }
 
     //Hàm trả về các globalID

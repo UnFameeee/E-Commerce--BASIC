@@ -1,19 +1,17 @@
 import { URL } from './URL.js';
-import getUser from './getGLobalID.js';
 
 // Import the functions you need from the SDKs you need
 import { initializeApp } from "https://www.gstatic.com/firebasejs/9.6.1/firebase-app.js";
 import { getAnalytics } from "https://www.gstatic.com/firebasejs/9.6.1/firebase-analytics.js";
-
 const firebaseConfig = {
-    apiKey: "AIzaSyCm3Q2qTzinzVe6HsHzRrxhxRGAUEp1I1w",
-    authDomain: "finalcntt.firebaseapp.com",
-    databaseURL: "https://finalcntt-default-rtdb.asia-southeast1.firebasedatabase.app",
-    projectId: "finalcntt",
-    storageBucket: "finalcntt.appspot.com",
-    messagingSenderId: "1066656021546",
-    appId: "1:1066656021546:web:c70915cd7e2d7f501e1753",
-    measurementId: "G-0S2CEV27XB"
+  apiKey: "AIzaSyCm3Q2qTzinzVe6HsHzRrxhxRGAUEp1I1w",
+  authDomain: "finalcntt.firebaseapp.com",
+  databaseURL: "https://finalcntt-default-rtdb.asia-southeast1.firebasedatabase.app",
+  projectId: "finalcntt",
+  storageBucket: "finalcntt.appspot.com",
+  messagingSenderId: "1066656021546",
+  appId: "1:1066656021546:web:c70915cd7e2d7f501e1753",
+  measurementId: "G-0S2CEV27XB"
 };
 
 // Initialize Firebase
@@ -31,23 +29,12 @@ const realdb = getDatabase();
 var files = [];
 var reader = new FileReader();
 
-// var namebox = document.getElementById('namebox');
-// var extlab = document.getElementById('extlab');
-// var myimg = document.getElementById('myimg');
-// var proglab = document.getElementById('upprogress');
-
-// var SelBtn = document.getElementById('selbtn');
-var UpBtn = document.getElementById('upbtn');
-var DownBtn = document.getElementById('downbtn');
-
-// var input = document.createElement('input');
-
-var namebox = document.getElementById('namebox');
-var extlab = document.getElementById('extlab');                                        
-var myimg = document.getElementById('myimg');           //Hình ảnh
-var proglab = document.getElementById('upprogress');    
-
-var SelBtn = document.getElementById('upload_btn');
+var namebox;
+var extlab;                                       
+var proglab; 
+var myimg = document.getElementById('myimg');           
+var UpBtn = document.getElementById('upload_btn');
+var SelBtn = document.getElementById('select_btn');
 var input = document.createElement('input');
 
 input.type = 'file';
@@ -57,8 +44,8 @@ input.onchange = e => {
     var extension = GetFileExt(files[0]);
     var name = GetFileName(files[0]);
 
-    namebox.value = name;
-    extlab.innerHTML = extension;
+    namebox = name;
+    extlab = extension;
 
     reader.readAsDataURL(files[0]);
 }
@@ -83,10 +70,10 @@ function GetFileName(file){
 }   
 
 //--- Upload Process ---//
-async function UploadProcess(){
+function UploadProcess(){
     var ImgToUpload = files[0];
 
-    var ImgName = namebox.value + extlab.innerHTML;
+    var ImgName = namebox + extlab;
 
     //Validate file name
     if(!ValidateName()){
@@ -105,7 +92,7 @@ async function UploadProcess(){
 
     UploadTask.on('state-changed', (snapshot) => {
         var progress = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
-        proglab.innerHTML = "Upload " + progress + "%";
+        proglab = "Upload " + progress + "%";
     },
 
     (error) => {
@@ -121,9 +108,9 @@ async function UploadProcess(){
 }
 
 //--- Function for realtime DB ---//
-function SaveURLtoRealtimeDB(URL){
-    var name = namebox.value;
-    var ext = extlab.innerHTML;
+async function SaveURLtoRealtimeDB(URL){
+    var name = namebox;
+    var ext = extlab;
 
     set(ref(realdb, "ImagesLinks/"+ name),{
         ImageName: (name + ext),
@@ -132,18 +119,43 @@ function SaveURLtoRealtimeDB(URL){
 }
 
 async function GetURLfromRealtimeDB(){
-    var name = namebox.value;
-
+    var name;
+    if(namebox != null){
+        name = namebox;
+    }else {name = "";}
     var dbRef = ref(realdb);
 
-    await get(child(dbRef, "ImagesLinks/"+name)).then((snapshot)=>{
+    get(child(dbRef, "ImagesLinks/" + name)).then((snapshot)=>{
         if(snapshot.exists()){
-            myimg.src = snapshot.val().ImgUrl;
-
-            getUser()
-            .then(function(user){
-                console.log(user.IDuser);
-            })
+                var Model = {
+                    id: "",
+                    fullname: "",
+                    image: snapshot.val().ImgUrl,
+                    gender: "",
+                    email: "",
+                    phone: "",
+                    birth: "", 
+                    address: "",
+                };
+        
+                var requestJSON = JSON.stringify(Model);
+    
+            $.ajax({
+                type: 'PUT',
+                url: URL + '/user/updateImage',
+                dataType: 'json',
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                data: requestJSON,
+                success: function(data) {
+                    alert("Update picture successfully!!!");
+                    window.location.href = "admin.html";
+                },
+                error: function() {
+                    console.log("The following error occured: ");
+                }
+            });
         }
     })
 
@@ -151,8 +163,21 @@ async function GetURLfromRealtimeDB(){
 //Can't not contain ".", "#", "$", "[" and "]"
 function ValidateName(){
     var regex = /[\.#$\[\]]/
-    return !(regex.test(namebox.name));
+    if(namebox != null)
+        return !(regex.test(namebox));
+    return 1;
 }
 
-UpBtn.onclick = UploadProcess;
-DownBtn.onclick = GetURLfromRealtimeDB;
+UpBtn.addEventListener("click", (Event) => {
+    Event.preventDefault();
+    UploadProcess();
+    const timeLimit = 1;
+    let i = 0;
+    const timer = setInterval(function(){
+        i++;
+        if(i === timeLimit){
+            clearInterval(timer);
+            GetURLfromRealtimeDB();
+        }
+    }, 1000);
+})
