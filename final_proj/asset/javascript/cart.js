@@ -1,4 +1,8 @@
 /* CART */
+
+var tmp=sessionStorage.getItem('arrayCart')
+var realArray = JSON.parse(tmp)
+console.log(realArray)
 if (document.readyState == 'loading') {
     document.addEventListener('DOMContentLoaded', ready)
 } else {

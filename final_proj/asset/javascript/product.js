@@ -1,4 +1,3 @@
-import { check } from './productList.js'
 
 if(localStorage.getItem('test')) {
     $('.button__add').addClass('button__add--disabled')

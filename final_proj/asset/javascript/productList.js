@@ -1,14 +1,4 @@
-
-
-// $('.info-img__image-content').filter(function(index){return $(this).attr('src')==='';}).hide();
-
-// $('.user-category__img').filter(function(index){return $(this).attr('src')==='';}).hide();
-
-
-// async function showImg() {
-//     await $('.info-img__image-content').filter(function(index){return $(this).attr('src')==='';}).show();   
-// }
-
+import { listDataArray } from './allProductArray.js';
 
 var temp = 0
 
@@ -35,5 +25,34 @@ function forwardCheck() {
     window.location.href = './addProduct.html'
 }
 
-export const check = temp
 
+function renderProduct() {
+    let html = '';
+
+    if (listDataArray.length > 0) {
+        for (let i = 0; i < listDataArray.length; i++) {
+            html += `            
+            <li class="cart__product-item">
+            <span class="product">
+                <a href="" class="product__link">
+                    <img src="${listDataArray[i].product_image}" alt="">
+                    <div class="product__des">
+                        <span>${listDataArray[i].product_name}</span>
+                    </div>
+                </a>
+            </span>
+            <span class="quantity">
+                <span class="quantity-input">${listDataArray[i].quantity}</span>
+            </span>
+            <span class="price">${listDataArray[i].price}</span>
+            <span class="operation">
+                <button class="operation__remove">Xoá</button>                                               
+                <button class="operation__buy">Sửa</button>
+            </span>
+        </li>`;
+        }
+    }
+
+    document.getElementById('product-list').innerHTML = html;
+}
+renderProduct();
