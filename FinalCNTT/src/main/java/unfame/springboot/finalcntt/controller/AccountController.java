@@ -15,7 +15,6 @@ public class AccountController {
 
     //Tạo tài khoản mới (Mặc định role là User) - Khi tạo tài khoản cũng sẽ tạo thêm 1 User với profile = null
     @PostMapping("/register")
-    @PostMapping("/register")
     public ResponseEntity<?> createAccount(@RequestBody Account req){
         return ResponseEntity.ok(accountService.createAccount(req));
     }

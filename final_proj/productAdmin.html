@@ -15,6 +15,7 @@
     <link rel="stylesheet" href="./asset/css/responsive.css">
     <link rel="stylesheet" href="./asset/fonts/fontawesome-free-5.15.4-web/css/all.min.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap&subset=vietnamese" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>    
 </head>
 <body>
     <div class="app">
@@ -317,39 +318,40 @@
                         <div class="product__info">
                             <div class="info__header info__header--admin">
                                 <span>Tên sản phẩm: </span>
-                                <input type="text" class="header__name" placeholder="Nhập tên sản phẩm">
+                                <input type="text" class="header__name" placeholder="Nhập tên sản phẩm" id="id_product_name">
                             </div>
 
                             <div class="info__price info__price--admin">
                                 <span>Giá sản phẩm: </span>
-                                <input type="number" class="header__price" placeholder="Nhập giá sản phẩm">
+                                <input type="number" class="header__price" placeholder="Nhập giá sản phẩm" id="id_price">
                             </div>
 
-                            <!-- <div class="info__quantity">
+                            <div class="info__quantity">
                                 <span class="quantity__text">Số lượng</span>
                                 <input type="number" value="1" min="1" max="100">
-                            </div> -->
+                            </div>
 
                             <div class="info__description info__description--admin">
                                 <span class="description__text">Chi tiết:</span>
-                                <input type="text" class="description__info" placeholder="Nhập chi tiết sản phẩm">
+                                <input type="text" class="description__info" placeholder="Nhập chi tiết sản phẩm" id="id_product_description">
                             </div>
 
                             <div class="info__brand info__brand--admin">                                
                                 <span class="brand__text">Hãng:</span>
-                                <input type="text" class="brand__info" placeholder="Nhập hãng sản phẩm">
+                                <input type="text" class="brand__info" placeholder="Nhập hãng sản phẩm" id="product_brand">
                             </div>
                             
                             <div class="info__warranty info__warranty--admin">                                
                                 <span class="warranty__text">Bảo hành:</span>
-                                <input type="number" class="warranty__time" placeholder="Nhập bảo hành sản phẩm" value="1" min="1" max="5">
+                                <input type="number" class="warranty__time" placeholder="Nhập bảo hành sản phẩm" value="1" min="1" max="5" id="id_guarantee">
                                 <span class="warranty__year">NĂM</span>
                             </div>
 
                             <div class="info__button">
-                                <button class="btn btn--primary button__add">Thêm</button>
-                                <button class="btn btn--primary button__update">Sửa</button>
-                                <button class="btn btn--primary button__remove">Xoá</button>
+                                <button class="btn btn--primary button__update" id="select_btn">Chọn ảnh</button>
+                                <button class="btn btn--primary button__add" id="btn_submit">Thêm</button>
+                                <!-- <button class="btn btn--primary button__update" id="btn_update">Sửa</button> -->
+                                <!-- <button class="btn btn--primary button__remove" id="btn_remove">Xoá</button> -->
                             </div>
                         </div>                        
                     </div>
