@@ -9,12 +9,12 @@ import unfame.springboot.finalcntt.service.account.AccountService;
 @RestController
 @RequestMapping(value = "/account")
 public class AccountController {
-//    @Qualifier("IAccountService")
     @Autowired
     private AccountService accountService;
     //Mặc định nếu thành công thì sẽ trả ra Key, Value ("Key", "Success")
 
     //Tạo tài khoản mới (Mặc định role là User) - Khi tạo tài khoản cũng sẽ tạo thêm 1 User với profile = null
+    @PostMapping("/register")
     @PostMapping("/register")
     public ResponseEntity<?> createAccount(@RequestBody Account req){
         return ResponseEntity.ok(accountService.createAccount(req));

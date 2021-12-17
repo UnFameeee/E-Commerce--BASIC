@@ -26,9 +26,21 @@ public class ProductServiceImpl implements ProductService {
         return new HashMap<>() {{put("key", "Success");}};
     }
 
+    //Trả về danh sách của tất cả các sản phẩm mà được search
+    @Override
+    public List<Product> getAllProductWithSearch(String value){
+        return productRepository.findAllProductWithSearch(value);
+    }
+
     //Trả về danh sách của tất cả các sản phẩm
     @Override
     public List<Product> getAllProduct(){
         return productRepository.findAllProduct();
+    }
+
+    @Override
+    public HashMap<String, String> deleteProduct(Product product) {
+
+        return new HashMap<>() {{put("key", "Success");}};
     }
 }

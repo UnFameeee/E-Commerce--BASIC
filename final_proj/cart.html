@@ -16,6 +16,8 @@
     <link rel="stylesheet" href="./asset/fonts/fontawesome-free-5.15.4-web/css/all.min.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap&subset=vietnamese" rel="stylesheet">
 
+    <!-- ajax -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="./asset/javascript/cart.js" async></script>
 </head>
 <body>
@@ -160,7 +162,7 @@
                     <!-- Search -->
                     <div class="header__search-bar">
                         <div class="header__search-input-wrap">
-                            <input type="text" class="header__search-input" placeholder="Nhập để tìm kiếm sản phẩm">
+                            <input type="text" class="header__search-input" placeholder="Nhập để tìm kiếm sản phẩm" id="id_search_input">
 
                             <!-- Search history -->
                             <div class="header__search-history">
@@ -168,17 +170,17 @@
 
                                 <ul class="header__search-history-list">
                                     <li class="header__search-history-item">
-                                        <a href="">Con chó kỳ</a>
+                                        <a href="">Asus</a>
                                     </li>
 
                                     <li class="header__search-history-item">
-                                        <a href="">Con chó phượng</a>
+                                        <a href="">Dell</a>
                                     </li>
                                 </ul>
                             </div>
                         </div>
 
-                        <button class="header__search-btn">
+                        <button class="header__search-btn" id="btn_search">
                             <i class="header__search-btn-icon fas fa-search"></i>
                         </button>
                     </div>
@@ -380,3 +382,4 @@
     </div>
 </body>
 </html>
+<script type="module" src="./asset/script/cart.js"></script>
