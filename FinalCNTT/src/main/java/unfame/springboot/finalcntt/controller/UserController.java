@@ -18,6 +18,12 @@ public class UserController {
         return ResponseEntity.ok(userService.updateProfile(req));
     }
 
+    //Chỉnh sửa profile
+    @PutMapping("/updateImage")
+    public ResponseEntity<?> updateImage(@RequestBody User req) {
+        return ResponseEntity.ok(userService.updateImage(req));
+    }
+
     //Lấy ra profile của user
     @GetMapping("/profile")
     public ResponseEntity<?> getProfile() {

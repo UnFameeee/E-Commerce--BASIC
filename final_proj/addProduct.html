@@ -308,10 +308,10 @@
 
         <div class="app__container">
             <div class="grid wide">
-                <div class="row product__content">
-                    <div class="col l-5">
-                        <div class="product__img">
-                            <img src="https://f1zzhhuerqobj.vcdn.cloud/uploads/2020/03/avt-blackshark-3-trang.png" alt="">
+                <div class="row product__content" >
+                    <div class="col l-5"> 
+                        <div class="product__img" >
+                            <img src="" alt="" id="myimg">
                         </div>    
                     </div>
 
@@ -329,7 +329,7 @@
 
                             <div class="info__quantity info__quantity--admin">
                                 <span class="quantity__text">Số lượng:</span>
-                                <input type="number" value="1" min="1" max="100">
+                                <input type="number" value="1" min="1" max="100" id="id_quantity">
                             </div>
 
                             <div class="info__description info__description--admin">
@@ -339,7 +339,7 @@
 
                             <div class="info__brand info__brand--admin">                                
                                 <span class="brand__text">Hãng:</span>
-                                <input type="text" class="brand__info" placeholder="Nhập hãng sản phẩm" id="product_brand">
+                                <input type="text" class="brand__info" placeholder="Nhập hãng sản phẩm" id="id_brand">
                             </div>
                             
                             <div class="info__warranty info__warranty--admin">                                
@@ -349,10 +349,8 @@
                             </div>
 
                             <div class="info__button info__button--admin">
-                                <button class="btn btn--primary button__get-pic" id="select_btn">Chọn ảnh</button>
-                                <button class="btn btn--primary button__add" id="btn_submit">Thêm</button>
-                                <button class="btn btn--primary button__update button__update--disabled" id="btn_update">Sửa</button>
-                                <!-- <button class="btn btn--primary button__remove" id="btn_remove">Xoá</button> -->
+                                <button class="btn btn--primary button__update" id="select_btn">Chọn ảnh</button>
+                                <button class="btn btn--primary button__add" id="btn_submit">Thêm Sản Phẩm</button>
                             </div>
                         </div>                        
                     </div>
@@ -453,3 +451,5 @@
     </div>
 </body>
 </html>
+<!-- <script type="module" src="./asset/script/image.js"></script> -->
+<script type="module" src="./asset/script/addProduct.js"></script>

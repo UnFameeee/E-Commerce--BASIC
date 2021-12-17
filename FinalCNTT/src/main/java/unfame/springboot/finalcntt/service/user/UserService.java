@@ -8,5 +8,6 @@ import java.util.HashMap;
 @Service
 public interface UserService {
     HashMap<String, String> updateProfile(User user);
+    HashMap<String, String> updateImage(User user);
     User getProfile();
 }

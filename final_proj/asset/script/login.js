@@ -27,7 +27,9 @@ btnAdd.addEventListener("click", (Event) => {
                 window.location.href = "index.html";
             } else if (data.key == "Success" && data.UserRole == "admin") {
                 window.location.href = "admin.html";
-            } 
+            } else{
+                alert("Wrong Username or Password!!!")
+            }
         },
         error: function() {
             
