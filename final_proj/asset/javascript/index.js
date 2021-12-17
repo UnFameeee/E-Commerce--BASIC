@@ -1,3 +1,5 @@
+
+/* Render product */
 const product = [
     {id: 1, img: "https://cf.shopee.vn/file/de0a73e6578642d74a85db29f5722935_tn", name: "Áo Hoodie Nam Nữ Happy, Áo sweater form rộng unisex HT60"},
     {id: 2, img: "https://cf.shopee.vn/file/de0a73e6578642d74a85db29f5722935_tn", name: "Áo Hoodie Nam Nữ Happy, Áo sweater form rộng unisex HT60"},
@@ -239,3 +241,5 @@ function pagination(c, m) {
 
     return rangeWithDots;
 }
+
+/* Add cart */
