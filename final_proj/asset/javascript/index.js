@@ -13,6 +13,7 @@ let totalPages = Math.ceil(listDataArray.length / perPage);
 
 var removeCartItemButtons
 var addToCartButtons
+var productElements
 
 function renderProduct() {
     let html = '';
@@ -33,7 +34,7 @@ function renderProduct() {
 
             html += `            
                 <div style="position: relative;" class="col l-2-4 m-4 c-6">                                   
-                    <a href="" class="product-item">
+                    <a href="#" class="product-item">
                         <div class="product-item__img" style="background-image: url(${listDataArray[i].product_image});"></div>
                         <h4 class="product-item__name">${listDataArray[i].product_name}</h4>
                         
@@ -113,6 +114,12 @@ function renderProduct() {
     for (var i = 0; i < addToCartButtons.length; i++) {
         var button = addToCartButtons[i]
         button.addEventListener('click', addToCartClicked)
+    }
+
+    productElements = document.querySelectorAll('.product-item');
+    for (var i = 0; i < productElements.length; i++) {
+        var button = productElements[i]
+        button.addEventListener('click', forwardProduct)
     }
 }
 renderProduct();
@@ -353,7 +360,6 @@ var test = 1
 
 if(checkRoleItem.UserRole !== ""){
     $('.header__navbar-user').removeClass('header__navbar--user-info')
-    $('.header__navbar-item--strong').addClass('header__navbar--had-user')
     if(usernameimage[0].image !== null){
         document.getElementById("myimg2").src = usernameimage[0].image
     }
@@ -368,4 +374,19 @@ if(checkRoleItem.UserRole !== ""){
 else {
     $('.header__navbar-user').addClass('header__navbar--user-info')
     $('.header__navbar-item--strong').removeClass('header__navbar--had-user')
+}
+
+/* GET ID FROM CLICK EVENT OF PRODUCT */
+productElements = document.querySelectorAll('.product-item');
+for (var i = 0; i < productElements.length; i++) {
+    var button = productElements[i]
+    button.addEventListener('click', forwardProduct)
+}
+
+async function forwardProduct(event) {
+    var productClicked = event.target
+    var product = productClicked.parentElement
+    var id = product.querySelector('#item-id').innerText
+    await localStorage.setItem('product-id', id)
+    window.location.href = './product.html'
 }

@@ -31,7 +31,7 @@ function renderProduct() {
                     </div>
                 </a>
             </span>
-            <span id="product-id" >${listDataArray[i].id}</span>
+            <span id="product-id" style="display: none;">${listDataArray[i].id}</span>
             <span class="quantity">
                 <span class="quantity-input">${listDataArray[i].quantity}</span>
             </span>
