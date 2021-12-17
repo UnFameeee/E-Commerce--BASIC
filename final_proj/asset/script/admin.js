@@ -13,9 +13,11 @@ window.addEventListener('load', function(){
             console.log(data);  
             document.getElementById("id_fname").value = data[0].fullname;
             document.getElementById("id_category_username").innerHTML = data[0].username;
+            document.getElementById("id_category_username2").innerHTML = data[0].username;
             if(data[0].image !== null){
                 document.getElementById("myimg").src = data[0].image;
                 document.getElementById("myimg2").src = data[0].image;
+                document.getElementById("myimg3").src = data[0].image;
             }
             document.getElementById("id_email").value = data[0].email;
             document.getElementById("id_phone").value = data[0].phone,
@@ -42,7 +44,7 @@ btn_submit.addEventListener("click", (Event) => {
                     fullname: document.getElementById("id_fname").value,
                     image: "",
                     gender: "Nam",
-                    email: document.getElementById("id_email").value,
+                    email: document.getElementById("id_email").value, 
                     phone: document.getElementById("id_phone").value,
                     birth: document.getElementById("id_birth").value, 
                     address: document.getElementById("id_address").value,
@@ -59,7 +61,10 @@ btn_submit.addEventListener("click", (Event) => {
                     },
                     data: requestJSON,
                     success: function(data) {
-                        window.location.href = "admin.html";
+                        if(data.key == "Success"){
+                            alert("Update successfully!!!");
+                            window.location.href = "admin.html";
+                        }
                     },
                     error: function() {
                         console.log("The following error occured: ");

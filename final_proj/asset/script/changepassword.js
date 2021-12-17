@@ -1,4 +1,5 @@
 import { URL } from './URL.js';
+import { checkRoleItem } from './exportRole.js';
 
 window.addEventListener('load', function(){
     $.ajax({
@@ -11,9 +12,11 @@ window.addEventListener('load', function(){
         data: "",
         success: function(data) {
             document.getElementById("id_category_username").innerHTML = data[0].username;
+            document.getElementById("id_category_username2").innerHTML = data[0].username;
             document.getElementById("id_username").innerHTML = data[0].username;
             if(data[0].image !== null){
                 document.getElementById("myimg2").src = data[0].image;
+                document.getElementById("myimg3").src = data[0].image;
             }
         },
         error: function() {
@@ -65,3 +68,12 @@ btn_submit.addEventListener("click", (Event) => {
             alert("Please insert full information");
         }
 }, false);
+
+console.log(checkRoleItem);
+if(checkRoleItem.UserRole == "admin"){
+    document.getElementById("id_linktoacc").href = "./admin.html";
+    document.getElementById("id_linktoacc2").href = "./admin.html";
+}else{
+    document.getElementById("id_linktoacc").href = "./user.html";
+    document.getElementById("id_linktoacc2").href = "./user.html";
+}

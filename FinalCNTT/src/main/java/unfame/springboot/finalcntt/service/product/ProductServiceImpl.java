@@ -3,6 +3,7 @@ package unfame.springboot.finalcntt.service.product;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import unfame.springboot.finalcntt.entity.Product;
+import unfame.springboot.finalcntt.global.GlobalVariable;
 import unfame.springboot.finalcntt.repository.ProductRepository;
 
 import java.util.HashMap;
@@ -51,9 +52,30 @@ public class ProductServiceImpl implements ProductService {
         return productRepository.findAllProduct();
     }
 
+    //Xóa product
     @Override
-    public HashMap<String, String> deleteProduct(Product product) {
-        productRepository.delete(product);
+    public HashMap<String, String> deleteProduct(Long Id) {
+        productRepository.deleteById(Id);
+        return new HashMap<>() {{put("key", "Success");}};
+    }
+
+    //Lưu lại IDproduct
+    @Override
+    public HashMap<String, String> saveIDproduct(Long Id) {
+        GlobalVariable.IDproduct = Id;
+        return new HashMap<>() {{put("key", "Success");}};
+    }
+
+    //Lưu lại IDproduct
+    @Override
+    public HashMap<String, String> getIDproduct() {
+        return new HashMap<>() {{put("key", Long.toString(GlobalVariable.IDproduct));}};
+    }
+
+    //Lưu lại IDproduct
+    @Override
+    public HashMap<String, String> deleteIDproduct() {
+        GlobalVariable.IDproduct = -1L;
         return new HashMap<>() {{put("key", "Success");}};
     }
 }
