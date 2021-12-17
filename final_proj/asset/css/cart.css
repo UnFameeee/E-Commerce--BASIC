@@ -238,3 +238,11 @@
     font-weight: 500;
     margin: 0;
 }
+
+.user-profile__header .cart__product {
+    box-shadow: none;
+}
+
+.user-profile__info {
+    padding-top: unset;
+}
