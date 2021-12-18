@@ -12,7 +12,7 @@ public interface ProductRepository extends CrudRepository<Product, Long> {
     @Query("SELECT u FROM PRODUCT u")
     List<Product> findAllProduct();
 
-    @Query("SELECT u FROM PRODUCT u WHERE u.Product_name LIKE %:value%")
+    @Query("SELECT u FROM PRODUCT u WHERE u.Brand LIKE %:value%")
     List<Product> findAllProductWithSearch(String value);
 
     @Query("SELECT u FROM PRODUCT u WHERE u.Product_name = ?1")

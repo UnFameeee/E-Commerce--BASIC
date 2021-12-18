@@ -25,12 +25,6 @@ public class Orders{
     @Column(name = "Quantity", nullable = false)
     private Integer Quantity;
 
-    @Column(name = "Address", nullable = false)
-    private String Address;
-
-    @Column(name = "Status", nullable = false)
-    private String Status;
-
     @Column(name = "Amount", nullable = false)
     private Long Amount;
 
@@ -72,22 +66,6 @@ public class Orders{
 
     public void setQuantity(Integer quantity) {
         Quantity = quantity;
-    }
-
-    public String getAddress() {
-        return Address;
-    }
-
-    public void setAddress(String address) {
-        Address = address;
-    }
-
-    public String getStatus() {
-        return Status;
-    }
-
-    public void setStatus(String status) {
-        Status = status;
     }
 
     public Long getAmount() {
