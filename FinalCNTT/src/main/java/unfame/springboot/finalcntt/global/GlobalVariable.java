@@ -10,4 +10,5 @@ public class GlobalVariable {
     }
 
     public static Long IDproduct = -1L;
+    public static Long IDorder = -1L;
 }

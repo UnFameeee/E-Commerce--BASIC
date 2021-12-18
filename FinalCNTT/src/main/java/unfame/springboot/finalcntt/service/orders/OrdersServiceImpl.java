@@ -62,7 +62,6 @@ public class OrdersServiceImpl implements OrdersService {
             HashMap<String, String> map = new HashMap<>();
             Orders orders = (Orders) list.get(i)[0];
             map.put("id", Long.toString(orders.getId()));
-            map.put("product_id",  Long.toString(orders.getProduct_id()));
             map.put("date", orders.getDate());
             map.put("quantity", Integer.toString(orders.getQuantity()));
             map.put("amount", Long.toString(orders.getAmount()));
@@ -74,8 +73,20 @@ public class OrdersServiceImpl implements OrdersService {
             map.put("gender", user.getGender());
             map.put("phone", user.getPhone());
             map.put("address", user.getAddress());
+            Product product = (Product) list.get(i)[2];
+            map.put("product_name", product.getProduct_name());
+            map.put("product_image", product.getProduct_image());
+            GlobalVariable.IDorder = -1L;
             result.add(map);
         }
+        GlobalVariable.IDorder = -1L;
         return result;
+    }
+
+    //Tiến hành thanh toán thì lưu vào order (id product + số lượng)
+    @Override
+    public HashMap<String, String> saveOrderID(Long Id){
+        GlobalVariable.IDorder = Id;
+        return new HashMap<>() {{put("key", "Success");}};
     }
 }

@@ -1,9 +1,11 @@
 package unfame.springboot.finalcntt.controller;
 
+import org.apache.tomcat.jni.Global;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import unfame.springboot.finalcntt.entity.Orders;
+import unfame.springboot.finalcntt.global.GlobalVariable;
 import unfame.springboot.finalcntt.service.orders.OrdersService;
 
 @RestController
@@ -23,8 +25,13 @@ public class OrdersController {
         return ResponseEntity.ok(ordersService.getAllOrders());
     }
 
+    @PostMapping("/saveOrderID/{id}")
+    public ResponseEntity<?> saveOrderID(@PathVariable("id") Long Id){
+        return ResponseEntity.ok(ordersService.saveOrderID(Id));
+    }
+
     @GetMapping("/showDetailOrder")
-    public ResponseEntity<?> createAccount(@RequestParam Long Order_id){
-        return ResponseEntity.ok(ordersService.findUserDetailOnOrders(Order_id));
+    public ResponseEntity<?> createAccount(){
+        return ResponseEntity.ok(ordersService.findUserDetailOnOrders(GlobalVariable.IDorder));
     }
 }
