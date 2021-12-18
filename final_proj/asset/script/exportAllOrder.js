@@ -18,7 +18,7 @@ async function exportAllOrders(){
             console.log("The following error occured: " + textStatus, errorThrown);
         }
     });
-    return role;
+    return value;
 }
 var all = await exportAllOrders();
 export const allOrders = all;

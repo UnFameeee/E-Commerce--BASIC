@@ -1,0 +1,67 @@
+* {
+    font-size: 2rem;;
+}
+
+.user__info,
+.product__info {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    padding: 16px;
+}
+
+.user__info-text,
+.product__info-text {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    text-align: left;
+    padding-left: 36px;
+}
+
+#id_id {
+   margin: 36px 0;
+}
+
+#id_date {
+    
+}
+
+#id_quantity {
+    margin: 36px 0;
+}
+
+#id_amount {
+    
+}
+
+#id_fullname {
+    margin: 36px 0;
+}
+
+#id_email {
+
+}
+
+#id_birth {
+    margin: 36px 0;
+}
+
+#id_gender {
+
+}
+
+#id_phone {
+    margin: 36px 0;
+}
+
+#id_address {
+
+}
+
+.product__content {
+    background-color: var(--white-color);
+    padding: 36px;
+    display: flex;
+    align-items: center;
+}
