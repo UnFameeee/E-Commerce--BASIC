@@ -5,23 +5,22 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title></title>
-    
+
     <link rel="icon" href="https://i.pinimg.com/originals/52/6e/71/526e7194884d4a9141dbd637d89b202b.png">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css">
     <link rel="stylesheet" href="./asset/css/base.css">
-    <link rel="stylesheet" href="./asset/css/user.css">
-    <link rel="stylesheet" href="./asset/css/cart.css">
     <link rel="stylesheet" href="./asset/css/main.css">
+    <link rel="stylesheet" href="./asset/css/order.css">
     <link rel="stylesheet" href="./asset/css/grid.css">
     <link rel="stylesheet" href="./asset/css/responsive.css">
     <link rel="stylesheet" href="./asset/fonts/fontawesome-free-5.15.4-web/css/all.min.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap&subset=vietnamese" rel="stylesheet">
-    <!-- ajax -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <!-- <script src="./asset/javascript/product.js" type="module" async></script> -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>    
 </head>
 <body>
     <div class="app">
-        <header class="header">
+        <header class="header">        
             <div class="grid wide">
                 <nav class="header__navbar hide-on-mobile-tablet">
                     <ul class="header__navbar-list">
@@ -110,20 +109,28 @@
                                 <i class="header__navbar-icon far fa-question-circle"></i>
                                 Trợ giúp
                             </a>
-                        </li>                        
+                        </li>
+
+                        <!-- Login, Register -->
+                        <!-- <li class="header__navbar-item header__navbar-item--strong header__navbar-item--separate">
+                            <a href="./register.html" style="text-decoration: none; color: var(--white-color);">Đăng ký</a>
+                        </li>
+                        <li class="header__navbar-item header__navbar-item--strong">
+                            <a href="./login.html" style="text-decoration: none; color: var(--white-color);">Đăng nhập</a>
+                        </li> -->
 
                         <!-- User info -->
                         <li class="header__navbar-item header__navbar-user">
-                            <img src="https://d29fhpw069ctt2.cloudfront.net/icon/image/84587/preview.svg" alt="" class="header__navbar-user-avt">
-                            <span class="header__navbar-user-name"></span>
+                            <img src="https://d29fhpw069ctt2.cloudfront.net/icon/image/84587/preview.svg" alt="" class="header__navbar-user-avt" id="myimg3">
+                            <span class="header__navbar-user-name" id="id_category_username2">Hai Dụ</span>
 
                             <ul class="header__navbar-user-menu">
                                 <li class="header__navbar-user-item">
-                                    <a href="">Tài khoản của tôi</a>
+                                    <a href="" id="id_linktoacc">Tài khoản của tôi</a>
                                 </li>
 
                                 <li class="header__navbar-user-item header__navbar-user-item--separate">
-                                    <a href="">Đăng xuất</a>
+                                    <a href="login.html">Đăng xuất</a>
                                 </li>
                             </ul>
                         </li>
@@ -179,6 +186,7 @@
                     <div class="header__cart">
                         <div class="header__cart-wrap">
                             <i class="header__cart-icon fas fa-shopping-cart"></i>
+                            <!-- NO CART: header__cart-notice--no-cart -->
                             <span class="header__cart-notice">3</span>
 
                             <!-- NO CART: header__cart-list--no-cart -->
@@ -203,120 +211,55 @@
                     </div>
                 </div>
             </div>
+
+            <ul class="header__sort-bar">
+                <li class="header__sort-item">
+                    <a href="" class="header__sort-link">Liên quan</a>
+                </li>
+
+                <li class="header__sort-item header__sort-item--active">
+                    <a href="" class="header__sort-link">Mới nhất</a>
+                </li>
+
+                <li class="header__sort-item">
+                    <a href="" class="header__sort-link">Bán chạy</a>
+                </li>
+
+                <li class="header__sort-item">
+                    <a href="" class="header__sort-link">Giá</a>
+                </li>                
+            </ul>
         </header>
 
         <div class="app__container">
-            <div class="grid wide">
-                <div class="row sm-gutter user__content">
-                    <!-- USER PROFILE CATEGORY -->
-                    <div class="col l-2 m-0 c-0">
-                        <div class="user-category__top">
-                            <a href="./admin.html" class="user-category__avt-content">
-                                <div class="user-category__avt">
-                                    <div class="user-category__avt-holder">
-                                        <svg enable-background="new 0 0 15 15" viewBox="0 0 15 15" x="0" y="0" class="icon-headshot">
-                                            <g>
-                                                <circle cx="7.5" cy="4.5" fill="none" r="3.8" stroke-miterlimit="10"></circle>
-                                                <path d="m1.5 14.2c0-3.3 2.7-6 6-6s6 2.7 6 6" fill="none" stroke-linecap="round" stroke-miterlimit="10"></path>
-                                            </g>
-                                        </svg>
-                                    </div>
-    
-                                    <img src="https://cf.shopee.vn/file/1b0849ce4ac892d23d2c91167787e2e2_tn" alt="" class="user-category__img" id="myimg2">
-                                </div>
-                            </a>
-
-                            <div class="user-category__name-content">
-                                <div class="user-category__name">vu2872001</div>
-
-                                <a href="./admin.html" class="user-category__link">
-                                    <svg width="12" height="12" viewBox="0 0 12 12" xmlns="http://www.w3.org/2000/svg" style="margin-right: 4px;">
-                                        <path d="M8.54 0L6.987 1.56l3.46 3.48L12 3.48M0 8.52l.073 3.428L3.46 12l6.21-6.18-3.46-3.48" fill="#9B9B9B" fill-rule="evenodd"></path>
-                                    </svg>
-                                    <span style="font-size: 1.5rem;">Sửa Hồ Sơ</span>
-                                </a>
-                            </div>
-                        </div>
-
-                        <div class="user-category__bottom">
-                            <div class="user-category__list">
-                                <a href="./admin.html" class="user-category__cat-link">
-                                    <div class="user-category__cat-img">
-                                        <img src="https://cf.shopee.vn/file/ba61750a46794d8847c3f463c5e71cc4" alt="">
-                                    </div>
-                                    <div class="user-category__text">
-                                        <span>Tài Khoản Của Tôi</span>
-                                    </div>
-                                </a>
-                                <a href="./changePassword.html" class="user-category__cat-link">
-                                    <div class="user-category__cat-img">
-                                        <img src="https://cf.shopee.vn/file/f0049e9df4e536bc3e7f140d071e9078" alt="">
-                                    </div>
-                                    <div class="user-category__text">
-                                        <span>Đổi mật khẩu</span>
-                                    </div>
-                                </a>
-                                <a href="./productList.html" class="user-category__cat-link">
-                                    <div class="user-category__cat-img">
-                                        <img src="https://cf.shopee.vn/file/f0049e9df4e536bc3e7f140d071e9078" alt="">
-                                    </div>
-                                    <div class="user-category__text">
-                                        <span>Quản lý sản phẩm</span>
-                                    </div>
-                                </a>
-                                <a href="" class="user-category__cat-link">
-                                    <div class="user-category__cat-img">
-                                        <img src="https://cf.shopee.vn/file/f0049e9df4e536bc3e7f140d071e9078" alt="">
-                                    </div>
-                                    <div class="user-category__text">
-                                        <span style="color: var(--primary-color); text-decoration: underline;">Đơn mua hàng</span>
-                                    </div>
-                                </a>
+            <div style="padding: 40px 0;" class="grid wide">
+                <div class="row product__content" >
+                    <div class="col l-6"> 
+                        <div class="user__info">
+                            <img style="flex: 1; max-width: 40%;" src="./asset/image/AppStore.png" alt="">
+                            <div class="user__info-text">
+                                <span id="id_id">Mã đơn hàng: 1</span>
+                                <span id="id_date">Ngày mua hàng: 20/17/2001</span>
+                                <span id="id_quantity">Số lượng: 12</span>
+                                <span id="id_amount">Số tiền phải trả: 12000000</span>
                             </div>
                         </div>
                     </div>
 
-                    <div class="col l-10 m-12 c-12">
-                        <div class="user-profile__container">
-                            <div class="user-profile__header">
-                                <div class="cart__product">
-                                    <span class="product">Mã đơn hàng</span>
-                                    <span class="quantity">Ngày tháng</span>
-                                    <span style="flex: 1;" class="operation">Thao Tác</span>
-                                </div>
+                    <div class="col l-6">
+                        <div class="product__info">
+                            <img style="flex: 1; max-width: 40%;" id="img" src="./asset/image/AppStore.png" alt="">
+                            <div class="product__info-text">
+                                <span id="id_fullname">Họ tên: nguyen hai du</span>
+                                <span id="id_email">Email: haidugmail</span>
+                                <span id="id_birth">Ngày sinh: 20/01/2000</span>
+                                <span id="id_gender">Giới tính: nam</span>
+                                <span id="id_phone">Số điện thoại123456</span>
+                                <span id="id_address">Địa chỉ: vvn thu duc</span>
                             </div>
-
-                            <div class="user-profile__info">                                
-                                <div class="cart__product">
-                                    <ul id="order-list" class="cart__product-list">
-                                        <!-- PRODUCT -->
-                                        <li class="cart__product-item">          
-                                            <span class="product">
-                                                <div class="product__des">
-                                                    <span>1911</span>
-                                                </div>
-                                            </span>
-                                            <span id="order-id" style="display:none"></span>
-                                             <span class="quantity">
-                                                 1/1/2000
-                                            </span>
-                                            <span style="flex: 1" class="operation">
-                                                 <button class="operation__buy">Chi tiết</button>
-                                            </span>
-                                         </li>
-                                    </ul>                        
-                                    
-                                </div>
-                            </div>
-                        </div>
+                        </div>                        
                     </div>
                 </div>
-
-                <!-- <div class="row sm-gutter cart__content">
-                    <div class="cart__bottom">
-                        <button id="add-product-button" class="btn btn--primary">XEM CHI TÍẾT</button>
-                    </div>
-                </div> -->
             </div>
         </div>
 
@@ -413,4 +356,3 @@
     </div>
 </body>
 </html>
-<!-- <script src="./asset/javascript/productList.js" type="module"></script> -->
