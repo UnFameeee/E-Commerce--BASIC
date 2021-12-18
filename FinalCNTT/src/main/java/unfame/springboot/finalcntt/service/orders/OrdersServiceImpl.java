@@ -28,7 +28,7 @@ public class OrdersServiceImpl implements OrdersService {
     //Tiến hành thanh toán thì lưu vào order (id product + số lượng)
     @Override
     public HashMap<String, String> boughtProduct(Long Product_id, Integer quantity){
-        if(quantity > productRepository.findProductById(Product_id).getQuantity() || productRepository.findProductById(Product_id).getQuantity() == 0){
+        if(Long.parseLong(Integer.toString(quantity)) > productRepository.findProductById(Product_id).getQuantity() || productRepository.findProductById(Product_id).getQuantity() == 0){
             return new HashMap<>() {{put("key", "Quantity left doesn't fit with your purchase!!!");}};
         }
         Orders orders = new Orders();

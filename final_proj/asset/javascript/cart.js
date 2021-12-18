@@ -1,4 +1,6 @@
 /* CART */
+import { URL } from '../script/URL.js';
+
 
 var array = sessionStorage.getItem('arrayCart')
 var realArray = JSON.parse(array)
@@ -151,5 +153,35 @@ function buyProduct(event) {
     var quantity = parent.querySelector('.quantity-input').value
 
     console.log(id, quantity)
-    // updateCartTotal()
+
+    var Model = {
+        id: "",
+        quantity: quantity,
+        product_id: id,
+        date: "",
+        amount: "",
+        user_id: "",
+    };
+
+    var requestJSON = JSON.stringify(Model);
+
+    $.ajax({
+        type: 'POST',
+        url: URL + '/order/create',
+        dataType: 'json',
+        headers: {
+            "Content-Type": "application/json",
+        },
+        data: requestJSON,
+        success: function(data) {
+            if(data.key == "Success"){
+                alert("Bought successfully!!!");
+                parent.querySelector('.quantity-input').value = 1;
+            }
+            
+        },
+        error: function() {
+            console.log("The following error occured: ");
+        }
+    });
 }
