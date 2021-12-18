@@ -9,13 +9,13 @@
     <link rel="icon" href="https://i.pinimg.com/originals/52/6e/71/526e7194884d4a9141dbd637d89b202b.png">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css">
     <link rel="stylesheet" href="./asset/css/base.css">
-    <link rel="stylesheet" href="./asset/css/main.css">
     <link rel="stylesheet" href="./asset/css/user.css">
+    <link rel="stylesheet" href="./asset/css/cart.css">
+    <link rel="stylesheet" href="./asset/css/main.css">
     <link rel="stylesheet" href="./asset/css/grid.css">
     <link rel="stylesheet" href="./asset/css/responsive.css">
     <link rel="stylesheet" href="./asset/fonts/fontawesome-free-5.15.4-web/css/all.min.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap&subset=vietnamese" rel="stylesheet">
-    
     <!-- ajax -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 </head>
@@ -114,16 +114,16 @@
 
                         <!-- User info -->
                         <li class="header__navbar-item header__navbar-user">
-                            <img src="https://d29fhpw069ctt2.cloudfront.net/icon/image/84587/preview.svg" alt="" class="header__navbar-user-avt" id="myimg3">
-                            <span class="header__navbar-user-name" id="id_category_username2"></span>
+                            <img src="https://d29fhpw069ctt2.cloudfront.net/icon/image/84587/preview.svg" alt="" class="header__navbar-user-avt">
+                            <span class="header__navbar-user-name"></span>
 
                             <ul class="header__navbar-user-menu">
                                 <li class="header__navbar-user-item">
-                                    <a href="" id="id_linktoacc">Tài khoản của tôi</a>
+                                    <a href="">Tài khoản của tôi</a>
                                 </li>
 
                                 <li class="header__navbar-user-item header__navbar-user-item--separate">
-                                    <a href="login.html">Đăng xuất</a>
+                                    <a href="">Đăng xuất</a>
                                 </li>
                             </ul>
                         </li>
@@ -162,6 +162,7 @@
                                     <li class="header__search-history-item">
                                         <a href=""></a>
                                     </li>
+
                                     <li class="header__search-history-item">
                                         <a href=""></a>
                                     </li>
@@ -210,7 +211,7 @@
                     <!-- USER PROFILE CATEGORY -->
                     <div class="col l-2 m-0 c-0">
                         <div class="user-category__top">
-                            <a href="" class="user-category__avt-content">
+                            <a href="./admin.html" class="user-category__avt-content">
                                 <div class="user-category__avt">
                                     <div class="user-category__avt-holder">
                                         <svg enable-background="new 0 0 15 15" viewBox="0 0 15 15" x="0" y="0" class="icon-headshot">
@@ -221,14 +222,14 @@
                                         </svg>
                                     </div>
     
-                                    <img src="https://drive.google.com/thumbnail?id=1wfDU93rfE_2H-9TpTerNgIhj0KOYEYvP" alt="" class="user-category__img" id="myimg2">
+                                    <img src="https://cf.shopee.vn/file/1b0849ce4ac892d23d2c91167787e2e2_tn" alt="" class="user-category__img" id="myimg2">
                                 </div>
                             </a>
 
                             <div class="user-category__name-content">
-                                <div class="user-category__name" id="id_category_username"></div>
+                                <div class="user-category__name">vu2872001</div>
 
-                                <a href="" class="user-category__link">
+                                <a href="./admin.html" class="user-category__link">
                                     <svg width="12" height="12" viewBox="0 0 12 12" xmlns="http://www.w3.org/2000/svg" style="margin-right: 4px;">
                                         <path d="M8.54 0L6.987 1.56l3.46 3.48L12 3.48M0 8.52l.073 3.428L3.46 12l6.21-6.18-3.46-3.48" fill="#9B9B9B" fill-rule="evenodd"></path>
                                     </svg>
@@ -239,7 +240,7 @@
 
                         <div class="user-category__bottom">
                             <div class="user-category__list">
-                                <a href="" class="user-category__cat-link" id="id_linktoacc2">
+                                <a href="./admin.html" class="user-category__cat-link">
                                     <div class="user-category__cat-img">
                                         <img src="https://cf.shopee.vn/file/ba61750a46794d8847c3f463c5e71cc4" alt="">
                                     </div>
@@ -247,15 +248,15 @@
                                         <span>Tài Khoản Của Tôi</span>
                                     </div>
                                 </a>
-                                <a href="" class="user-category__cat-link">
+                                <a href="./changePassword.html" class="user-category__cat-link">
                                     <div class="user-category__cat-img">
                                         <img src="https://cf.shopee.vn/file/f0049e9df4e536bc3e7f140d071e9078" alt="">
                                     </div>
-                                    <div style="color: var(--primary-color); text-decoration: underline;" class="user-category__text">
+                                    <div class="user-category__text">
                                         <span>Đổi mật khẩu</span>
                                     </div>
-                                </a>                                
-                                <a href="./productList.html" class="user-category__cat-link user-category--admin">
+                                </a>
+                                <a href="./productList.html" class="user-category__cat-link">
                                     <div class="user-category__cat-img">
                                         <img src="https://cf.shopee.vn/file/f0049e9df4e536bc3e7f140d071e9078" alt="">
                                     </div>
@@ -263,23 +264,14 @@
                                         <span>Quản lý sản phẩm</span>
                                     </div>
                                 </a>
-                                <a href="./order.html" class="user-category__cat-link  user-category--admin">
+                                <a href="" class="user-category__cat-link">
                                     <div class="user-category__cat-img">
                                         <img src="https://cf.shopee.vn/file/f0049e9df4e536bc3e7f140d071e9078" alt="">
                                     </div>
                                     <div class="user-category__text">
-                                        <span>Đơn mua hàng</span>
+                                        <span style="color: var(--primary-color); text-decoration: underline;">Đơn mua hàng</span>
                                     </div>
                                 </a>
-                                <a href="#" class="user-category__cat-link user-category--user">
-                                    <div class="user-category__cat-img">
-                                        <img src="https://cf.shopee.vn/file/e10a43b53ec8605f4829da5618e0717c" alt="">
-                                    </div>
-                                    <div class="user-category__text">
-                                        <span>Thông Báo</span>
-                                    </div>
-                                </a>
-
                             </div>
                         </div>
                     </div>
@@ -287,63 +279,44 @@
                     <div class="col l-10 m-12 c-12">
                         <div class="user-profile__container">
                             <div class="user-profile__header">
-                                <h3>Tài khoản Của Tôi</h3>
-                                <span>Quản lý thông tin tài khoản</span>
+                                <div class="cart__product">
+                                    <span class="product">Mã đơn hàng</span>
+                                    <span class="quantity">Ngày tháng</span>
+                                    <span style="flex: 1;" class="operation">Thao Tác</span>
+                                </div>
                             </div>
 
-                            <div class="user-profile__info">
-                                <!-- USER PROFILE INFORMATION -->
-                                <div class="user-profile__info-text">
-                                    <form>
-                                        <div class="user-profile">
-                                            <div class="user-profile__label">
-                                                <label for="">Tên Đăng nhập</label>
-                                            </div>
-                                            <div class="user-profile__others">
-                                                <span id="id_username"></span>
-                                            </div>
-                                        </div>
-
-                                        <div class="user-profile">
-                                            <div class="user-profile__label">
-                                                <label for="">Mật khẩu cũ</label>
-                                            </div>
-                                            <div class="user-profile__others">
-                                                <input type="password" maxlength="50" id="id_pass">
-                                            </div>
-                                        </div>
-
-                                        <div class="user-profile">
-                                            <div class="user-profile__label">
-                                                <label for="">Mật khẩu mới</label>
-                                            </div>
-                                            <div class="user-profile__others">
-                                                <input type="password" maxlength="50" id="id_newpass">
-                                            </div>
-                                        </div>
-
-                                        <div class="user-profile">
-                                            <div class="user-profile__label">
-                                                <label for="">Nhập lại mật khẩu</label>
-                                            </div>
-                                            <div class="user-profile__others">
-                                                <input type="password" maxlength="50" id="id_renewpass">
-                                            </div>
-                                        </div>
-
-                                        <div class="user-profile">
-                                            <div class="user-profile__label">
-                                            </div>
-                                            <div class="user-profile__others">
-                                                <button class="btn btn--primary" id="btn_submit">Lưu</button>
-                                            </div>
-                                        </div>
-                                    </form>
+                            <div class="user-profile__info">                                
+                                <div class="cart__product">
+                                    <ul id="product-list" class="cart__product-list">
+                                        <!-- PRODUCT -->
+                                        <li class="cart__product-item">          
+                                            <span class="product">
+                                                <div class="product__des">
+                                                    <span>1911</span>
+                                                </div>
+                                            </span>
+                                            <span id="my-cart-id" style="display:none">${realArray[i].id}</span>
+                                             <span class="quantity">
+                                                 1/1/2000
+                                            </span>
+                                            <span style="flex: 1" class="operation">
+                                                 <button class="operation__buy">Chi tiết</button>
+                                            </span>
+                                         </li>
+                                    </ul>                        
+                                    
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
+
+                <!-- <div class="row sm-gutter cart__content">
+                    <div class="cart__bottom">
+                        <button id="add-product-button" class="btn btn--primary">XEM CHI TÍẾT</button>
+                    </div>
+                </div> -->
             </div>
         </div>
 
@@ -440,4 +413,4 @@
     </div>
 </body>
 </html>
-<script type="module" src="./asset/script/changepassword.js"></script>
+<!-- <script src="./asset/javascript/productList.js" type="module"></script> -->

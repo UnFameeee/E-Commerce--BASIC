@@ -381,7 +381,8 @@ var navbarNone = document.querySelectorAll('.header__navbar-item--strong')
 var test = 1
 
 if(checkRoleItem.UserRole !== ""){
-    $('.header__navbar-user').removeClass('header__navbar--user-info')
+    $('.header__navbar-user').removeClass('header__navbar--user-info')    
+    $('.header__navbar-item--strong').addClass('header__navbar--had-user')
     if(usernameimage[0].image !== null){
         document.getElementById("myimg2").src = usernameimage[0].image
     }

@@ -72,17 +72,20 @@ btn_submit.addEventListener("click", (Event) => {
 console.log(checkRoleItem);
 
 var operationElement = document.querySelectorAll('.user-category__cat-link')
+
 if(checkRoleItem.UserRole == "admin"){
     document.getElementById("id_linktoacc").href = "./admin.html";
     document.getElementById("id_linktoacc2").href = "./admin.html";
 
     operationElement[2].classList.remove('user-category--admin')
-    operationElement[3].classList.add('user-category--user')
+    operationElement[3].classList.remove('user-category--admin')
+    operationElement[4].classList.add('user-category--user')
 }
 else{
     document.getElementById("id_linktoacc").href = "./user.html";
     document.getElementById("id_linktoacc2").href = "./user.html";
 
     operationElement[2].classList.add('user-category--admin')
-    operationElement[3].classList.remove('user-category--user')
+    operationElement[3].classList.add('user-category--admin')
+    operationElement[4].classList.remove('user-category--user')
 }
