@@ -13,6 +13,6 @@ public interface OrdersRepository extends CrudRepository<Orders, Long> {
     List<Orders> findAllOrders();
 
 
-    @Query("SELECT a, b FROM ORDERS a, USER b WHERE a.User_id = b.Id and a.Id =?1")
+    @Query("SELECT a, b, c FROM ORDERS a, USER b, PRODUCT c WHERE a.User_id = b.Id and a.Id =?1 and a.Product_id = c.Id")
     List<Object[]> findUserDetailByOrder(Long Id);
 }
