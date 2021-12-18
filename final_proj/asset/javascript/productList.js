@@ -23,7 +23,7 @@ function renderProduct() {
             html += `            
             <li class="cart__product-item">
             <span class="product">
-                <a href="" class="product__link">
+                <a href="#" class="product__link">
                     <img src="${listDataArray[i].product_image}" alt="">
                     <div class="product__des">
                         <span>${listDataArray[i].product_name}</span>
@@ -84,5 +84,6 @@ function removeCartItem(event) {
     // buttonClicked.parentElement.parentElement.remove()
     var item = buttonClicked.parentElement.parentElement
     var test = item.querySelector('#product-id').innerText
+    
     console.log(test)
 }
