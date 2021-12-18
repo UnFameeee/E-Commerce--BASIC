@@ -239,6 +239,25 @@ function pagination(c, m) {
 }
 
 /* CART */
+// function checkCart() {
+//     var cartElement = document.querySelectorAll('.header__cart-list-item')
+//     console.log(cartElement.hasChildNodes())
+//     if(cartElement.length){
+//         console.log('1')
+//         var cartNotification = document.querySelector('.header__cart-notice')
+//         cartNotification.classList.remove('header__cart-notice--no-cart')
+//         var cartList = document.querySelector('.header__cart-list')
+//         cartList.classList.remove('header__cart-list--no-cart')
+//     }
+//     else{
+//         console.log('2')
+//         var cartNotification = document.querySelector('.header__cart-notice')
+//         cartNotification.classList.add('header__cart-notice--no-cart')
+//         var cartList = document.querySelector('.header__cart-list')
+//         cartList.classList.add('header__cart-list--no-cart')
+//     }
+// }
+// checkCart()
 removeCartItemButtons = document.querySelectorAll('.header__cart-item-remove');
 for (var i = 0; i < removeCartItemButtons.length; i++) {
     var button = removeCartItemButtons[i]
@@ -306,14 +325,16 @@ function addItemToCart(id, title, price, imageSrc) {
     cartRow.innerHTML = cartRowContents
     cartItems.append(cartRow)
     cartRow.querySelector('.header__cart-item-remove').addEventListener('click', removeCartItem)
+    checkCart()
 }
 
-$('.header__cart-view').click(() => {
+$('.header__cart-view').click(async () => {
     var array = []
     var itemElement = $('.header__cart-item')
 
     class items {
-        constructor(image, price, name) {
+        constructor(id, image, price, name) {
+            this.id = id;
             this.image = image;
             this.price = price;
             this.name = name;
@@ -321,14 +342,15 @@ $('.header__cart-view').click(() => {
     }
 
     for (var i = 0; i < itemElement.length; i++) {
+        var id = itemElement[i].querySelector('#cart-id').innerText
         var imgSrc = itemElement[i].querySelector('.header__cart-item-img').src
         var name = itemElement[i].querySelector('.header__cart-item-name').innerText
         var price = itemElement[i].querySelector('.header__cart-item-price').innerText
-        var temp = new items(imgSrc, price, name)
+        var temp = new items(id, imgSrc, price, name)
         array.push(temp)
     }
 
-    sessionStorage.setItem('arrayCart', JSON.stringify(array))
+    await sessionStorage.setItem('arrayCart', JSON.stringify(array))
     window.location.href = './cart.html'
 })
 

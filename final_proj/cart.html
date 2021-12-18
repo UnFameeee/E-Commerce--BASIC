@@ -18,8 +18,6 @@
 
     <!-- ajax -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script src="./asset/javascript/cart.js" async></script>
-    <script src="./asset/javascript/product.js" async></script>
 </head>
 <body>
     <div class="app">        
@@ -187,13 +185,6 @@
             <div class="grid wide">
                 <div class="row cart__category">
                     <div class="cart__product">
-                        <div class="cart__check">
-                            <!-- CHECKED: cart__check-box--checked -->
-                            <label class="cart__check-box">
-                                <input type="checkbox" class="check-box__input">
-                                <div class="check-box__box"></div>
-                            </label>
-                        </div>
                         <span class="product">Sản Phẩm</span>
                         <span class="quantity">Số Lượng</span>
                         <span class="price">Số Tiền</span>
@@ -205,56 +196,7 @@
                     <div class="cart__product">
                         <ul class="cart__product-list">
                             <!-- PRODUCT -->
-                            <li class="cart__product-item">
-                                <div class="cart__check">
-                                    <!-- CHECKED: cart__check-box--checked -->
-                                    <label class="cart__check-box">
-                                        <input type="checkbox" class="check-box__input">
-                                        <div class="check-box__box"></div>
-                                    </label>
-                                </div>
-                                <span class="product">
-                                    <a href="" class="product__link">
-                                        <img src="https://cf.shopee.vn/file/203cfd2141a2c4cf8f2be6eb26066503_tn" alt="">
-                                        <div class="product__des">
-                                            <span>Dây Nhảy Giảm Cân, Dây Nhảy Thể Lực Lõi Thép Giúp Giảm Mỡ Bụng, Dụng Cụ Thể Thao, Đồ Tập Gym Nam Nữ Tại Nhà Dây Nhảy Giảm Cân, Dây Nhảy Thể Lực Lõi Thép Giúp Giảm Mỡ Bụng, Dụng Cụ Thể Thao, Đồ Tập Gym Nam Nữ Tại NhàDây Nhảy Giảm Cân, Dây Nhảy Thể Lực Lõi Thép Giúp Giảm Mỡ Bụng, Dụng Cụ Thể Thao, Đồ Tập Gym Nam Nữ Tại Nhà </span>
-                                        </div>
-                                    </a>
-                                </span>
-                                <span class="quantity">
-                                    <input class="quantity-input" type="number" min="1" max="100" value="1">
-                                </span>
-                                <span class="price">120.000đ</span>
-                                <span class="operation">
-                                    <button class="operation__remove">Xoá</button>
-                                    <button class="operation__buy">Mua hàng</button>
-                                </span>
-                            </li>
-                            <li class="cart__product-item">
-                                <div class="cart__check">
-                                    <!-- CHECKED: cart__check-box--checked -->
-                                    <label class="cart__check-box">
-                                        <input type="checkbox" class="check-box__input">
-                                        <div class="check-box__box"></div>
-                                    </label>
-                                </div>
-                                <span class="product">
-                                    <a href="" class="product__link">
-                                        <img src="https://cf.shopee.vn/file/203cfd2141a2c4cf8f2be6eb26066503_tn" alt="">
-                                        <div class="product__des">
-                                            <span>Dây Nhảy Giảm Cân, Dây Nhảy Thể Lực Lõi Thép Giúp Giảm Mỡ Bụng, Dụng Cụ Thể Thao, Đồ Tập Gym Nam Nữ Tại Nhà Dây Nhảy Giảm Cân, Dây Nhảy Thể Lực Lõi Thép Giúp Giảm Mỡ Bụng, Dụng Cụ Thể Thao, Đồ Tập Gym Nam Nữ Tại NhàDây Nhảy Giảm Cân, Dây Nhảy Thể Lực Lõi Thép Giúp Giảm Mỡ Bụng, Dụng Cụ Thể Thao, Đồ Tập Gym Nam Nữ Tại Nhà </span>
-                                        </div>
-                                    </a>
-                                </span>
-                                <span class="quantity">
-                                    <input class="quantity-input" type="number" min="1" max="100" value="1">
-                                </span>
-                                <span class="price">120.000đ</span>
-                                <span class="operation">
-                                    <button class="operation__remove">Xoá</button>
-                                    <button class="operation__buy">Mua hàng</button>
-                                </span>
-                            </li>
+                            
                         </ul>                        
                         
                     </div>
@@ -267,7 +209,7 @@
                             <span class="total-quantity" style="padding-right: 16px;"> (0 thanh toán):</span>
                             <h3 style="margin-right: 32px;" class="price">0đ</h3>
                         </div>
-                        <button class="btn btn--primary btn-purchase">Mua Hàng</button>
+                        <button class="btn btn--primary btn-purchase">Xoá</button>
                     </div>
                 </div>
 
@@ -378,3 +320,5 @@
 </body>
 </html>
 <script type="module" src="./asset/script/cart.js"></script>
+<script src="./asset/javascript/cart.js" async></script>
+<script src="./asset/javascript/product.js"></script>
