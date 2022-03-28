@@ -413,3 +413,4 @@ async function forwardProduct(event) {
     await localStorage.setItem('product-id', id)
     window.location.href = './product.html'
 }
+
