@@ -46,42 +46,6 @@
             <version>8.0.27</version>
         </dependency>
 
-<!--        &lt;!&ndash; https://mvnrepository.com/artifact/org.thymeleaf.extras/thymeleaf-extras-springsecurity4 &ndash;&gt;-->
-<!--        <dependency>-->
-<!--            <groupId>org.thymeleaf.extras</groupId>-->
-<!--            <artifactId>thymeleaf-extras-springsecurity4</artifactId>-->
-<!--            <version>3.0.4.RELEASE</version>-->
-<!--        </dependency>-->
-
-
-<!--        &lt;!&ndash; Commons Email validator,... &ndash;&gt;-->
-<!--        &lt;!&ndash; https://mvnrepository.com/artifact/commons-validator/commons-validator &ndash;&gt;-->
-<!--        <dependency>-->
-<!--            <groupId>commons-validator</groupId>-->
-<!--            <artifactId>commons-validator</artifactId>-->
-<!--            <version>1.6</version>-->
-<!--        </dependency>-->
-
-<!--        &lt;!&ndash; https://mvnrepository.com/artifact/commons-lang/commons-lang &ndash;&gt;-->
-<!--        <dependency>-->
-<!--            <groupId>commons-lang</groupId>-->
-<!--            <artifactId>commons-lang</artifactId>-->
-<!--            <version>2.6</version>-->
-<!--        </dependency>-->
-
-<!--        &lt;!&ndash; https://mvnrepository.com/artifact/org.threeten/threetenbp &ndash;&gt;-->
-<!--        <dependency>-->
-<!--            <groupId>org.threeten</groupId>-->
-<!--            <artifactId>threetenbp</artifactId>-->
-<!--            <version>1.3.6</version>-->
-<!--        </dependency>-->
-
-<!--        <dependency>-->
-<!--            <groupId>org.springframework.security</groupId>-->
-<!--            <artifactId>spring-security-config</artifactId>-->
-<!--            <version>5.4.6</version>-->
-<!--        </dependency>-->
-
     </dependencies>
 
     <build>

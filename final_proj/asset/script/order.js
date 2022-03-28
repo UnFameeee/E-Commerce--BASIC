@@ -1,5 +1,5 @@
 import { allOrders } from "./exportAllOrder.js"
-
+import { URL } from './URL.js';
 
 var orderElement
 
@@ -12,10 +12,10 @@ function renderProduct() {
             <li class="cart__product-item">          
             <span class="product">
                 <div class="product__des">
-                    <span>${allOrders[i]}.id</span>
+                    <span>${allOrders[i].id}</span>
                 </div>
             </span>
-            <span id="order-id" style="display:none"></span>
+            <span id="order-id" style="display:none">${allOrders[i].id}</span>
              <span class="quantity">
                  ${allOrders[i].date}
             </span>
@@ -45,10 +45,25 @@ for(var i = 0; i < orderElement.length; i++) {
 
 function orderDetail(event) {
     var btnClicked = event.target
-    var order = btnClicked.parenElement.parenElement
+    var order = btnClicked.parentElement.parentElement
     var id = order.querySelector('#order-id').innerText
     console.log(id)
 
+    $.ajax({
+        type: 'POST',
+        url: URL + '/order/saveOrderID' + "/" + id,
+        dataType: 'json',
+        headers: {
+            "Content-Type": "application/json",
+        },
+        data: "",
+        success: function(data) {
+            window.location.href = "orderDetail.html";
+        },
+        error: function() {
+            console.log("The following error occured: ");
+        }
+    });
     
     // window.location.href='./orderDetail.html'
 }

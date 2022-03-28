@@ -187,7 +187,7 @@
                         <div class="header__cart-wrap">
                             <i class="header__cart-icon fas fa-shopping-cart"></i>
                             <!-- NO CART: header__cart-notice--no-cart -->
-                            <span class="header__cart-notice">3</span>
+                            <span class="header__cart-notice header__cart-notice--no-cart">3</span>
 
                             <!-- NO CART: header__cart-list--no-cart -->
                             <div class="header__cart-list">
@@ -234,11 +234,12 @@
         <div class="app__container">
             <div style="padding: 40px 0;" class="grid wide">
                 <div class="row product__content" >
-                    <div class="col l-6"> 
+                    <div class="col l-8"> 
                         <div class="user__info">
-                            <img style="flex: 1; max-width: 40%;" src="./asset/image/AppStore.png" alt="">
+                            <img id="id_image" style="flex: 1; max-width: 40%;" src="./asset/image/AppStore.png" alt="">
                             <div class="user__info-text">
-                                <span id="id_id">Mã đơn hàng: 1</span>
+                                <!-- <span id="id_id">Mã đơn hàng: 1</span> -->
+                                <span style="margin: 36px 0;" id="id_name">Tên sản phẩm: 1</span>
                                 <span id="id_date">Ngày mua hàng: 20/17/2001</span>
                                 <span id="id_quantity">Số lượng: 12</span>
                                 <span id="id_amount">Số tiền phải trả: 12000000</span>
@@ -246,9 +247,9 @@
                         </div>
                     </div>
 
-                    <div class="col l-6">
+                    <div class="col l-4">
                         <div class="product__info">
-                            <img style="flex: 1; max-width: 40%;" id="img" src="./asset/image/AppStore.png" alt="">
+                            <!-- <img style="flex: 1; max-width: 40%;" id="img" src="./asset/image/AppStore.png" alt=""> -->
                             <div class="product__info-text">
                                 <span id="id_fullname">Họ tên: nguyen hai du</span>
                                 <span id="id_email">Email: haidugmail</span>
@@ -356,3 +357,4 @@
     </div>
 </body>
 </html>
+<script type="module" src="./asset/script/orderDetail.js"></script>
